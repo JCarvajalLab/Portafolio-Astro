@@ -1,4 +1,4 @@
-﻿# Historial del proyecto
+# Historial del proyecto
 
 > **Para la IA:** lee primero la secciÃ³n **1. Estado actual** y solo si hace falta la **2. Decisiones importantes**. No necesitas revisar todo el repositorio. Las secciones 3 y 4 son consulta puntual.
 >
@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
 - **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/01-setup`
+- **Fase activa:** `phase/01-setup` (Fase 1 completada al 100%)
 - **Rama de trabajo:** `phase/01-setup`
-- **Último commit relevante:** `docs(plan): incorpora mejoras y hosting desde lecciones de veterinaria`
-- **Despliegue:** aún sin desplegar (despliegue previsto en Cloudflare Pages)
-- **Qué funciona:** Estructura documental (`PLAN.md`, `HISTORIAL.md`), `AGENTS.md`, CI de GitHub Actions, 6 Skills en `.agents/skills/` y planificación enriquecida con mejoras de veterinaria (Cloudflare Pages, 404, Dark Mode anti-FOUC)
-- **Qué está en progreso:** Preparación e inicialización del entorno base de Astro
-- **Bloqueos o problemas conocidos:** ninguno
-- **Siguiente paso concreto:** Inicializar proyecto Astro 5 + Tailwind v4 en la rama phase/01-setup
+- **Último commit relevante:** `feat(setup): inicializa proyecto astro con tailwind v4, eslint y prettier`
+- **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
+- **Qué funciona:** Entorno base inicializado con Astro 5+, Tailwind CSS v4 (@tailwindcss/vite), ESLint v9 flat config, Prettier con plugins oficiales, script síncrono anti-FOUC en Layout, `favicon.svg`, `robots.txt` y página de inicio con vista previa de proyectos
+- **Qué está en progreso:** Revisión visual y cierre de Fase 1 para avanzar a Fase 2 (Base)
+- **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
+- **Siguiente paso concreto:** Inspección visual en navegador local y preparación de PR hacia `develop`
 
 ## 2. Decisiones importantes
 
@@ -37,6 +37,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-12 · `phase/01-setup` · inicialización de proyecto base
+- **Qué:** Inicialización de proyecto Astro 5+, Tailwind CSS v4 (@tailwindcss/vite), ESLint v9 LTS, Prettier con plugins de Astro y Tailwind, configuración de scripts de calidad en `package.json`, layout base con script anti-FOUC para Dark Mode y página de inicio de presentación.
+- **Archivos clave:** `package.json`, `astro.config.mjs`, `eslint.config.mjs`, `.prettierrc.mjs`, `.prettierignore`, `src/styles/global.css`, `src/layouts/Layout.astro`, `src/pages/index.astro`, `public/favicon.svg`, `public/robots.txt`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, qa, docs-seo
+- **Notas:** `npm run build` genera en ~800ms con 0 errores; `npm run lint` y `npm run format:check` pasando limpios; 0 vulnerabilidades en `npm audit`. Servidor local levantado en `http://localhost:4321/`.
 
 ### 2026-11-12 · `phase/01-setup` · incorporación de mejoras de veterinaria a la planificación
 - **Qué:** Actualización de `PLAN.md` e `HISTORIAL.md` incorporando las lecciones y mejoras de arquitectura validadas en el proyecto de veterinaria: adopción de Cloudflare Pages como hosting de costo $0, inclusión explícita de página `404.astro` y modo oscuro anti-FOUC en la hoja de ruta.
