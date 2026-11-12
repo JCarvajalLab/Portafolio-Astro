@@ -1,0 +1,41 @@
+{
+  "name": "portafolio-casos-de-estudio",
+  "version": "1.0.0",
+  "description": "Portafolio profesional con casos de estudio construido con Astro y Tailwind CSS v4",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "echo \"No tests specified yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCarvajalLab/Portafolio-Astro.git"
+  },
+  "keywords": [
+    "astro",
+    "portfolio",
+    "portafolio",
+    "tailwind",
+    "case-studies"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "astro": "^7.4.11"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "eslint": "^9.39.5",
+    "eslint-plugin-astro": "^1.7.0",
+    "prettier": "^3.10.0",
+    "prettier-plugin-astro": "^1.1.2",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.5"
+  }
+}
