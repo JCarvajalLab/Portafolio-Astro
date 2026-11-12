@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 const {
   title = 'Portafolio Profesional | Casos de Estudio y Desarrollo Web',
@@ -60,11 +62,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://jcarvaja
   </head>
   <body class="flex min-h-screen flex-col bg-slate-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900 transition-colors duration-200 dark:bg-slate-950 dark:text-slate-100 dark:selection:bg-indigo-900/60 dark:selection:text-indigo-200">
     <a href="#main-content" class="skip-link">
-      Saltar al contenido principal
+      {' '}
+      Saltar al contenido principal{' '}
     </a>
+
+    <Navbar />
 
     <main id="main-content" class="flex-1">
       <slot />
     </main>
+
+    <Footer />
   </body>
 </html>
