@@ -246,12 +246,12 @@ Temática: **veterinaria** (servicios, equipo, horarios, contacto y agendamiento
 
 ### Proyecto 2: Portafolio con casos de estudio
 
-- [ ] **Fase 1: Setup** (`phase/01-setup`)
-- [ ] **Fase 2: Base** (`phase/02-base`): layout, navegación, modo oscuro.
+- [ ] **Fase 1: Setup** (`phase/01-setup`): inicialización Astro 5+, Tailwind CSS v4, ESLint v9, Prettier y estructura base.
+- [ ] **Fase 2: Base** (`phase/02-base`): layout, navegación, modo oscuro integral (script anti-FOUC + `@custom-variant dark`), y página de error `src/pages/404.astro`.
 - [ ] **Fase 3: Contenido** (`phase/03-content`): Content Collections para proyectos, con una página de detalle tipo caso de estudio por cada uno (problema, tecnologías, solución, enlace en vivo y repositorio).
 - [ ] **Fase 4: Interactividad** (`phase/04-interactividad`): filtros de proyectos con JavaScript nativo, sin framework.
-- [ ] **Fase 5: SEO y rendimiento** (`phase/05-seo`): sitemap, Open Graph, optimización de imágenes.
-- [ ] **Fase 6: Lanzamiento** (`phase/06-launch`)
+- [ ] **Fase 5: SEO y rendimiento** (`phase/05-seo`): sitemap, Open Graph, Twitter Cards, `robots.txt`, optimización de imágenes locales con `astro:assets`.
+- [ ] **Fase 6: Lanzamiento** (`phase/06-launch`): despliegue en Cloudflare Pages conectado a GitHub ($0 USD), pruebas en vivo, auditoría Lighthouse >= 90 y README profesional con capturas.
 
 ### Proyecto 3: Ecommerce
 
@@ -371,7 +371,7 @@ Las IA pierden el contexto entre sesiones y, si no tienen un resumen, deben rele
 - [x] Sin Django: el servidor de la tienda será Astro SSR.
 - [x] Sin blog: el portafolio se centra en casos de estudio de proyectos.
 - [x] Herramienta de IA en el entorno local: Gemini (Antigravity) con Skills en `.agents/skills/` y `AGENTS.md`.
-- [ ] Hosting definitivo para sitios estáticos.
+- [x] Hosting definitivo para sitios estáticos: Cloudflare Pages (costo $0, CDN global, enlace `.pages.dev` y despliegue continuo vía GitHub).
 - [ ] Hosting con soporte SSR y proveedor de PostgreSQL para la tienda (y driver compatible).
 - [ ] Pasarela de pago para el ecommerce (Flow, Webpay o Mercado Pago).
 - [ ] Fuente de imágenes para las demos (Dog CEO, Cataas, Pexels, Unsplash) y nombre de la veterinaria y la tienda.
@@ -395,3 +395,4 @@ Las IA pierden el contexto entre sesiones y, si no tienen un resumen, deben rele
 | 2026-11-11 | Se quita el blog del portafolio (ahora con casos de estudio) y se agregan los criterios de reevaluación de un framework extra en la tienda (3.1) |
 | 2026-11-11 | Se define el stack: solo Astro, JavaScript y Tailwind, sin Vue/React ni Django; PostgreSQL solo si se necesita. Se fijan las temáticas (veterinaria, portafolio, tienda de mascotas), se agrega el stack detallado (3.1) y las imágenes y APIs (3.2), y se reescriben las fases del ecommerce |
 | 2026-11-11 | Se adapta la arquitectura de agentes a Gemini (Antigravity): fusión de `orquestador` en `AGENTS.md`, migración de especialistas a `.agents/skills/*/SKILL.md`, uso de subagentes nativos (`browser` e `invoke_subagent`) y actualización técnica a Astro 5+ (`src/content.config.js`) y Tailwind CSS v4 (`@tailwindcss/vite`) |
+| 2026-11-12 | Se incorporan al plan lecciones y mejoras de Veterinaria: Cloudflare Pages como hosting estático, página de error 404 personalizada y modo oscuro integral anti-FOUC |
