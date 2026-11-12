@@ -246,7 +246,7 @@ Temática: **veterinaria** (servicios, equipo, horarios, contacto y agendamiento
 
 ### Proyecto 2: Portafolio con casos de estudio
 
-- [ ] **Fase 1: Setup** (`phase/01-setup`): inicialización Astro 5+, Tailwind CSS v4, ESLint v9, Prettier y estructura base.
+- [x] **Fase 1: Setup** (`phase/01-setup`): inicialización Astro 5+, Tailwind CSS v4, ESLint v9, Prettier y estructura base.
 - [ ] **Fase 2: Base** (`phase/02-base`): layout, navegación, modo oscuro integral (script anti-FOUC + `@custom-variant dark`), y página de error `src/pages/404.astro`.
 - [ ] **Fase 3: Contenido** (`phase/03-content`): Content Collections para proyectos, con una página de detalle tipo caso de estudio por cada uno (problema, tecnologías, solución, enlace en vivo y repositorio).
 - [ ] **Fase 4: Interactividad** (`phase/04-interactividad`): filtros de proyectos con JavaScript nativo, sin framework.
