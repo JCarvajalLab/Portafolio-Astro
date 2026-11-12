@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
 - **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/01-setup` (Fase 1 completada al 100%)
-- **Rama de trabajo:** `phase/01-setup`
-- **Último commit relevante:** `feat(setup): inicializa proyecto astro con tailwind v4, eslint y prettier`
+- **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
+- **Rama de trabajo:** `phase/02-base`
+- **Último commit relevante:** `feat(base): incorpora navbar con toggle dark mode, footer y pagina 404 personalizada`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Entorno base inicializado con Astro 5+, Tailwind CSS v4 (@tailwindcss/vite), ESLint v9 flat config, Prettier con plugins oficiales, script síncrono anti-FOUC en Layout, `favicon.svg`, `robots.txt` y página de inicio con vista previa de proyectos
-- **Qué está en progreso:** Revisión visual y cierre de Fase 1 para avanzar a Fase 2 (Base)
+- **Qué funciona:** Layout base con Glassmorphism, Navbar flotante con toggle Sol/Luna accesible en JS nativo (persistencia en `localStorage`), menú móvil accesible con escape y aria-expanded, navegación suave sin hashes residuales, Footer completo con enlaces sociales y arquitectura técnica, página personalizada `404.astro` con SVG animado y home estructurada con secciones `#proyectos`, `#stack`, `#sobre-mi` y `#contacto`
+- **Qué está en progreso:** Cierre de Fase 2 e inicio de Fase 3 (Content Collections para casos de estudio)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Inspección visual en navegador local y preparación de PR hacia `develop`
+- **Siguiente paso concreto:** Integrar `phase/02-base` en `develop` e iniciar `phase/03-content`
 
 ## 2. Decisiones importantes
 
@@ -33,10 +33,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-12 | Usar Cloudflare Pages para despliegue de sitios estáticos | Costo $0, CDN global, enlace público rápido `.pages.dev` y CI/CD continuo conectado a GitHub | GitHub Pages (rutas base rígidas), Vercel o Netlify |
 | 2026-11-12 | Implementar Dark Mode con script anti-FOUC y `@custom-variant dark` | Probado en Veterinaria: previene parpadeos en recargas y sincroniza preferencia de OS y localStorage | Implementaciones reactivas lentas o sin persistencia |
 | 2026-11-12 | Incluir página personalizada `src/pages/404.astro` | Retención de usuarios y experiencia visual consistente ante rutas inexistentes | Página 404 genérica del hosting |
+| 2026-11-12 | Menú móvil accesible y navegación suave sin hashes residuales | Experiencia nativa fluida, control WCAG de `aria-expanded` y URLs visualmente limpias | Librerías pesadas o frameworks de UI |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-12 · `phase/02-base` · layout, navbar con modo oscuro, footer y pagina 404
+- **Qué:** Creación de componentes `Navbar.astro` flotante con efecto Glassmorphism, botón toggle Sol/Luna para Dark Mode en desktop y móvil con persistencia en `localStorage`, menú móvil accesible, navegación suave que limpia el hash de la URL; componente `Footer.astro` con enlaces rápidos y notas técnicas; creación de `src/pages/404.astro` con ilustración vectorial SVG animada y soporte dark mode; e integración en `Layout.astro` y estructuración semántica de secciones en `src/pages/index.astro`.
+- **Archivos clave:** `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/layouts/Layout.astro`, `src/pages/404.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, ux-ui, qa, docs-seo
+- **Notas:** `npm run build` genera 2 páginas en 538ms con 0 errores; ESLint y Prettier limpios; 0 vulnerabilidades en audit. Verificado en servidor local en `http://localhost:4321/`.
 
 ### 2026-11-12 · `phase/01-setup` · inicialización de proyecto base
 - **Qué:** Inicialización de proyecto Astro 5+, Tailwind CSS v4 (@tailwindcss/vite), ESLint v9 LTS, Prettier con plugins de Astro y Tailwind, configuración de scripts de calidad en `package.json`, layout base con script anti-FOUC para Dark Mode y página de inicio de presentación.
