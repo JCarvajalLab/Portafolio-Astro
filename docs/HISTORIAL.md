@@ -8,34 +8,43 @@
 
 ## 1. Estado actual
 
-_MÃ¡ximo ~15 lÃ­neas. Se reescribe en cada actualizaciÃ³n, no se acumula._
+_Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 
-- **Proyecto:** portafolio (casos de estudio) â€” Portafolio con casos de estudio
+- **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
-- **Ãšltima actualizaciÃ³n:** 2026-11-11
+- **Última actualización:** 2026-11-12
 - **Fase activa:** `phase/01-setup`
 - **Rama de trabajo:** `phase/01-setup`
-- **Ãšltimo commit relevante:** Plantilla base inicializada para Gemini (Antigravity)
-- **Despliegue:** aÃºn sin desplegar
-- **QuÃ© funciona:** Estructura documental (`PLAN.md`, `HISTORIAL.md`), `AGENTS.md`, CI de GitHub Actions y 6 Skills en `.agents/skills/`
-- **QuÃ© estÃ¡ en progreso:** PreparaciÃ³n del entorno base de Astro
+- **Último commit relevante:** `docs(plan): incorpora mejoras y hosting desde lecciones de veterinaria`
+- **Despliegue:** aún sin desplegar (despliegue previsto en Cloudflare Pages)
+- **Qué funciona:** Estructura documental (`PLAN.md`, `HISTORIAL.md`), `AGENTS.md`, CI de GitHub Actions, 6 Skills en `.agents/skills/` y planificación enriquecida con mejoras de veterinaria (Cloudflare Pages, 404, Dark Mode anti-FOUC)
+- **Qué está en progreso:** Preparación e inicialización del entorno base de Astro
 - **Bloqueos o problemas conocidos:** ninguno
 - **Siguiente paso concreto:** Inicializar proyecto Astro 5 + Tailwind v4 en la rama phase/01-setup
 
 ## 2. Decisiones importantes
 
-_Una lÃ­nea por decisiÃ³n. Evita que la IA proponga de nuevo algo ya descartado._
+_Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado._
 
-| Fecha | DecisiÃ³n | Motivo | Alternativas descartadas |
+| Fecha | Decisión | Motivo | Alternativas descartadas |
 |-------|----------|--------|--------------------------|
-| 2026-11-11 | Usar Astro 5+ con JavaScript y Tailwind CSS v4 | Sitios rÃ¡pidos, costo cero de despliegue y menor complejidad sin TypeScript ni frameworks extra | React/Next.js, Vue/Nuxt, Django |
-| 2026-11-11 | Adaptar especialistas a `.agents/skills/*/SKILL.md` | Descubrimiento automÃ¡tico y carga bajo demanda (Progressive Disclosure) en Gemini / Antigravity | Archivos planos sin autodescubrimiento |
+| 2026-11-11 | Usar Astro 5+ con JavaScript y Tailwind CSS v4 | Sitios rápidos, costo cero de despliegue y menor complejidad sin TypeScript ni frameworks extra | React/Next.js, Vue/Nuxt, Django |
+| 2026-11-11 | Adaptar especialistas a `.agents/skills/*/SKILL.md` | Descubrimiento automático y carga bajo demanda (Progressive Disclosure) en Gemini / Antigravity | Archivos planos sin autodescubrimiento |
+| 2026-11-12 | Usar Cloudflare Pages para despliegue de sitios estáticos | Costo $0, CDN global, enlace público rápido `.pages.dev` y CI/CD continuo conectado a GitHub | GitHub Pages (rutas base rígidas), Vercel o Netlify |
+| 2026-11-12 | Implementar Dark Mode con script anti-FOUC y `@custom-variant dark` | Probado en Veterinaria: previene parpadeos en recargas y sincroniza preferencia de OS y localStorage | Implementaciones reactivas lentas o sin persistencia |
+| 2026-11-12 | Incluir página personalizada `src/pages/404.astro` | Retención de usuarios y experiencia visual consistente ante rutas inexistentes | Página 404 genérica del hosting |
 
-## 3. Registro de cambios (mÃ¡s reciente arriba)
+## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
 
-### 2026-11-11 Â· `phase/01-setup` Â· inicial
+### 2026-11-12 · `phase/01-setup` · incorporación de mejoras de veterinaria a la planificación
+- **Qué:** Actualización de `PLAN.md` e `HISTORIAL.md` incorporando las lecciones y mejoras de arquitectura validadas en el proyecto de veterinaria: adopción de Cloudflare Pages como hosting de costo $0, inclusión explícita de página `404.astro` y modo oscuro anti-FOUC en la hoja de ruta.
+- **Archivos clave:** `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, docs-seo
+- **Notas:** Se alinea la planificación del Portafolio con las soluciones exitosas del proyecto anterior.
+
+### 2026-11-11 · `phase/01-setup` · inicial
 - **QuÃ©:** Configura plantilla base optimizada para Gemini con `AGENTS.md` y 6 skills en `.agents/skills/`
 - **Archivos clave:** `AGENTS.md`, `.agents/skills/*/SKILL.md`, `docs/PLAN.md`, `docs/HISTORIAL.md`, `.github/workflows/ci.yml`
 - **Agente(s):** orquestador, docs-seo
