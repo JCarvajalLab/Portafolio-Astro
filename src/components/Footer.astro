@@ -1,116 +1,89 @@
 ---
 // src/components/Footer.astro
-// Pie de página profesional con enlaces de contacto, redes sociales y notas técnicas de arquitectura
+// Pie de página profesional con paleta 60-30-10
 
 const currentYear = new Date().getFullYear();
 
-const footerLinks = [
-  { href: '/#proyectos', label: 'Casos de Estudio' },
-  { href: '/#stack', label: 'Stack & Tecnologías' },
-  { href: '/#sobre-mi', label: 'Sobre mí' },
-  { href: '/#contacto', label: 'Contacto' },
+const navFooter = [
+  { href: '/#experiencia', label: 'Experiencia TI' },
+  { href: '/#formacion', label: 'Formación Académica' },
+  { href: '/#competencias', label: 'Competencias Técnicas' },
+  { href: '/#proyectos', label: 'Proyectos & Lab' },
+  { href: '/#contacto', label: 'Contacto Directo' },
 ];
 
-const socialLinks = [
-  {
-    href: 'https://github.com/JCarvajalLab',
-    label: 'GitHub',
-    icon: 'github',
-  },
-  {
-    href: 'https://linkedin.com',
-    label: 'LinkedIn',
-    icon: 'linkedin',
-  },
-  {
-    href: 'mailto:contacto@jcarvajallab.dev',
-    label: 'Email',
-    icon: 'mail',
-  },
+const contactItems = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jordan-carvajal-guajardo', ext: true },
+  { label: 'GitHub', href: 'https://github.com/JCarvajalLab', ext: true },
+  { label: 'Formulario de Contacto', href: '/#contacto', ext: false },
 ];
 ---
 
-<footer class="mt-auto border-t border-slate-200/80 bg-white/50 backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-950/50">
+<footer class="border-t border-zinc-200 bg-white dark:border-[#222222] dark:bg-[#0E0E0E]">
   <div class="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-8 md:grid-cols-12">
-      <!-- Columna 1: Marca y descripción -->
+      <!-- Identidad y Perfil -->
       <div class="md:col-span-6 flex flex-col justify-between">
         <div>
           <a
             href="/"
-            class="flex items-center gap-2.5 text-lg font-bold tracking-tight text-slate-900 dark:text-white"
+            class="flex items-center gap-2.5 font-bold text-lg text-[#0E0E0E] dark:text-white"
           >
-            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-600 text-white">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+            <span class="flex h-7 w-7 items-center justify-center rounded-md bg-[#FF5A1F] text-white font-black text-xs">
+              JC
             </span>
-            <span>
-              JCarvajal<span class="text-indigo-600 dark:text-indigo-400">.dev</span>
-            </span>
+            <span>Jordan Ariel Carvajal Guajardo</span>
           </a>
-          <p class="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-            Desarrollador Web especializado en interfaces accesibles, arquitecturas estáticas de
-            alto rendimiento y soluciones frontend limpias con JavaScript nativo.
+          <p class="mt-3 max-w-md text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Desarrollador Web Junior con orientación Frontend y proyección Full Stack. Ingeniero en
+            Informática (INACAP), con experiencia profesional en soporte TI y resolución metódica de
+            incidencias en Entel Connect Center.
           </p>
         </div>
 
-        <div class="mt-6 flex items-center gap-3">
-          <span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-700 dark:text-emerald-300">
-            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            Abierto a proyectos freelance & oportunidades
+        <div class="mt-6 flex items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 rounded-full border border-[#FF5A1F]/30 bg-[#FF5A1F]/10 px-3 py-1 text-xs font-semibold text-[#FF5A1F]">
+            <span class="h-2 w-2 rounded-full bg-[#FF5A1F] animate-pulse"></span>
+            Santiago, Chile · En búsqueda de nuevos desafíos
           </span>
         </div>
       </div>
 
-      <!-- Columna 2: Navegación rápida -->
+      <!-- Navegación -->
       <div class="md:col-span-3">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-white">
-          Navegación
+        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0E0E0E] dark:text-white">
+          Secciones
         </h3>
-        <ul class="mt-4 space-y-2.5">
-          {footerLinks.map((link) => (
+        <ul class="mt-4 space-y-2 text-sm">
+          {navFooter.map((item) => (
             <li>
               <a
-                href={link.href}
-                class="text-sm text-slate-600 transition hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+                href={item.href}
+                class="text-zinc-600 hover:text-[#FF5A1F] dark:text-zinc-400 dark:hover:text-[#FF5A1F] transition-colors"
               >
-                {link.label}
+                {item.label}
               </a>
             </li>
           ))}
         </ul>
       </div>
 
-      <!-- Columna 3: Redes y contacto -->
+      <!-- Conexión Directa -->
       <div class="md:col-span-3">
-        <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-white">
-          Conectar
+        <h3 class="text-xs font-bold uppercase tracking-wider text-[#0E0E0E] dark:text-white">
+          Contacto & Redes
         </h3>
-        <ul class="mt-4 space-y-2.5">
-          {socialLinks.map((item) => (
+        <ul class="mt-4 space-y-2 text-sm">
+          {contactItems.map((item) => (
             <li>
               <a
                 href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400"
+                target={item.ext ? '_blank' : undefined}
+                rel={item.ext ? 'noopener noreferrer' : undefined}
+                class="inline-flex items-center gap-1.5 text-zinc-600 hover:text-[#FF5A1F] dark:text-zinc-400 dark:hover:text-[#FF5A1F] transition-colors"
               >
                 <span>{item.label}</span>
-                <span class="text-xs text-slate-400" aria-hidden="true">
-                  &nearr;
-                </span>
+                {item.ext && <span class="text-xs opacity-60">&nearr;</span>}
               </a>
             </li>
           ))}
@@ -118,11 +91,11 @@ const socialLinks = [
       </div>
     </div>
 
-    <!-- Barra inferior de copyright y arquitectura técnica -->
-    <div class="mt-10 border-t border-slate-200/70 pt-6 text-xs text-slate-500 dark:border-slate-800/80 dark:text-slate-400 sm:flex sm:items-center sm:justify-between">
-      <p>&copy; {currentYear} JCarvajalLab. Código bajo licencia MIT.</p>
-      <p class="mt-2 sm:mt-0 font-mono text-[11px]">
-        Construido con Astro 5 + Tailwind CSS v4 · Desplegado en Cloudflare Pages
+    <!-- Barra inferior -->
+    <div class="mt-10 border-t border-zinc-200 pt-6 text-xs text-zinc-500 dark:border-[#222222] dark:text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>&copy; {currentYear} Jordan Ariel Carvajal Guajardo. Santiago, Chile.</p>
+      <p class="font-mono text-[11px]">
+        Stack: Astro 5 · Tailwind CSS v4 · Despliegue en Cloudflare Pages
       </p>
     </div>
   </div>

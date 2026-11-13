@@ -1,199 +1,543 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
+const experienceList = [
   {
-    title: 'Clínica Veterinaria Huellitas',
-    badge: 'Completado v1.0.0',
-    badgeClass: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300',
-    description:
-      'Landing page médica de alta conversión con portal clínico interactivo de agendamiento en 4 pasos, dark mode integral y 0 frameworks pesados.',
-    tags: ['Astro 5', 'Tailwind v4', 'Vanilla JS', 'SSG'],
-    demoUrl: 'https://huellitas-vet.pages.dev',
-    repoUrl: 'https://github.com/JCarvajalLab/astro-landing-veterinaria',
-    icon: '🐾',
+    role: 'Ejecutivo de asistencia técnica',
+    company: 'Entel Connect Center',
+    period: '2021 — Enero 2025',
+    location: 'Santiago, Chile',
+    badge: '4 Años de Experiencia',
+    responsibilities: [
+      'Gestión de incidencias técnicas mediante atención telefónica y canales digitales, orientando a usuarios y derivando casos para asegurar la continuidad del servicio.',
+      'Uso de herramientas internas de soporte para análisis de problemas técnicos, registro de solicitudes y seguimiento de requerimientos.',
+      'Atención de consultas técnicas por redes sociales y canales de contacto directo, entregando orientación y resolución oportuna.',
+      'Aplicación diaria de habilidades de comunicación efectiva, pensamiento analítico y resolución metódica de problemas en un entorno de soporte crítico.',
+    ],
   },
   {
-    title: 'Portafolio con Casos de Estudio',
-    badge: 'Fase 2 Activa',
-    badgeClass: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300',
-    description:
-      'Plataforma profesional para documentar proyectos reales, con Content Collections de Astro, filtros dinámicos, SEO técnico y costo cero.',
-    tags: ['Astro 5', 'Tailwind v4', 'Content Collections', 'SEO'],
-    demoUrl: 'https://jcarvajallab.pages.dev',
-    repoUrl: 'https://github.com/JCarvajalLab/Portafolio-Astro',
-    icon: '💼',
-  },
-  {
-    title: 'Ecommerce Tienda de Mascotas',
-    badge: 'Próximo (Proyecto 3)',
-    badgeClass: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
-    description:
-      'Comercio electrónico completo con catálogo de productos, carrito reactivo con JavaScript nativo, Astro SSR y pasarela de pago en sandbox.',
-    tags: ['Astro SSR', 'Tailwind v4', 'Cart', 'Pagos'],
-    demoUrl: '#',
-    repoUrl: 'https://github.com/JCarvajalLab/astro-tienda-mascotas',
-    icon: '🛒',
+    role: 'Práctica profesional en soporte mesa de servicio',
+    company: 'Conytec Consultores SPA',
+    period: '2018',
+    location: 'Santiago, Chile',
+    badge: 'Soporte TI',
+    responsibilities: [
+      'Administración de cuentas de usuario en Active Directory (creación, modificación y anulación según solicitudes internas).',
+      'Gestión de licencias y cuentas en Office 365 (habilitación, modificación y deshabilitación de usuarios).',
+      'Elaboración de reportes semanales de actividades del área de soporte TI.',
+      'Transferencia de archivos y despliegues desde servidores de QA hacia servidores de producción siguiendo procedimientos estandarizados.',
+    ],
   },
 ];
 
-const skills = [
-  { name: 'Astro 5+', level: 'SSG & SSR sin frameworks pesados', category: 'Frameworks' },
+const educationList = [
   {
-    name: 'Tailwind CSS v4',
-    level: '@tailwindcss/vite, estilos modernos & Dark Mode',
-    category: 'Estilos',
+    title: 'Ingeniería en Informática',
+    institution: 'Universidad Tecnológica de Chile, INACAP',
+    period: '2014 — 2018',
+    type: 'Educación Superior',
+    detail:
+      'Formación profesional en ingeniería de software, arquitectura de sistemas, desarrollo de aplicaciones, soporte y tecnologías de la información.',
   },
   {
-    name: 'JavaScript Moderno',
-    level: 'ES6+, DOM nativo, módulos limpios sin dependencias',
-    category: 'Lenguajes',
+    title: 'Desarrollo de Aplicaciones Full Stack Python Trainee',
+    institution: 'Talento Digital para Chile',
+    period: 'Feb. 2026 — Jul. 2026',
+    type: 'Especialización Intensiva',
+    detail:
+      'Desarrollo web Full Stack con Python, Django, PostgreSQL, HTML5, CSS3, JavaScript, Bootstrap, Git y GitHub.',
   },
   {
-    name: 'Accesibilidad (a11y)',
-    level: 'WCAG AA, navegación por teclado y aria tags',
-    category: 'Calidad',
+    title: 'Desarrollo de Aplicaciones Front-End Trainee',
+    institution: 'Talento Digital para Chile',
+    period: 'Jul. 2024 — Ene. 2025',
+    type: 'Especialización Intensiva',
+    detail:
+      'Desarrollo web Frontend moderno con HTML, CSS, JavaScript, Bootstrap, Git, GitHub y Vue.js.',
+  },
+];
+
+const certifications = [
+  {
+    title: 'Bootcamp Desarrollo Aplicaciones Front-End Trainee',
+    issuer: 'Acreditta / Talento Digital para Chile',
+    date: '16-05-2025',
   },
   {
-    name: 'SEO & Rendimiento',
-    level: 'Lighthouse >= 90, Schema.org, Open Graph, Core Web Vitals',
-    category: 'Optimización',
+    title: 'Bootcamp de Git & GitHub',
+    issuer: 'Código Facilito',
+    date: '07-07-2026',
   },
   {
-    name: 'Cloudflare Pages & Git',
-    level: 'CI/CD automatizado, CDN global y costo $0 USD',
-    category: 'Despliegue',
+    title: 'Curso a fondo de GitHub',
+    issuer: 'Código Facilito',
+    date: '26-05-2026',
+  },
+];
+
+const skillCategories = [
+  {
+    name: 'Frontend & UI',
+    color: '#FF5A1F',
+    items: [
+      'HTML5 Semántico',
+      'CSS3 & Flexbox/Grid',
+      'JavaScript (ES6+)',
+      'Tailwind CSS v4',
+      'Vue.js',
+      'Bootstrap 5',
+      'Astro 5+',
+    ],
+  },
+  {
+    name: 'Backend & Datos',
+    color: '#FF5A1F',
+    items: [
+      'Python',
+      'Django & Django ORM',
+      'PostgreSQL & SQL',
+      'Modelado de Bases de Datos',
+      'Autenticación & Sesiones',
+      'pgAdmin',
+    ],
+  },
+  {
+    name: 'Soporte TI & Sistemas',
+    color: '#FF5A1F',
+    items: [
+      'Active Directory',
+      'Office 365 (Licencias)',
+      'Gestión de Incidencias',
+      'Resolución de Problemas',
+      'Atención a Usuarios',
+      'Continuidad Operativa',
+    ],
+  },
+  {
+    name: 'Herramientas & Flujo',
+    color: '#FF5A1F',
+    items: [
+      'Git & GitHub (Flujo de Ramas)',
+      'Visual Studio Code',
+      'Entornos Virtuales (.venv)',
+      'Git Bash & Terminal',
+      'Cloudflare Pages (CI/CD)',
+      'ESLint & Prettier',
+    ],
+  },
+];
+
+const projects = [
+  {
+    title: 'E-commerce Full Stack - Proyecto Final',
+    tag: 'Python / Django + PostgreSQL',
+    description:
+      'Plataforma completa de comercio electrónico desarrollada con Django y PostgreSQL. Integra catálogo de productos, autenticación de usuarios, carrito de compras dinámico y gestión de pedidos para simular un flujo real de compra. Incluye panel de administración con roles y validaciones.',
+    stack: ['Python', 'Django', 'PostgreSQL', 'Bootstrap 5', 'Git', 'GitHub'],
+    demoUrl: null,
+    repoUrl: 'https://github.com/JCarvajalLab',
+    highlight: true,
+  },
+  {
+    title: 'E-commerce CRUD con Pruebas Automatizadas',
+    tag: 'Django ORM + Testing',
+    description:
+      'Aplicación web para gestión de productos y categorías utilizando Django ORM y base de datos PostgreSQL. Incorpora validaciones personalizadas en formularios para garantizar la integridad de datos y tests unitarios automatizados para asegurar la confiabilidad del sistema.',
+    stack: ['Python', 'Django', 'PostgreSQL', 'Django ORM', 'Testing', 'Git'],
+    demoUrl: null,
+    repoUrl: 'https://github.com/JCarvajalLab',
+    highlight: false,
+  },
+  {
+    title: 'Clínica Veterinaria Huellitas',
+    tag: 'Astro 5 + Tailwind v4 + Vanilla JS',
+    description:
+      'Landing médica de alta conversión con portal interactivo de agendamiento en 4 pasos, filtrado dinámico de profesionales por especialidad, validación estricta de domingos y especies, comprobante médico con QR vectorial e impresión limpia, dark mode y 0 frameworks pesados.',
+    stack: ['Astro 5', 'Tailwind v4', 'Vanilla JS', 'SSG', 'Cloudflare Pages'],
+    demoUrl: 'https://huellitas-vet.pages.dev',
+    repoUrl: 'https://github.com/JCarvajalLab/astro-landing-veterinaria',
+    highlight: true,
+  },
+  {
+    title: 'E-commerce Frontend & Arquitectura Web',
+    tag: 'Frontend Semántico',
+    description:
+      'Desarrollo de interfaz de e-commerce aplicando estructura semántica, estilos modulares y fundamentos de desarrollo Frontend interactivo con JavaScript nativo, organizado en repositorio público con control de versiones Git.',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Git', 'GitHub', 'Vue.js'],
+    demoUrl: null,
+    repoUrl: 'https://github.com/JCarvajalLab',
+    highlight: false,
   },
 ];
 ---
 
-<Layout title="JCarvajalLab | Desarrollador Web Frontend & Astro Specialist">
-  <!-- HERO SECTION -->
-  <section class="relative overflow-hidden pt-16 pb-20 sm:pt-24 sm:pb-28">
-    <!-- Efectos ambientales difuminados -->
+<Layout title="Jordan Ariel Carvajal Guajardo | Desarrollador Web & Ingeniero en Informática">
+  <!-- HERO SECTION CON PALETA 60-30-10 -->
+  <section class="relative overflow-hidden py-16 sm:py-24 border-b border-zinc-200 dark:border-[#222222]">
+    <!-- Fondo ambiental oscuro -->
     <div
-      class="pointer-events-none absolute -top-40 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:-top-80"
+      class="pointer-events-none absolute -top-40 right-0 -z-10 h-96 w-96 rounded-full bg-[#FF5A1F]/10 blur-3xl"
       aria-hidden="true"
-    >
-      <div
-        class="aspect-[1155/678] w-[68.4375rem] bg-gradient-to-tr from-indigo-500 to-purple-600 opacity-20 sm:w-[72.1875rem] dark:opacity-25"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-      ></div>
-    </div>
+    ></div>
 
-    <div class="mx-auto max-w-5xl px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-semibold text-indigo-700 bg-indigo-50 border border-indigo-200/80 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-800/80 mb-6">
-        <span class="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Disponible para desarrollo freelance & proyectos web</span>
-      </div>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center">
+        <!-- Columna de texto principal -->
+        <div class="lg:col-span-8">
+          <!-- Badges de estatus -->
+          <div class="flex flex-wrap items-center gap-2 mb-6">
+            <span class="inline-flex items-center gap-1.5 rounded-full border border-[#FF5A1F]/40 bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F]">
+              <span class="h-2 w-2 rounded-full bg-[#FF5A1F] animate-pulse"></span>
+              Disponible para Oportunidades Laborales
+            </span>
+            <span class="inline-flex items-center rounded-full border border-zinc-300 bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700 dark:border-[#262626] dark:bg-[#161616] dark:text-zinc-300">
+              📍 Santiago, Chile
+            </span>
+          </div>
 
-      <h1 class="text-4xl font-black tracking-tight sm:text-6xl text-slate-900 dark:text-white">
-        Desarrollo Web Moderno,{' '}
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-500 to-violet-500 dark:from-indigo-400 dark:to-violet-400">
-          Rápido y Accesible
-        </span>
-      </h1>
+          <h1 class="text-3xl font-black tracking-tight text-[#0E0E0E] sm:text-5xl lg:text-6xl dark:text-white">
+            Jordan Ariel <br class="hidden sm:inline" />
+            <span class="text-[#FF5A1F]">Carvajal Guajardo</span>
+          </h1>
 
-      <p class="mt-6 text-lg sm:text-xl leading-8 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-        Construyo aplicaciones web y sitios de alta conversión con{' '}
-        <strong class="text-slate-900 dark:text-white">Astro 5</strong>,{' '}
-        <strong class="text-slate-900 dark:text-white">Tailwind CSS v4</strong> y JavaScript nativo.
-        Enfoque riguroso en rendimiento y código limpio.
-      </p>
+          <p class="mt-4 text-lg sm:text-xl font-bold text-zinc-800 dark:text-zinc-200">
+            Desarrollador Web Junior <span class="text-[#FF5A1F]">·</span> Full Stack Python/Django{' '}
+            <span class="text-[#FF5A1F]">·</span> Frontend Vue.js & Astro
+          </p>
 
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a
-          href="#proyectos"
-          class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-600/20 transition hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-indigo-600"
-        >
-          Explorar casos de estudio
-          <span aria-hidden="true">&darr;</span>
-        </a>
+          <p class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-2xl">
+            Ingeniero en Informática (INACAP) con orientación Frontend y proyección Full Stack.
+            Experiencia técnica en Python, Django, PostgreSQL, JavaScript y Astro. Cuento con una
+            sólida trayectoria previa de más de 4 años en soporte TI (Entel Connect Center), lo que
+            me aporta comunicación efectiva, análisis metódico y resolución proactiva de problemas.
+          </p>
 
-        <a
-          href="#contacto"
-          class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-indigo-600 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800/80"
-        >
-          Iniciar conversación
-        </a>
+          <!-- Acciones directas -->
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="#contacto"
+              class="inline-flex items-center gap-2 rounded-lg bg-[#FF5A1F] px-5 py-3 text-sm font-bold text-white shadow-md shadow-[#FF5A1F]/25 transition hover:bg-[#e04810] focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
+            >
+              <span>Contactar conmigo</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/jordan-carvajal-guajardo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+            >
+              <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <a
+              href="https://github.com/JCarvajalLab"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-lg border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+            >
+              <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna de Datos Rápidos / Tarjeta Resumen -->
+        <div class="lg:col-span-4">
+          <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-[#262626] dark:bg-[#161616]">
+            <div class="flex items-center gap-3 border-b border-zinc-100 pb-4 dark:border-[#222222]">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF5A1F] text-white font-black text-xl shadow-md shadow-[#FF5A1F]/30">
+                JC
+              </span>
+              <div>
+                <h2 class="font-bold text-[#0E0E0E] dark:text-white">Perfil Profesional</h2>
+                <p class="text-xs text-zinc-500 dark:text-zinc-400">Ingeniería & Software</p>
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-3.5 text-xs">
+              <div class="flex justify-between items-center py-1 border-b border-zinc-100 dark:border-[#222222]">
+                <span class="text-zinc-500 dark:text-zinc-400">Título Superior:</span>
+                <span class="font-semibold text-[#0E0E0E] dark:text-white">
+                  Ing. en Informática (INACAP)
+                </span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-zinc-100 dark:border-[#222222]">
+                <span class="text-zinc-500 dark:text-zinc-400">Enfoque:</span>
+                <span class="font-semibold text-[#FF5A1F]">Frontend + Full Stack</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-zinc-100 dark:border-[#222222]">
+                <span class="text-zinc-500 dark:text-zinc-400">Exp. Entel Connect:</span>
+                <span class="font-semibold text-[#0E0E0E] dark:text-white">
+                  4 Años (Soporte TI)
+                </span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-zinc-100 dark:border-[#222222]">
+                <span class="text-zinc-500 dark:text-zinc-400">Backend Core:</span>
+                <span class="font-semibold text-[#0E0E0E] dark:text-white">
+                  Python / Django / PostgreSQL
+                </span>
+              </div>
+              <div class="flex justify-between items-center py-1">
+                <span class="text-zinc-500 dark:text-zinc-400">Frontend Core:</span>
+                <span class="font-semibold text-[#0E0E0E] dark:text-white">
+                  JavaScript / Astro / Vue.js
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CASOS DE ESTUDIO / PROYECTOS -->
+  <!-- 1. EXPERIENCIA PROFESIONAL EN TI -->
   <section
-    id="proyectos"
-    class="scroll-mt-24 py-16 sm:py-20 border-t border-slate-200/60 dark:border-slate-800/60"
+    id="experiencia"
+    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222]"
   >
-    <div class="mx-auto max-w-6xl px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-            Portafolio Profesional
+          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+            Trayectoria Laboral
           </span>
-          <h2 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
-            Casos de Estudio & Proyectos
+          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+            Experiencia Profesional en TI
           </h2>
         </div>
-        <p class="mt-3 md:mt-0 text-sm text-slate-600 dark:text-slate-400 max-w-md">
-          Soluciones diseñadas de menor a mayor complejidad, aplicando las mejores prácticas de la
-          industria con presupuesto de hosting $0 USD.
+        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+          Años de trabajo continuo en entornos corporativos de soporte, atención de incidencias
+          críticas y resolución estructurada de problemas.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <article class="group relative flex flex-col justify-between rounded-3xl border border-slate-200/80 bg-white/80 p-6 backdrop-blur-sm shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-indigo-300 dark:border-slate-800 dark:bg-slate-900/70 dark:hover:border-indigo-500/50">
-            <div>
-              <div class="flex items-center justify-between mb-5">
-                <span class="text-3xl p-2 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-100 dark:border-slate-700/50">
-                  {project.icon}
+      <div class="space-y-6">
+        {experienceList.map((job) => (
+          <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-zinc-100 pb-4 dark:border-[#222222]">
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white">
+                  {job.role}
+                </h3>
+                <p class="text-sm font-semibold text-[#FF5A1F]">
+                  {job.company} <span class="text-zinc-400 dark:text-zinc-600">·</span>{' '}
+                  {job.location}
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                  {job.period}
                 </span>
-                <span
-                  class={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${project.badgeClass}`}
-                >
-                  {project.badge}
+                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                  {job.badge}
                 </span>
               </div>
+            </div>
 
-              <h3 class="text-xl font-bold text-slate-900 group-hover:text-indigo-600 dark:text-white dark:group-hover:text-indigo-400 transition">
-                {project.title}
-              </h3>
+            <ul class="mt-4 space-y-2.5 text-sm text-zinc-600 dark:text-zinc-300">
+              {job.responsibilities.map((task) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#FF5A1F] mt-1 shrink-0 font-bold">▪</span>
+                  <span>{task}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-              <p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                {project.description}
+  <!-- 2. FORMACIÓN ACADÉMICA & CERTIFICACIONES -->
+  <section
+    id="formacion"
+    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/50 dark:bg-[#111111]/40"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+          Estudios & Acreditaciones
+        </span>
+        <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+          Formación Académica & Certificaciones
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <!-- Columna de Estudios -->
+        <div class="lg:col-span-7 space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">
+            Educación Profesional & Bootcamps
+          </h3>
+          {educationList.map((edu) => (
+            <div class="rounded-xl border border-zinc-200 bg-white p-5 dark:border-[#262626] dark:bg-[#161616]">
+              <div class="flex items-center justify-between gap-2">
+                <span class="rounded-full bg-[#FF5A1F]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#FF5A1F]">
+                  {edu.type}
+                </span>
+                <span class="text-xs font-semibold text-zinc-500 dark:text-zinc-400">
+                  {edu.period}
+                </span>
+              </div>
+              <h4 class="mt-2 text-base font-bold text-[#0E0E0E] dark:text-white">{edu.title}</h4>
+              <p class="text-xs font-semibold text-zinc-600 dark:text-zinc-400">
+                {edu.institution}
+              </p>
+              <p class="mt-2 text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                {edu.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Columna de Certificaciones -->
+        <div class="lg:col-span-5 space-y-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">
+            Certificaciones Técnicas
+          </h3>
+          {certifications.map((cert) => (
+            <div class="rounded-xl border border-zinc-200 bg-white p-5 dark:border-[#262626] dark:bg-[#161616]">
+              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
+                <span>{cert.issuer}</span>
+                <span class="font-mono text-[11px]">{cert.date}</span>
+              </div>
+              <h4 class="mt-1.5 text-sm font-bold text-[#0E0E0E] dark:text-white">{cert.title}</h4>
+              <div class="mt-2 flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+                <span>✓</span> Acreditado & Aprobado
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. COMPETENCIAS TÉCNICAS -->
+  <section
+    id="competencias"
+    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222]"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+          Habilidades Prácticas
+        </span>
+        <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+          Competencias Técnicas & Stack
+        </h2>
+        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          Conjunto de tecnologías dominadas en proyectos prácticos, formación intensiva y soporte
+          operativo.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {skillCategories.map((cat) => (
+          <div class="rounded-2xl border border-zinc-200 bg-white p-5 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+            <div class="flex items-center gap-2 border-b border-zinc-100 pb-3 dark:border-[#222222]">
+              <span class="h-2.5 w-2.5 rounded-full bg-[#FF5A1F]"></span>
+              <h3 class="text-sm font-bold text-[#0E0E0E] dark:text-white">{cat.name}</h3>
+            </div>
+            <ul class="mt-4 space-y-2 text-xs text-zinc-700 dark:text-zinc-300 font-medium">
+              {cat.items.map((skill) => (
+                <li class="flex items-center gap-2">
+                  <span class="text-[#FF5A1F]">›</span>
+                  <span>{skill}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROYECTOS RELEVANTES & LABORATORIO -->
+  <section
+    id="proyectos"
+    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/50 dark:bg-[#111111]/40"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+            Desarrollo de Software
+          </span>
+          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+            Proyectos Relevantes & Laboratorio
+          </h2>
+        </div>
+        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+          Aplicaciones donde pongo en práctica arquitecturas full-stack, autenticación, persistencia
+          y optimización frontend.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {projects.map((proj) => (
+          <article class="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 shadow-xs transition hover:border-[#FF5A1F] hover:shadow-lg hover:shadow-[#FF5A1F]/5 dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-0.5 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                  {proj.tag}
+                </span>
+                {proj.demoUrl && (
+                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    En Producción
+                  </span>
+                )}
+              </div>
+
+              <h3 class="text-xl font-bold text-[#0E0E0E] dark:text-white">{proj.title}</h3>
+
+              <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                {proj.description}
               </p>
 
-              <div class="mt-4 flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <span class="rounded-lg bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-                    {tag}
+              <div class="mt-5 flex flex-wrap gap-1.5">
+                {proj.stack.map((tech) => (
+                  <span class="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                    {tech}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div class="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-semibold">
-              {project.demoUrl !== '#' ? (
+            <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-[#222222] flex items-center justify-between text-xs font-bold">
+              {proj.demoUrl ? (
                 <a
-                  href={project.demoUrl}
+                  href={proj.demoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 inline-flex items-center gap-1"
+                  class="text-[#FF5A1F] hover:underline inline-flex items-center gap-1"
                 >
-                  Ver demo en vivo <span aria-hidden="true">&nearr;</span>
+                  Ver Sitio en Vivo &nearr;
                 </a>
               ) : (
-                <span class="text-slate-400 dark:text-slate-500">En preparación</span>
+                <span class="text-zinc-400 dark:text-zinc-500 font-normal">
+                  Proyecto de Aplicación
+                </span>
               )}
 
               <a
-                href={project.repoUrl}
+                href={proj.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white inline-flex items-center gap-1"
+                class="text-zinc-600 hover:text-[#0E0E0E] dark:text-zinc-400 dark:hover:text-white inline-flex items-center gap-1"
               >
-                GitHub <span aria-hidden="true">&rarr;</span>
+                Ver en GitHub &rarr;
               </a>
             </div>
           </article>
@@ -202,136 +546,177 @@ const skills = [
     </div>
   </section>
 
-  <!-- STACK & HABILIDADES -->
-  <section
-    id="stack"
-    class="scroll-mt-24 py-16 sm:py-20 bg-slate-100/50 dark:bg-slate-900/30 border-t border-slate-200/60 dark:border-slate-800/60"
-  >
-    <div class="mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-          Tecnologías & Estándares
+  <!-- 5. CONTACTO DIRECTO -->
+  <section id="contacto" class="scroll-mt-20 py-16 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <div class="rounded-3xl border border-zinc-200 bg-white p-8 sm:p-12 shadow-sm dark:border-[#262626] dark:bg-[#161616]">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FF5A1F]/10 px-3.5 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+          ¿Buscando sumar un desarrollador al equipo?
         </span>
-        <h2 class="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl text-slate-900 dark:text-white">
-          Stack Técnico & Buenas Prácticas
+
+        <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold text-[#0E0E0E] dark:text-white">
+          Conversemos sobre tu Proyecto o Puesto
         </h2>
-        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
-          Herramientas modernas elegidas bajo el principio de simplicidad, rendimiento nativo y cero
-          costos de licencia o servidor.
+
+        <p class="mt-3 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto leading-relaxed">
+          Estoy disponible para integrarme a equipos de tecnología, aportar mi experiencia en
+          soporte y desarrollo full-stack, y seguir aprendiendo con dedicación.
         </p>
-      </div>
 
-      <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {skills.map((item) => (
-          <div class="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/60">
-            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-              {item.category}
-            </span>
-            <h3 class="mt-1 text-base font-bold text-slate-900 dark:text-white">{item.name}</h3>
-            <p class="mt-1 text-xs text-slate-600 dark:text-slate-400">{item.level}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+        <!-- Opciones de contacto seguras: Formulario y LinkedIn -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 text-left">
+          <!-- Columna Izquierda: Redes Profesionales -->
+          <div class="md:col-span-5 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-[#0E0E0E] dark:text-white mb-2">
+                Canales Profesionales
+              </h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+                Puedes conectar directamente conmigo a través de LinkedIn para propuestas laborales,
+                o escribirme a través del formulario.
+              </p>
 
-  <!-- SOBRE MÍ -->
-  <section
-    id="sobre-mi"
-    class="scroll-mt-24 py-16 sm:py-20 border-t border-slate-200/60 dark:border-slate-800/60"
-  >
-    <div class="mx-auto max-w-5xl px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 items-center">
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="relative">
-            <div class="h-64 w-64 rounded-3xl bg-gradient-to-tr from-indigo-600 to-violet-500 p-1 shadow-2xl">
-              <div class="flex h-full w-full flex-col items-center justify-center rounded-[22px] bg-white p-6 text-center dark:bg-slate-950">
-                <span class="text-5xl mb-3">👨‍💻</span>
-                <span class="text-xl font-bold text-slate-900 dark:text-white">JCarvajalLab</span>
-                <span class="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Desarrollador Web
+              <a
+                href="https://www.linkedin.com/in/jordan-carvajal-guajardo"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-4 transition hover:border-[#FF5A1F] hover:shadow-md dark:border-[#262626] dark:bg-[#111111] dark:hover:border-[#FF5A1F] group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0077B5] text-white font-bold text-sm">
+                    in
+                  </span>
+                  <div>
+                    <div class="text-xs font-bold text-[#0E0E0E] dark:text-white">
+                      Perfil en LinkedIn
+                    </div>
+                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400">
+                      Jordan Carvajal Guajardo
+                    </div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#FF5A1F] group-hover:translate-x-1 transition-transform">
+                  &rarr;
                 </span>
-                <span class="mt-4 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 border border-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800">
-                  Astro · Tailwind · JS Nativo
+              </a>
+
+              <a
+                href="https://github.com/JCarvajalLab"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 flex items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-4 transition hover:border-[#FF5A1F] hover:shadow-md dark:border-[#262626] dark:bg-[#111111] dark:hover:border-[#FF5A1F] group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-900 text-white font-bold text-sm dark:bg-zinc-800">
+                    GH
+                  </span>
+                  <div>
+                    <div class="text-xs font-bold text-[#0E0E0E] dark:text-white">
+                      Repositorios en GitHub
+                    </div>
+                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400">@JCarvajalLab</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#FF5A1F] group-hover:translate-x-1 transition-transform">
+                  &rarr;
                 </span>
-              </div>
+              </a>
+            </div>
+
+            <div class="pt-4 border-t border-zinc-100 dark:border-[#222222] text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
+              <div>📍 Santiago, Chile</div>
+              <div>⚡ Respuesta habitual en menos de 24 horas</div>
             </div>
           </div>
+
+          <!-- Columna Derecha: Formulario de Contacto -->
+          <div class="md:col-span-7 rounded-2xl border border-zinc-200 bg-zinc-50/70 p-6 dark:border-[#262626] dark:bg-[#111111]">
+            <h3 class="text-base font-bold text-[#0E0E0E] dark:text-white mb-1">
+              Envíame un Mensaje
+            </h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
+              Completa los datos y me comunicaré contigo a la brevedad.
+            </p>
+
+            <form id="contact-form" class="space-y-3.5 text-xs">
+              <!-- Honeypot silencioso antispam -->
+              <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+              <div>
+                <label
+                  for="contact-name"
+                  class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
+                >
+                  Tu Nombre
+                </label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="nombre"
+                  required
+                  placeholder="Ej. María González"
+                  class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-email"
+                  class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
+                >
+                  Tu Correo Electrónico
+                </label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  required
+                  placeholder="ejemplo@empresa.com"
+                  class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-message"
+                  class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
+                >
+                  Mensaje / Asunto
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="mensaje"
+                  rows="3"
+                  required
+                  placeholder="Cuéntame sobre la oportunidad, proyecto o consulta..."
+                  class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-[#FF5A1F] py-2.5 font-bold text-white shadow-sm hover:bg-[#e04810] transition focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
+              >
+                Enviar Mensaje &rarr;
+              </button>
+
+              <p
+                id="form-feedback"
+                class="hidden text-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 pt-1"
+              >
+                ✓ ¡Mensaje preparado! Te responderé lo antes posible.
+              </p>
+            </form>
+          </div>
         </div>
 
-        <div class="lg:col-span-7">
-          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
-            Filosofía de Trabajo
-          </span>
-          <h2 class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Soluciones simples, estables y bien optimizadas
-          </h2>
-          <p class="mt-4 text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-            Creo en la web ligera y accesible. Si un problema se resuelve en 400 líneas en vez de
-            1000, se hace en 400. Evito sobrecargar los bundles de usuario con frameworks
-            innecesarios cuando las APIs nativas del navegador y el compilador de Astro logran una
-            experiencia más rápida y confiable.
-          </p>
-          <ul class="mt-6 space-y-3 text-sm text-slate-600 dark:text-slate-300">
-            <li class="flex items-center gap-2.5">
-              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-xs">
-                ✓
-              </span>
-              <span>100% JavaScript nativo sin dependencias pesadas</span>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-xs">
-                ✓
-              </span>
-              <span>Auditorías con Lighthouse superiores a 90 en todas las categorías</span>
-            </li>
-            <li class="flex items-center gap-2.5">
-              <span class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-xs">
-                ✓
-              </span>
-              <span>Arquitectura estática (SSG) de costo cero en Cloudflare Pages</span>
-            </li>
-          </ul>
+        <div class="mt-8 pt-6 border-t border-zinc-100 dark:border-[#222222] flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-zinc-500">
+          <span>📍 Residencia: Santiago, Chile</span>
+          <span>·</span>
+          <span>🎓 INACAP (Ing. Informática)</span>
+          <span>·</span>
+          <span>💼 Entel Connect Center (4 años exp.)</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
-  <section
-    id="contacto"
-    class="scroll-mt-24 py-16 sm:py-20 bg-slate-900 text-white dark:bg-slate-950 border-t border-slate-800"
-  >
-    <div class="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-      <span class="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-3 py-1 text-xs font-semibold text-indigo-400 border border-indigo-500/20">
-        ¿Tienes una propuesta o proyecto?
-      </span>
-      <h2 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-        Hablemos y Construyamos Algo Increíble
-      </h2>
-      <p class="mt-4 text-base text-slate-300 max-w-xl mx-auto">
-        Disponible para proyectos freelance, colaboraciones o asesoría técnica en desarrollo
-        frontend con Astro y Tailwind CSS.
-      </p>
-
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <a
-          href="mailto:contacto@jcarvajallab.dev"
-          class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/30 transition hover:bg-indigo-500"
-        >
-          Enviar un correo directo
-          <span aria-hidden="true">&rarr;</span>
-        </a>
-
-        <a
-          href="https://github.com/JCarvajalLab"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800 px-6 py-3 text-sm font-semibold text-slate-200 transition hover:bg-slate-700"
-        >
-          Ver repositorio en GitHub
-          <span aria-hidden="true">&nearr;</span>
-        </a>
       </div>
     </div>
   </section>

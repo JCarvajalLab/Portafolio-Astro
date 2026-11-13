@@ -3,235 +3,44 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout
-  title="404: Página no encontrada | Portafolio JCarvajalLab"
-  description="La página o caso de estudio que buscas no existe o fue movida. Regresa al portafolio principal."
+  title="404: Página no encontrada | Jordan Carvajal"
+  description="La ruta a la que intentas acceder no existe en este servidor. Regresa al portafolio de Jordan Carvajal."
 >
-  <section class="relative flex min-h-[calc(100vh-14rem)] items-center justify-center overflow-hidden px-4 py-16 sm:py-24">
-    <!-- Efectos ambientales difuminados -->
-    <div
-      class="pointer-events-none absolute -top-24 left-1/4 -z-10 h-96 w-96 rounded-full bg-indigo-500/15 blur-3xl dark:bg-indigo-500/10"
-      aria-hidden="true"
-    ></div>
-    <div
-      class="pointer-events-none absolute -bottom-24 right-1/4 -z-10 h-96 w-96 rounded-full bg-purple-500/15 blur-3xl dark:bg-purple-500/10"
-      aria-hidden="true"
-    ></div>
-
-    <div class="mx-auto w-full max-w-4xl text-center">
-      <!-- Ilustración SVG Vectorial 404 con animación -->
-      <div class="mx-auto mb-8 flex justify-center">
-        <div class="relative w-72 sm:w-80 select-none">
-          <svg
-            viewBox="0 0 400 300"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-auto w-full drop-shadow-md"
-            role="img"
-            aria-label="Ilustración de página no encontrada con número 404 flotante"
-          >
-            <!-- Fondo de radar circular -->
-            <circle
-              cx="200"
-              cy="150"
-              r="110"
-              stroke="currentColor"
-              stroke-opacity="0.1"
-              stroke-width="2"
-              stroke-dasharray="6 6"
-              class="text-indigo-600 dark:text-indigo-400 animate-spin-slow"
-            ></circle>
-            <circle
-              cx="200"
-              cy="150"
-              r="70"
-              stroke="currentColor"
-              stroke-opacity="0.15"
-              stroke-width="1.5"
-              class="text-indigo-600 dark:text-indigo-400"
-            ></circle>
-
-            <!-- Número 404 Estilizado -->
-            <g class="floating-element">
-              <!-- Cuatro izquierdo -->
-              <text
-                x="70"
-                y="175"
-                font-family="system-ui, sans-serif"
-                font-size="88"
-                font-weight="900"
-                fill="url(#grad404)"
-                letter-spacing="-2"
-              >
-                4
-              </text>
-              <!-- Cero central (órbita con código) -->
-              <g transform="translate(160, 95)">
-                <rect
-                  x="0"
-                  y="0"
-                  width="80"
-                  height="95"
-                  rx="40"
-                  fill="url(#gradCenter)"
-                  fill-opacity="0.1"
-                  stroke="url(#gradBorder)"
-                  stroke-width="3"
-                ></rect>
-                <circle
-                  cx="40"
-                  cy="47"
-                  r="16"
-                  fill="currentColor"
-                  class="text-indigo-600 dark:text-indigo-400 animate-pulse"
-                ></circle>
-                <!-- Satélite orbitando -->
-                <circle cx="40" cy="12" r="6" fill="#f59e0b" class="animate-bounce-subtle"></circle>
-              </g>
-              <!-- Cuatro derecho -->
-              <text
-                x="260"
-                y="175"
-                font-family="system-ui, sans-serif"
-                font-size="88"
-                font-weight="900"
-                fill="url(#grad404)"
-                letter-spacing="-2"
-              >
-                4
-              </text>
-            </g>
-
-            <!-- Gradientes -->
-            <defs>
-              <linearGradient
-                id="grad404"
-                x1="0"
-                y1="0"
-                x2="400"
-                y2="300"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#4f46e5" />
-                <stop offset="1" stop-color="#8b5cf6" />
-              </linearGradient>
-              <linearGradient
-                id="gradCenter"
-                x1="0"
-                y1="0"
-                x2="80"
-                y2="95"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#6366f1" />
-                <stop offset="1" stop-color="#a855f7" />
-              </linearGradient>
-              <linearGradient
-                id="gradBorder"
-                x1="0"
-                y1="0"
-                x2="80"
-                y2="95"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stop-color="#6366f1" />
-                <stop offset="1" stop-color="#ec4899" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Texto descriptivo -->
-      <span class="inline-flex items-center gap-1.5 rounded-full border border-indigo-200/80 bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-700 dark:border-indigo-900/60 dark:bg-indigo-950/40 dark:text-indigo-300">
-        <span class="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
-        Error HTTP 404
+  <section class="flex min-h-[calc(100vh-14rem)] items-center justify-center px-4 py-16 sm:py-24">
+    <div class="mx-auto max-w-md text-center">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-[#FF5A1F]/30 bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F]">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#FF5A1F] animate-pulse"></span>
+        Error 404
       </span>
 
-      <h1 class="mt-4 text-3xl font-extrabold tracking-tight sm:text-5xl text-slate-900 dark:text-white">
-        Ruta o caso de estudio no encontrado
+      <div class="font-black text-8xl tracking-tight text-[#0E0E0E] dark:text-white my-4">
+        4<span class="text-[#FF5A1F]">0</span>4
+      </div>
+
+      <h1 class="text-xl sm:text-2xl font-bold text-[#0E0E0E] dark:text-white">
+        Ruta no encontrada
       </h1>
 
-      <p class="mt-4 max-w-xl mx-auto text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        El enlace que seguiste no existe, fue movido o aún se encuentra en desarrollo en las fases
-        activas del portafolio.
+      <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        El enlace que intentaste abrir no existe en el árbol de rutas o fue reorganizado en las
+        fases de desarrollo.
       </p>
 
-      <!-- Botones de Acción -->
-      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <div class="mt-8 flex items-center justify-center gap-3">
         <a
           href="/"
-          class="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-indigo-600/20 transition hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-indigo-600"
+          class="rounded-lg bg-[#FF5A1F] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-[#FF5A1F]/20 hover:bg-[#e04810] transition"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-            ></path>
-          </svg>
-          Volver al inicio
+          &larr; Volver al inicio
         </a>
 
         <a
           href="/#proyectos"
-          class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-indigo-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+          class="rounded-lg border border-zinc-300 bg-white px-5 py-2.5 text-xs font-bold text-[#0E0E0E] hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:text-white transition"
         >
-          Explorar proyectos
-          <span aria-hidden="true">&rarr;</span>
+          Ver proyectos
         </a>
       </div>
     </div>
   </section>
 </Layout>
-
-<style>
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
-  @keyframes spinSlow {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes bounceSubtle {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-4px);
-    }
-  }
-
-  .floating-element {
-    animation: float 4s ease-in-out infinite;
-    transform-origin: center;
-  }
-
-  .animate-spin-slow {
-    animation: spinSlow 30s linear infinite;
-    transform-origin: center;
-  }
-
-  .animate-bounce-subtle {
-    animation: bounceSubtle 2s ease-in-out infinite;
-  }
-</style>

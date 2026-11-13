@@ -12,15 +12,15 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
-- **Última actualización:** 2026-11-12
+- **Última actualización:** 2026-11-13
 - **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
 - **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(base): incorpora navbar con toggle dark mode, footer y pagina 404 personalizada`
+- **Último commit relevante:** `feat(design): implementa identidad visual 60-30-10 con datos reales del cv de jordan carvajal`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Layout base con Glassmorphism, Navbar flotante con toggle Sol/Luna accesible en JS nativo (persistencia en `localStorage`), menú móvil accesible con escape y aria-expanded, navegación suave sin hashes residuales, Footer completo con enlaces sociales y arquitectura técnica, página personalizada `404.astro` con SVG animado y home estructurada con secciones `#proyectos`, `#stack`, `#sobre-mi` y `#contacto`
-- **Qué está en progreso:** Cierre de Fase 2 e inicio de Fase 3 (Content Collections para casos de estudio)
+- **Qué funciona:** Identidad visual con regla 60-30-10 (60% Negro Carbón `#0E0E0E`, 30% Blanco `#FFFFFF` y 10% Acento Naranja `#FF5A1F`), presentación fidedigna de Jordan Ariel Carvajal Guajardo con datos de su CV real (Ingeniería en Informática INACAP, 4 años de soporte TI en Entel Connect Center, formación Full Stack Python/Django y Frontend Vue.js/Astro), desglose de competencias técnicas, proyectos de e-commerce y canales de contacto directo
+- **Qué está en progreso:** Revisión visual por parte del usuario en el navegador local
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Integrar `phase/02-base` en `develop` e iniciar `phase/03-content`
+- **Siguiente paso concreto:** Feedback del usuario sobre la nueva identidad visual y avance a Fase 3 (Content Collections)
 
 ## 2. Decisiones importantes
 
@@ -34,10 +34,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-12 | Implementar Dark Mode con script anti-FOUC y `@custom-variant dark` | Probado en Veterinaria: previene parpadeos en recargas y sincroniza preferencia de OS y localStorage | Implementaciones reactivas lentas o sin persistencia |
 | 2026-11-12 | Incluir página personalizada `src/pages/404.astro` | Retención de usuarios y experiencia visual consistente ante rutas inexistentes | Página 404 genérica del hosting |
 | 2026-11-12 | Menú móvil accesible y navegación suave sin hashes residuales | Experiencia nativa fluida, control WCAG de `aria-expanded` y URLs visualmente limpias | Librerías pesadas o frameworks de UI |
+| 2026-11-13 | Paleta 60-30-10 (#0E0E0E, #FFFFFF, #FF5A1F) con datos del CV | Identidad potente, tecnológica y diferenciada de proyectos anteriores; contenido real de Jordan Carvajal | Paletas genéricas o pastelosas de landing comercial |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-13 · `phase/02-base` · identidad 60-30-10 y contenido real del cv
+- **Qué:** Implementación de la paleta solicitada por el usuario bajo la regla 60-30-10 (60% Negro `#0E0E0E`, 30% Blanco `#FFFFFF`, 10% Acento Naranja `#FF5A1F`). Integración completa del contenido verídico del CV: Ingeniería en Informática (INACAP), 4 años de soporte TI en Entel Connect Center, especializaciones en Talento Digital para Chile (Full Stack Python/Django y Frontend Vue.js), certificaciones de Git & GitHub y proyectos de e-commerce.
+- **Archivos clave:** `src/styles/global.css`, `src/layouts/Layout.astro`, `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/pages/index.astro`, `src/pages/404.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** Compilación estática limpia en 559ms; 0 vulnerabilidades en audit; servidor de desarrollo activo en `http://localhost:4321/`.
 
 ### 2026-11-12 · `phase/02-base` · layout, navbar con modo oscuro, footer y pagina 404
 - **Qué:** Creación de componentes `Navbar.astro` flotante con efecto Glassmorphism, botón toggle Sol/Luna para Dark Mode en desktop y móvil con persistencia en `localStorage`, menú móvil accesible, navegación suave que limpia el hash de la URL; componente `Footer.astro` con enlaces rápidos y notas técnicas; creación de `src/pages/404.astro` con ilustración vectorial SVG animada y soporte dark mode; e integración en `Layout.astro` y estructuración semántica de secciones en `src/pages/index.astro`.
