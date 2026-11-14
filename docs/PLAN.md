@@ -248,7 +248,7 @@ Temática: **veterinaria** (servicios, equipo, horarios, contacto y agendamiento
 
 - [x] **Fase 1: Setup** (`phase/01-setup`): inicialización Astro 5+, Tailwind CSS v4, ESLint v9, Prettier y estructura base.
 - [x] **Fase 2: Base** (`phase/02-base`): layout, navegación, modo oscuro integral (script anti-FOUC + `@custom-variant dark`), y página de error `src/pages/404.astro`.
-- [ ] **Fase 3: Contenido** (`phase/03-content`): Content Collections para proyectos, con una página de detalle tipo caso de estudio por cada uno (problema, tecnologías, solución, enlace en vivo y repositorio).
+- [x] **Fase 3: Contenido** (`phase/03-content`): Content Collections para proyectos, con una página de detalle tipo caso de estudio por cada uno (problema, tecnologías, solución, enlace en vivo y repositorio).
 - [ ] **Fase 4: Interactividad** (`phase/04-interactividad`): filtros de proyectos con JavaScript nativo, sin framework.
 - [ ] **Fase 5: SEO y rendimiento** (`phase/05-seo`): sitemap, Open Graph, Twitter Cards, `robots.txt`, optimización de imágenes locales con `astro:assets`.
 - [ ] **Fase 6: Lanzamiento** (`phase/06-launch`): despliegue en Cloudflare Pages conectado a GitHub ($0 USD), pruebas en vivo, auditoría Lighthouse >= 90 y README profesional con capturas.
