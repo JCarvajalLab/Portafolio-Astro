@@ -15,9 +15,9 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-14
 - **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
 - **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(hero): quita punto final en nombre y boton hablemos del hero`
+- **Último commit relevante:** `feat(sections): rediseña skills con bloques de iconos estilo toolkit, ordena formacion y unifica badges de experiencia`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula arquitectónica de fondo (`.bg-hero-grid`), eyebrow superior técnico (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA`), titular gigante con `Jordan Carvajal` en blanco y línea naranja interactiva con animación typewriter de stacks (`Python & Django`, `Astro & Tailwind CSS`, `JavaScript & Vue.js`, `PostgreSQL & SQL`, `Git & GitHub`), píldoras de stack clicables y pie de portada dividido en dos columnas con botón `Ver mi trabajo ->` y accesos a LinkedIn y GitHub
+- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula de fondo y animación typewriter de stacks, sección de Experiencia con badges de modalidad coherentes (`Tiempo Completo · 4 Años` y `Práctica Profesional`), sección de Formación Académica ordenada cronológicamente en 3 columnas (sin certificaciones sueltas) y sección `SKILLS & EXPERTISE` estilo Toolkit en dos columnas con bloques rectangulares e iconos SVG por tecnología (`01. FRONTEND & UI`, `02. BACKEND & BASES DE DATOS`, `03. SISTEMAS & INFRAESTRUCTURA`)
 - **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
@@ -40,6 +40,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/02-base` · rediseño de skills estilo toolkit con iconos, orden de formación y badges de experiencia
+- **Qué:** 1) En Experiencia Profesional se unificó el criterio de los badges naranjas para que ambos expresen modalidad/vínculo (`Tiempo Completo · 4 Años` en Entel Connect Center y `Práctica Profesional` en Conytec Consultores SPA). 2) En Formación Académica se eliminó la subsección de Certificaciones Técnicas y se ordenaron los 3 programas de estudio cronológicamente del más reciente al más antiguo en una grilla de 3 columnas (`Feb. 2026 — Jul. 2026` Full Stack Python, `Jul. 2024 — Ene. 2025` Front-End Trainee y `2014 — 2018` Ingeniería en Informática INACAP). 3) En Competencias Técnicas se implementó el diseño editorial `TOOLKIT / SKILLS & EXPERTISE` de la imagen de referencia del usuario, con columna izquierda fija y columna derecha dividida en `01. FRONTEND & UI`, `02. BACKEND & BASES DE DATOS` y `03. SISTEMAS & INFRAESTRUCTURA`, usando bloques rectangulares con iconos vectoriales SVG para cada tecnología.
+- **Archivos clave:** `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 398ms con 0 errores y 0 vulnerabilidades.
 
 ### 2026-11-14 · `phase/02-base` · portada editorial con cuadrícula de fondo y animación de stacks en naranja
 - **Qué:** Rediseño de la portada (Hero) inspirado en la referencia visual del usuario: fondo con patrón de cuadrícula arquitectónica sutil (`.bg-hero-grid`), encabezado técnico en fuente monoespaciada (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA · DESARROLLO WEB & SOPORTE TI`), titular de alto impacto con `Jordan Carvajal` en blanco puro (sin punto final) y frase naranja animada (`Construyendo soluciones con [Stack] |`) que alterna dinámicamente entre los stacks activos y en aprendizaje (`Python & Django.`, `Astro & Tailwind CSS.`, `JavaScript & Vue.js.`, `PostgreSQL & SQL.`, `Git, GitHub & Clean Code.`), barra interactiva de píldoras de stack clicables al instante, línea divisoria horizontal de ancho completo y sección inferior en dos columnas con descripción a la izquierda y botón tipo píldora `Ver mi trabajo ->` junto con LinkedIn y GitHub a la derecha.
