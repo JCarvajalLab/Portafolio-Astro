@@ -7,6 +7,8 @@ const proyectos = defineCollection({
     title: z.string(),
     tag: z.string(),
     category: z.enum(['fullstack', 'frontend']),
+    status: z.enum(['pending', 'live', 'completed']).default('completed'),
+    image: z.string(),
     order: z.number(),
     year: z.string(),
     role: z.string(),
@@ -17,7 +19,7 @@ const proyectos = defineCollection({
     results: z.array(z.string()),
     stack: z.array(z.string()),
     demoUrl: z.string().url().nullable().optional(),
-    repoUrl: z.string().url(),
+    repoUrl: z.string().url().nullable().optional(),
     highlight: z.boolean().default(false),
   }),
 });

@@ -1,9 +1,11 @@
 ---
 title: "E-commerce Full Stack — Proyecto Final"
-tag: "Python / Django + PostgreSQL"
+tag: "PROYECTO FINAL · FULL STACK PYTHON & DJANGO"
 category: "fullstack"
-order: 2
-year: "2026"
+status: "completed"
+image: "/projects/ecommerce-django-preview.svg"
+order: 3
+year: "Jul. 2026"
 role: "Desarrollador Full Stack Python"
 summary: "Plataforma completa de comercio electrónico desarrollada con Django y PostgreSQL. Integra catálogo de productos, autenticación de usuarios, carrito de compras dinámico y gestión de pedidos para simular un flujo real de compra con panel de administración y roles."
 problem: "Construir un comercio electrónico escalable requiere mucho más que mostrar productos en pantalla: exige garantizar la integridad transaccional entre el catálogo, las sesiones de usuario autenticado, el estado del carrito de compras y la persistencia relacional de las órdenes generadas."
@@ -18,12 +20,12 @@ results:
   - "Integridad referencial garantizada en PostgreSQL mediante claves foráneas y validaciones en servidor."
   - "Administración centralizada de inventario y pedidos a través de Django Admin personalizado."
 stack:
-  - "Python"
-  - "Django"
-  - "PostgreSQL"
-  - "Django ORM"
-  - "Bootstrap 5"
-  - "Git & GitHub"
+  - "PYTHON"
+  - "DJANGO"
+  - "POSTGRESQL"
+  - "SQL"
+  - "BOOTSTRAP"
+  - "GIT & GITHUB"
 demoUrl: null
 repoUrl: "https://github.com/JCarvajalLab"
 highlight: true

@@ -1,9 +1,11 @@
 ---
 title: "Clínica Veterinaria Huellitas"
-tag: "Astro 5 + Tailwind v4 + Vanilla JS"
+tag: "EN PRODUCCIÓN · FRONTEND & ARQUITECTURA"
 category: "frontend"
-order: 1
-year: "2026"
+status: "live"
+image: "/projects/veterinaria-preview.png"
+order: 2
+year: "Nov. 2026"
 role: "Desarrollador Frontend & UX/UI"
 summary: "Landing médica de alta conversión con portal interactivo de agendamiento en 4 pasos, filtrado dinámico de profesionales por especialidad, validación estricta de domingos y especies, comprobante médico con QR vectorial e impresión limpia, dark mode y 0 frameworks pesados."
 problem: "Las clínicas veterinarias suelen depender de páginas estáticas poco claras o widgets externos lentos para agendar horas, provocando abandono de usuarios en dispositivos móviles, citas mal asignadas (por ejemplo, exóticos asignados a veterinarios generales o agendamientos en días cerrados) y tiempos de carga elevados."
@@ -18,11 +20,12 @@ results:
   - "0 dependencias de frameworks de UI externos y $0 USD de costo operativo en Cloudflare Pages."
   - "Flujo completo de agendamiento validado en móvil y escritorio con generación instantánea de comprobante QR."
 stack:
-  - "Astro 5"
-  - "Tailwind CSS v4"
-  - "JavaScript ES6+"
-  - "HTML5 Semántico"
-  - "Cloudflare Pages"
+  - "ASTRO"
+  - "TAILWIND CSS"
+  - "JAVASCRIPT"
+  - "HTML5 & CSS3"
+  - "CLOUDFLARE PAGES"
+  - "GIT & GITHUB"
 demoUrl: "https://huellitas-vet.pages.dev"
 repoUrl: "https://github.com/JCarvajalLab/astro-landing-veterinaria"
 highlight: true

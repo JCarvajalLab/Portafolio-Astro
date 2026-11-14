@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import TechBadge from '../components/TechBadge.astro';
 
 const rawProjects = await getCollection('proyectos');
 const projects = [...rawProjects].sort((a, b) => a.data.order - b.data.order);
@@ -385,141 +386,7 @@ const skillCategories = [
 
               <div class="flex flex-wrap gap-3">
                 {cat.items.map((skill) => (
-                  <div class="group inline-flex items-center gap-3 border border-zinc-300 bg-white px-4 py-3 text-xs font-mono font-bold uppercase tracking-wider text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 dark:border-[#2a2a2a] dark:bg-[#161616] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:bg-[#FF5A1F]/10">
-                    <span class="flex h-5 w-5 items-center justify-center shrink-0 transition-transform group-hover:scale-110">
-                      {skill.icon === 'astro' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fill="#FF5D01" d="M12 2L3 19h4.6l4.4-9.8L16.4 19H21L12 2z" />
-                          <path
-                            fill="#FF1639"
-                            d="M12 15.2c-1.9 0-3.2 1.2-3.2 2.8 0 1.3 1 2.4 2.3 2.7-.2-.5-.2-1.2.2-1.7.4-.5 1.2-.6 1.7-.2.5.4.6 1.2.2 1.7-.1.1-.2.2-.3.2 1.4-.3 2.3-1.4 2.3-2.7 0-1.6-1.3-2.8-3.2-2.8z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'vue' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fill="#41B883" d="M2 3h4l6 10.4L18 3h4L12 20.4 2 3z" />
-                          <path fill="#35495E" d="M6 3h3.6L12 7.2 14.4 3H18l-6 10.4L6 3z" />
-                        </svg>
-                      )}
-                      {skill.icon === 'js' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <rect width="20" height="20" x="2" y="2" rx="2.5" fill="#F7DF1E" />
-                          <path
-                            fill="#000000"
-                            d="M12.7 16.5c0 1.8-1.1 2.6-2.6 2.6-1.4 0-2.2-.7-2.6-1.6l1.4-.8c.3.5.6.9 1.2.9.6 0 1-.2 1-1.1v-5.8h1.6v5.8zm4.8 2.6c-1.6 0-2.7-.8-3.2-1.9l1.4-.8c.4.6.9 1.1 1.8 1.1.8 0 1.3-.4 1.3-.9 0-.6-.5-.9-1.4-1.3l-.5-.2c-1.4-.6-2.3-1.3-2.3-2.9 0-1.4 1.1-2.5 2.8-2.5 1.2 0 2.1.4 2.7 1.5l-1.4.9c-.3-.6-.7-.8-1.3-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.2 1.2l.5.2c1.6.7 2.5 1.4 2.5 3 0 1.7-1.3 2.6-3.1 2.6z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'tailwind' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path
-                            fill="#38BDF8"
-                            d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C15.61 7.15 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C10.61 13.15 9.5 12 7 12z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'html' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fill="#E34F26" d="M4 2h16l-1.5 17L12 22l-6.5-3L4 2z" />
-                          <path fill="#EF652A" d="M12 3.5V20l5.2-2.4L18.4 3.5H12z" />
-                          <path
-                            fill="#FFFFFF"
-                            d="M16.8 7.5H7.2l.2 2.2h9.2l-.6 6.8-4 1.1-4-1.1-.3-3.1h2l.2 1.5 2.1.6 2.1-.6.2-2.9H7.6L7 5.3h10l-.2 2.2z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'bootstrap' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <rect width="20" height="20" x="2" y="2" rx="4" fill="#7952B3" />
-                          <path
-                            fill="#FFFFFF"
-                            d="M8.5 7.5v9h4.6c2.1 0 3.4-1.1 3.4-2.7 0-1.2-.8-2.1-2-2.3v-.1c1-.2 1.6-1 1.6-2 0-1.4-1.1-1.9-2.9-1.9H8.5zm2.1 1.7h2c.9 0 1.4.4 1.4 1s-.5 1-1.4 1h-2V9.2zm0 3.7h2.3c1 0 1.6.4 1.6 1.1 0 .7-.6 1.1-1.6 1.1h-2.3v-2.2z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'python' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path
-                            fill="#3776AB"
-                            d="M12 2c-4.5 0-4.2 2-4.2 2v2.1h4.3v.7H6.1S2 6.5 2 11.9s3.6 5.2 3.6 5.2h2.1v-2.5s-.1-3 2.9-3h4.9s2.7.1 2.7-2.6V4.6S18.7 2 12 2zm-2.4 1.5c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9z"
-                          />
-                          <path
-                            fill="#FFD43B"
-                            d="M12 22c4.5 0 4.2-2 4.2-2v-2.1h-4.3v-.7h6s4.1.3 4.1-5.1-3.6-5.2-3.6-5.2h-2.1v2.5s.1 3-2.9 3H8.5s-2.7-.1-2.7 2.6v4.4S5.3 22 12 22zm2.4-1.5c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'django' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <rect width="20" height="20" x="2" y="2" rx="3" fill="#092E20" />
-                          <path
-                            fill="#44B78B"
-                            d="M11.1 5h2.4v10.5c-1.2.2-2.1.3-3.1.3-2.9 0-4.4-1.3-4.4-3.9 0-2.4 1.6-4 4.1-4 .4 0 .7.1 1 .2V5zm0 5.3c-.3-.1-.6-.2-.9-.2-1.3 0-2.1.8-2.1 2.2 0 1.4.7 2.2 2.1 2.2.3 0 .6 0 .9-.1v-4.1zm4.1-1.8h2.4v7.6c0 2.6-.2 3.8-.8 4.9-.5 1-1.2 1.6-2.6 2.2l-2-1c1.4-.7 2.1-1.2 2.5-2 .4-.8.5-1.8.5-4.4V8.5zm0-3.5h2.4v2.3h-2.4V5z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'postgres' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path
-                            fill="#336791"
-                            d="M12 2C7 2 3 4.2 3 7v10c0 2.8 4 5 9 5s9-2.2 9-5V7c0-2.8-4-5-9-5z"
-                          />
-                          <path
-                            fill="#60A5FA"
-                            d="M12 4c4.1 0 7 1.5 7 3s-2.9 3-7 3-7-1.5-7-3 2.9-3 7-3zm0 16c-4.1 0-7-1.5-7-3v-2.1c1.8 1.3 4.3 2.1 7 2.1s5.2-.8 7-2.1V17c0 1.5-2.9 3-7 3zm0-5c-4.1 0-7-1.5-7-3V9.9c1.8 1.3 4.3 2.1 7 2.1s5.2-.8 7-2.1V12c0 1.5-2.9 3-7 3z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'sql' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fill="#F59E0B" d="M4 5h16v4H4V5zm0 5h16v4H4v-4zm0 5h16v4H4v-4z" />
-                          <path fill="#FEF3C7" d="M6 6.5h2v1H6v-1zm0 5h2v1H6v-1zm0 5h2v1H6v-1z" />
-                        </svg>
-                      )}
-                      {skill.icon === 'git' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path
-                            fill="#F05032"
-                            d="M21.6 11.1L12.9 2.4c-.5-.5-1.3-.5-1.8 0L9.2 4.3l2.3 2.3c.5-.2 1.2-.1 1.6.3.4.4.5 1.1.3 1.6l2.2 2.2c.5-.2 1.2-.1 1.6.3.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.4-.4-.5-1.1-.3-1.6L12.6 9.5v5.5c.2.1.3.2.5.3.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.6-.6-.6-1.6 0-2.2.2-.2.3-.3.5-.4V9.3c-.2-.1-.3-.2-.5-.3-.5-.4-.6-1.1-.3-1.6L8.3 5.1 2.4 11c-.5.5-.5 1.3 0 1.8l8.7 8.7c.5.5 1.3.5 1.8 0l8.7-8.7c.5-.5.5-1.2 0-1.7z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'ad' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path
-                            fill="#0078D4"
-                            d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"
-                          />
-                          <path
-                            fill="#50E6FF"
-                            d="M12 7a3 3 0 110 6 3 3 0 010-6zm0 11c-2.5 0-4.7-1.3-6-3.2.1-2 4-3.1 6-3.1s5.9 1.1 6 3.1c-1.3 1.9-3.5 3.2-6 3.2z"
-                          />
-                        </svg>
-                      )}
-                      {skill.icon === 'm365' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fill="#F25022" d="M3 3h8.5v8.5H3V3z" />
-                          <path fill="#7FBA00" d="M12.5 3H21v8.5h-8.5V3z" />
-                          <path fill="#00A4EF" d="M3 12.5h8.5V21H3v-8.5z" />
-                          <path fill="#FFB900" d="M12.5 12.5H21V21h-8.5v-8.5z" />
-                        </svg>
-                      )}
-                      {skill.icon === 'cloud' && (
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
-                          <path
-                            fill="#F38020"
-                            d="M19.4 10c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.7 4C2.3 8.4 0 10.9 0 14c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2-4.8-4.6-5z"
-                          />
-                          <path
-                            fill="#FAAD3F"
-                            d="M19 20h1.5c2 0 3.5-1.6 3.5-3.5 0-1.8-1.3-3.3-3-3.5-.4-2.3-2.4-4-4.8-4-.8 0-1.5.2-2.2.5 1.8 1.3 3 3.4 3 5.8V20H19z"
-                          />
-                        </svg>
-                      )}
-                    </span>
-                    <span>{skill.name}</span>
-                  </div>
+                  <TechBadge name={skill.name} />
                 ))}
               </div>
             </div>
@@ -529,93 +396,131 @@ const skillCategories = [
     </div>
   </section>
 
-  <!-- 4. PROYECTOS RELEVANTES & LABORATORIO -->
+  <!-- 4. PROYECTOS RELEVANTES & LABORATORIO (ESTILO SHOWCASE SUPERPUESTO DE MÁS NUEVO A MÁS ANTIGUO) -->
   <section
     id="proyectos"
-    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/50 dark:bg-[#111111]/40"
+    class="scroll-mt-20 py-20 sm:py-28 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/40 dark:bg-[#0B0B0B]"
   >
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between pb-10 mb-14 border-b border-zinc-200 dark:border-[#222222]">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
-            Desarrollo de Software
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FF5A1F]">
+            PORTAFOLIO &amp; EVOLUCIÓN TÉCNICA
           </span>
-          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
-            Proyectos Relevantes & Laboratorio
+          <h2 class="mt-3 text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#0E0E0E] dark:text-white">
+            Proyectos <span class="text-[#FF5A1F]">Relevantes</span>
           </h2>
         </div>
-        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
-          Aplicaciones donde pongo en práctica arquitecturas full-stack, autenticación, persistencia
-          y optimización frontend.
+        <p class="mt-3 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+          Ordenados desde el próximo desarrollo hasta mis primeros proyectos web para reflejar mi
+          evolución técnica.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="space-y-20 sm:space-y-28">
         {projects.map((proj) => (
-          <article class="group flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 shadow-xs transition hover:border-[#FF5A1F] hover:shadow-lg hover:shadow-[#FF5A1F]/5 dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-0.5 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
-                  {proj.data.tag}
-                </span>
-                {proj.data.demoUrl ? (
-                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    En Producción
+          <article class="group relative grid grid-cols-1 lg:grid-cols-12 lg:items-center gap-6 lg:gap-0">
+            <!-- Vista previa izquierda con efecto zoom suave al pasar el cursor -->
+            <a
+              href={`/proyectos/${proj.id}`}
+              aria-label={`Ver caso de estudio de ${proj.data.title}`}
+              class="lg:col-span-7 relative block overflow-hidden border border-zinc-300 bg-[#090909] shadow-xl dark:border-[#262626]"
+            >
+              <div class="aspect-16/10 w-full overflow-hidden bg-[#090909]">
+                <img
+                  src={proj.data.image}
+                  alt={`Vista previa del proyecto ${proj.data.title}`}
+                  loading="lazy"
+                  class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                />
+              </div>
+
+              <!-- Badge flotante de estado sobre la imagen -->
+              <div class="absolute top-4 left-4 flex items-center gap-2">
+                {proj.data.status === 'pending' && (
+                  <span class="inline-flex items-center gap-1.5 bg-[#0E0E0E]/90 border border-[#FF5A1F]/60 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#FF5A1F] backdrop-blur-sm">
+                    <span class="h-2 w-2 rounded-full bg-[#FF5A1F] animate-pulse" />
+                    Pendiente · Próximo Desarrollo
                   </span>
-                ) : (
-                  <span class="font-mono text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">
-                    {proj.data.year}
+                )}
+                {proj.data.status === 'live' && (
+                  <span class="inline-flex items-center gap-1.5 bg-[#0E0E0E]/90 border border-emerald-500/50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                    En Producción · {proj.data.year}
+                  </span>
+                )}
+                {proj.data.status === 'completed' && (
+                  <span class="inline-flex items-center gap-1.5 bg-[#0E0E0E]/90 border border-white/15 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-300 backdrop-blur-sm">
+                    Completado · {proj.data.year}
                   </span>
                 )}
               </div>
+            </a>
 
-              <h3 class="text-xl font-bold text-[#0E0E0E] group-hover:text-[#FF5A1F] transition-colors dark:text-white dark:group-hover:text-[#FF5A1F]">
-                <a href={`/proyectos/${proj.id}`}>{proj.data.title}</a>
+            <!-- Tarjeta derecha superpuesta (estilo referencia PIXEL REVIEWS) -->
+            <div class="lg:col-span-6 lg:-ml-12 z-10 border border-zinc-300 bg-white p-7 sm:p-9 shadow-2xl transition group-hover:border-[#FF5A1F]/60 dark:border-[#2a2a2a] dark:bg-[#131313] dark:group-hover:border-[#FF5A1F]/60">
+              <div class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400">
+                {proj.data.tag}
+              </div>
+
+              <h3 class="mt-2.5 text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0E0E0E] dark:text-white leading-tight">
+                <a
+                  href={`/proyectos/${proj.id}`}
+                  class="transition-colors hover:text-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+                >
+                  {proj.data.title}
+                </a>
               </h3>
 
-              <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+              <p class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
                 {proj.data.summary}
               </p>
 
-              <div class="mt-5 flex flex-wrap gap-1.5">
+              <!-- Bloques de Stack con Iconos a Color -->
+              <div class="mt-6 flex flex-wrap gap-2">
                 {proj.data.stack.map((tech) => (
-                  <span class="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-mono font-medium text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
-                    {tech}
-                  </span>
+                  <TechBadge name={tech} compact={true} />
                 ))}
               </div>
-            </div>
 
-            <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-[#222222] flex flex-wrap items-center justify-between gap-3 text-xs font-bold">
-              <a
-                href={`/proyectos/${proj.id}`}
-                class="inline-flex items-center gap-1.5 text-[#FF5A1F] hover:underline"
-              >
-                <span>Ver Caso de Estudio</span>
-                <span aria-hidden="true">&rarr;</span>
-              </a>
+              <div class="my-6 border-t border-zinc-200 dark:border-[#262626]" />
 
-              <div class="flex items-center gap-4">
-                {proj.data.demoUrl && (
-                  <a
-                    href={proj.data.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-zinc-600 hover:text-[#FF5A1F] dark:text-zinc-400 dark:hover:text-[#FF5A1F] inline-flex items-center gap-1"
-                  >
-                    Demo &nearr;
-                  </a>
-                )}
-
+              <!-- Botón principal blanco + enlaces directos -->
+              <div class="flex flex-wrap items-center justify-between gap-4">
                 <a
-                  href={proj.data.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-zinc-600 hover:text-[#0E0E0E] dark:text-zinc-400 dark:hover:text-white inline-flex items-center gap-1"
+                  href={`/proyectos/${proj.id}`}
+                  class="inline-flex items-center gap-2.5 bg-[#0E0E0E] px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#FF5A1F] dark:bg-white dark:text-[#0E0E0E] dark:hover:bg-[#FF5A1F] dark:hover:text-white"
                 >
-                  GitHub &nearr;
+                  <span>
+                    {proj.data.status === 'pending'
+                      ? 'Ver Plan & Arquitectura'
+                      : 'Caso de Estudio & Desglose'}
+                  </span>
+                  <span aria-hidden="true">&rarr;</span>
                 </a>
+
+                <div class="flex items-center gap-4 font-mono text-xs font-bold uppercase tracking-wider">
+                  {proj.data.demoUrl && (
+                    <a
+                      href={proj.data.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-[#FF5A1F] hover:underline inline-flex items-center gap-1"
+                    >
+                      Demo &nearr;
+                    </a>
+                  )}
+                  {proj.data.repoUrl && (
+                    <a
+                      href={proj.data.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-zinc-500 hover:text-[#0E0E0E] dark:text-zinc-400 dark:hover:text-white inline-flex items-center gap-1"
+                    >
+                      GitHub &nearr;
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </article>

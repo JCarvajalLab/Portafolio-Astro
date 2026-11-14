@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import TechBadge from '../../components/TechBadge.astro';
 
 export async function getStaticPaths() {
   const proyectos = await getCollection('proyectos');
@@ -126,6 +127,15 @@ const { Content } = await render(project);
   <!-- CUERPO DEL CASO DE ESTUDIO: PROBLEMA, SOLUCIÓN Y ARQUITECTURA -->
   <section class="py-16 sm:py-24 border-b border-zinc-200 dark:border-[#222222]">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-16">
+      <!-- Vista Previa del Proyecto -->
+      <div class="overflow-hidden border border-zinc-300 bg-[#090909] shadow-2xl dark:border-[#262626]">
+        <img
+          src={data.image}
+          alt={`Vista previa de ${data.title}`}
+          class="w-full max-h-[520px] object-cover object-top"
+        />
+      </div>
+
       <!-- 1. El Problema vs La Solución -->
       <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div class="rounded-2xl border border-zinc-200 bg-white p-7 sm:p-8 dark:border-[#262626] dark:bg-[#161616]">
@@ -153,16 +163,14 @@ const { Content } = await render(project);
         </div>
       </div>
 
-      <!-- 2. Stack Tecnológico Utilizado -->
+      <!-- 2. Stack Tecnológico Utilizado con Iconos a Color -->
       <div class="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-7 sm:p-8 dark:border-[#262626] dark:bg-[#121212]">
         <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
           TECNOLOGÍAS &amp; HERRAMIENTAS DEL PROYECTO
         </span>
-        <div class="mt-4 flex flex-wrap gap-2.5">
+        <div class="mt-4 flex flex-wrap gap-3">
           {data.stack.map((tech) => (
-            <span class="border border-zinc-300 bg-white px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0E0E0E] dark:border-[#2a2a2a] dark:bg-[#181818] dark:text-white">
-              {tech}
-            </span>
+            <TechBadge name={tech} />
           ))}
         </div>
       </div>

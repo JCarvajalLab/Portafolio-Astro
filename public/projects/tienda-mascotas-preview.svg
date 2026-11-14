@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750">
+  <defs>
+    <radialGradient id="glow1" cx="78%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#FF5A1F" stop-opacity="0.32" />
+      <stop offset="55%" stop-color="#FF5A1F" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid1" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="750" fill="#090909" />
+  <rect width="1200" height="750" fill="url(#grid1)" />
+  <rect width="1200" height="750" fill="url(#glow1)" />
+
+  <!-- Top Brand Header -->
+  <rect x="64" y="48" width="32" height="32" rx="6" fill="#FF5A1F" />
+  <text x="80" y="70" fill="#FFFFFF" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">{ }</text>
+  <text x="108" y="69" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="800">PetStore<tspan fill="#FF5A1F">SSR</tspan></text>
+  <rect x="230" y="51" width="136" height="24" rx="12" fill="#FF5A1F" fill-opacity="0.16" stroke="#FF5A1F" stroke-opacity="0.5" />
+  <text x="298" y="67" fill="#FF5A1F" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">PENDIENTE · 2026</text>
+
+  <!-- Main Editorial Headline -->
+  <text x="64" y="255" fill="#FF5A1F" font-family="monospace" font-size="13" font-weight="bold" letter-spacing="3">PRÓXIMO DESARROLLO · ASTRO SSR &amp; POSTGRESQL</text>
+  <text x="64" y="335" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="72" font-weight="900" letter-spacing="-2">Tienda Mascotas.</text>
+  <text x="64" y="415" fill="#FF5A1F" font-family="system-ui, sans-serif" font-size="72" font-weight="900" letter-spacing="-2">Full Stack SSR.</text>
+
+  <text x="64" y="478" fill="#A1A1AA" font-family="system-ui, sans-serif" font-size="19">Catálogo por especie, carrito persistente, stock en PostgreSQL</text>
+  <text x="64" y="506" fill="#A1A1AA" font-family="system-ui, sans-serif" font-size="19">y pasarela de pagos integrada en modo sandbox.</text>
+
+  <!-- Bottom Buttons Mock -->
+  <rect x="64" y="555" width="180" height="46" rx="4" fill="#FF5A1F" />
+  <text x="154" y="583" fill="#FFFFFF" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">EN PLANIFICACIÓN</text>
+  <rect x="260" y="555" width="165" height="46" rx="4" fill="#141414" stroke="#2E2E2E" />
+  <text x="342" y="583" fill="#E4E4E7" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">PROYECTO 03</text>
+
+  <!-- Stylized Cart & Database Graphic on Right -->
+  <g transform="translate(760, 210)">
+    <rect x="0" y="0" width="320" height="330" rx="16" fill="#121212" stroke="#2A2A2A" stroke-width="2" />
+    <rect x="24" y="24" width="272" height="42" rx="8" fill="#1A1A1A" />
+    <circle cx="44" cy="45" r="6" fill="#FF5A1F" />
+    <circle cx="64" cy="45" r="6" fill="#3F3F46" />
+    <circle cx="84" cy="45" r="6" fill="#3F3F46" />
+    <text x="195" y="50" fill="#71717A" font-family="monospace" font-size="11">SSR · STOCK DB</text>
+
+    <rect x="24" y="88" width="128" height="110" rx="10" fill="#18181B" stroke="#FF5A1F" stroke-opacity="0.4" />
+    <circle cx="88" cy="130" r="22" fill="#FF5A1F" fill-opacity="0.2" />
+    <text x="88" y="137" fill="#FF5A1F" font-family="monospace" font-size="18" font-weight="bold" text-anchor="middle">🐾</text>
+    <rect x="44" y="168" width="88" height="12" rx="4" fill="#3F3F46" />
+
+    <rect x="168" y="88" width="128" height="110" rx="10" fill="#18181B" stroke="#27272A" />
+    <circle cx="232" cy="130" r="22" fill="#38BDF8" fill-opacity="0.15" />
+    <text x="232" y="137" fill="#38BDF8" font-family="monospace" font-size="15" font-weight="bold" text-anchor="middle">SQL</text>
+    <rect x="188" y="168" width="88" height="12" rx="4" fill="#27272A" />
+
+    <rect x="24" y="218" width="272" height="84" rx="10" fill="#18181B" stroke="#27272A" />
+    <text x="44" y="250" fill="#FFFFFF" font-family="monospace" font-size="13" font-weight="bold">CHECKOUT SANDBOX</text>
+    <text x="44" y="274" fill="#FF5A1F" font-family="monospace" font-size="12">PostgreSQL + Astro Actions</text>
+  </g>
+
+  <rect x="0" y="742" width="1200" height="8" fill="#FF5A1F" />
+</svg>

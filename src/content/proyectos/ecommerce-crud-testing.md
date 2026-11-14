@@ -1,9 +1,11 @@
 ---
 title: "E-commerce CRUD con Pruebas Automatizadas"
-tag: "Django ORM + Testing"
+tag: "BACKEND & QA · DJANGO ORM + TESTING"
 category: "fullstack"
-order: 3
-year: "2026"
+status: "completed"
+image: "/projects/ecommerce-crud-preview.svg"
+order: 4
+year: "May. 2026"
 role: "Desarrollador Backend Python / QA"
 summary: "Aplicación web para gestión de productos y categorías utilizando Django ORM y base de datos PostgreSQL. Incorpora validaciones personalizadas en formularios para garantizar la integridad de datos y tests unitarios automatizados para asegurar la confiabilidad del sistema."
 problem: "En sistemas de gestión de inventario y catálogo, los errores humanos al ingresar precios negativos, códigos duplicados o categorías huérfanas corrompen la base de datos si no existen reglas de validación estrictas y pruebas automatizadas que verifiquen cada operación CRUD."
@@ -18,12 +20,11 @@ results:
   - "Prevención total de datos corruptos en PostgreSQL gracias a la doble capa de validación (formulario + base de datos)."
   - "Base de código limpia y fácil de auditar al ejecutar cambios o refactorizaciones."
 stack:
-  - "Python"
-  - "Django"
-  - "PostgreSQL"
-  - "Django ORM"
-  - "Unit Testing"
-  - "Git"
+  - "PYTHON"
+  - "DJANGO"
+  - "POSTGRESQL"
+  - "SQL"
+  - "GIT & GITHUB"
 demoUrl: null
 repoUrl: "https://github.com/JCarvajalLab"
 highlight: false

@@ -1,9 +1,11 @@
 ---
 title: "E-commerce Frontend & Arquitectura Web"
-tag: "Frontend Semántico & Vue.js"
+tag: "FUNDAMENTOS WEB · FRONTEND SEMÁNTICO & VUE.JS"
 category: "frontend"
-order: 4
-year: "2025"
+status: "completed"
+image: "/projects/ecommerce-frontend-preview.svg"
+order: 5
+year: "Ene. 2025"
 role: "Desarrollador Frontend"
 summary: "Desarrollo de interfaz de e-commerce aplicando estructura semántica, estilos modulares y fundamentos de desarrollo Frontend interactivo con JavaScript nativo y Vue.js, organizado en repositorio público con control de versiones Git."
 problem: "Las interfaces de comercio electrónico suelen sufrir de sobrecarga visual, mala adaptación en pantallas pequeñas y estructuras HTML poco semánticas que dificultan tanto la accesibilidad por teclado como el mantenimiento de los estilos."
@@ -18,12 +20,11 @@ results:
   - "Código modular y desacoplado que sirve como base para integraciones con APIs REST."
   - "Navegación intuitiva con estados de foco visibles y contraste cromático accesible."
 stack:
-  - "HTML5"
-  - "CSS3"
-  - "JavaScript ES6+"
-  - "Vue.js"
-  - "Git"
-  - "GitHub"
+  - "VUE.JS"
+  - "JAVASCRIPT"
+  - "HTML5 & CSS3"
+  - "BOOTSTRAP"
+  - "GIT & GITHUB"
 demoUrl: null
 repoUrl: "https://github.com/JCarvajalLab"
 highlight: false
