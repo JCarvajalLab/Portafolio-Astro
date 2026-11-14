@@ -628,9 +628,11 @@ const skillCategories = [
 
         <p
           id="project-filter-count"
+          data-i18n-es={`Mostrando ${projects.length} de ${projects.length} proyectos`}
+          data-i18n-en={`Showing ${projects.length} of ${projects.length} projects`}
           class="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
         >
-          Mostrando 5 de 5 proyectos
+          Mostrando {projects.length} de {projects.length} proyectos
         </p>
       </div>
 
@@ -1093,11 +1095,12 @@ const skillCategories = [
 
     const updateFilterCountText = (visibleCount, totalCount) => {
       if (!filterCountEl) return;
+      const esText = `Mostrando ${visibleCount} de ${totalCount} proyectos`;
+      const enText = `Showing ${visibleCount} of ${totalCount} projects`;
+      filterCountEl.setAttribute('data-i18n-es', esText);
+      filterCountEl.setAttribute('data-i18n-en', enText);
       const currentLang = document.documentElement.lang === 'en' ? 'en' : 'es';
-      filterCountEl.textContent =
-        currentLang === 'en'
-          ? `Showing ${visibleCount} of ${totalCount} projects`
-          : `Mostrando ${visibleCount} de ${totalCount} proyectos`;
+      filterCountEl.textContent = currentLang === 'en' ? enText : esText;
     };
 
     const applyProjectFilter = (filterValue) => {
