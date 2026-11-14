@@ -15,9 +15,9 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-13
 - **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
 - **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(hero): simplifica nombre a Jordan Carvajal y expande hero a ancho completo max-w-6xl`
+- **Último commit relevante:** `feat(hero): rediseña portada con cuadricula de fondo, stacks animados en naranja y layout editorial`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), logo `JCarvajalLab` con isotipo de llaves `{ }`, selector maquetado de idioma `ES / EN` junto al toggle Dark Mode, Hero tipo jumbotron expandido a ancho completo (`max-w-6xl`) alineado con Navbar y secciones inferiores, título unificado en una línea y un solo color (`Jordan Carvajal`), eliminación completa de referencias a "Santiago, Chile", y canales de contacto limpios (`jcarvajallab` y formulario)
+- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula arquitectónica de fondo (`.bg-hero-grid`), eyebrow superior técnico (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA`), titular gigante con `Jordan Carvajal.` en blanco y línea naranja interactiva con animación typewriter de stacks (`Python & Django`, `Astro & Tailwind CSS`, `JavaScript & Vue.js`, `PostgreSQL & SQL`, `Git & GitHub`), píldoras de stack clicables y pie de portada dividido en dos columnas con botones redondeados (`Ver mi trabajo ->` y `Hablemos`)
 - **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
@@ -40,6 +40,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-13 · `phase/02-base` · portada editorial con cuadrícula de fondo y animación de stacks en naranja
+- **Qué:** Rediseño de la portada (Hero) inspirado en la referencia visual del usuario: fondo con patrón de cuadrícula arquitectónica sutil (`.bg-hero-grid`), encabezado técnico en fuente monoespaciada (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA · DESARROLLO WEB & SOPORTE TI`), titular de alto impacto con `Jordan Carvajal.` en blanco puro y frase naranja animada (`Construyendo soluciones con [Stack] |`) que alterna dinámicamente entre los stacks activos y en aprendizaje (`Python & Django.`, `Astro & Tailwind CSS.`, `JavaScript & Vue.js.`, `PostgreSQL & SQL.`, `Git, GitHub & Clean Code.`), barra interactiva de píldoras de stack clicables al instante, línea divisoria horizontal de ancho completo y sección inferior en dos columnas con descripción a la izquierda y botones tipo píldora (`Ver mi trabajo ->` y `Hablemos`) a la derecha.
+- **Archivos clave:** `src/pages/index.astro`, `src/styles/global.css`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 458ms con 0 errores y 0 vulnerabilidades.
 
 ### 2026-11-13 · `phase/02-base` · simplificación de nombre y expansión de hero a ancho completo
 - **Qué:** Simplificación del nombre en todo el sitio a "Jordan Carvajal" en una sola línea y un único color sólido (`#0E0E0E` / `#FFFFFF`) para no distraer de la información inferior; expansión del contenedor del Hero de `max-w-4xl` a `max-w-6xl` sin restricción de ancho en el párrafo descriptivo (distribución tipo jumbotron alineada con Navbar y secciones inferiores); eliminación de las menciones restantes a "Santiago, Chile" en `experienceList` y actualización de todos los enlaces de LinkedIn a `https://www.linkedin.com/in/jcarvajallab/`.
