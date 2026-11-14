@@ -417,48 +417,27 @@ const skillCategories = [
         </p>
       </div>
 
-      <div class="space-y-20 sm:space-y-28">
+      <div class="space-y-16 sm:space-y-24">
         {projects.map((proj) => (
           <article class="group relative grid grid-cols-1 lg:grid-cols-12 lg:items-center gap-6 lg:gap-0">
             <!-- Vista previa izquierda con efecto zoom suave al pasar el cursor -->
             <a
               href={`/proyectos/${proj.id}`}
               aria-label={`Ver caso de estudio de ${proj.data.title}`}
-              class="lg:col-span-7 relative block overflow-hidden border border-zinc-300 bg-[#090909] shadow-xl dark:border-[#262626]"
+              class="lg:col-start-1 lg:col-end-8 lg:row-start-1 relative block overflow-hidden border border-zinc-300 bg-[#090909] shadow-xl dark:border-[#262626]"
             >
               <div class="aspect-16/10 w-full overflow-hidden bg-[#090909]">
                 <img
                   src={proj.data.image}
                   alt={`Vista previa del proyecto ${proj.data.title}`}
                   loading="lazy"
-                  class="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                  class="h-full w-full object-cover object-left-top transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                 />
-              </div>
-
-              <!-- Badge flotante de estado sobre la imagen -->
-              <div class="absolute top-4 left-4 flex items-center gap-2">
-                {proj.data.status === 'pending' && (
-                  <span class="inline-flex items-center gap-1.5 bg-[#0E0E0E]/90 border border-[#FF5A1F]/60 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#FF5A1F] backdrop-blur-sm">
-                    <span class="h-2 w-2 rounded-full bg-[#FF5A1F] animate-pulse" />
-                    Pendiente · Próximo Desarrollo
-                  </span>
-                )}
-                {proj.data.status === 'live' && (
-                  <span class="inline-flex items-center gap-1.5 bg-[#0E0E0E]/90 border border-emerald-500/50 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
-                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                    En Producción · {proj.data.year}
-                  </span>
-                )}
-                {proj.data.status === 'completed' && (
-                  <span class="inline-flex items-center gap-1.5 bg-[#0E0E0E]/90 border border-white/15 px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-300 backdrop-blur-sm">
-                    Completado · {proj.data.year}
-                  </span>
-                )}
               </div>
             </a>
 
-            <!-- Tarjeta derecha superpuesta (estilo referencia PIXEL REVIEWS) -->
-            <div class="lg:col-span-6 lg:-ml-12 z-10 border border-zinc-300 bg-white p-7 sm:p-9 shadow-2xl transition group-hover:border-[#FF5A1F]/60 dark:border-[#2a2a2a] dark:bg-[#131313] dark:group-hover:border-[#FF5A1F]/60">
+            <!-- Tarjeta derecha superpuesta en la misma fila horizontal (estilo referencia PIXEL REVIEWS) -->
+            <div class="lg:col-start-7 lg:col-end-13 lg:row-start-1 z-10 border border-zinc-300 bg-white p-7 sm:p-9 shadow-2xl transition group-hover:border-[#FF5A1F]/60 dark:border-[#2a2a2a] dark:bg-[#131313] dark:group-hover:border-[#FF5A1F]/60">
               <div class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400">
                 {proj.data.tag}
               </div>
