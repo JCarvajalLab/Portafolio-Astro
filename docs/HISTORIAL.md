@@ -15,10 +15,10 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-14
 - **Fase activa:** `phase/04-interactividad` (Fase 4 completada al 100% con traducción bilingüe integral ES/EN)
 - **Rama de trabajo:** `phase/04-interactividad`
-- **Último commit relevante:** `feat(i18n): completa traduccion bilingue es/en en experiencia, formacion, proyectos y casos de estudio`
+- **Último commit relevante:** `feat(copy): ajusta bio a transicion desde soporte ti, renombra stack tecnologico y agrega iconos a color en demo/github`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Content Layer API con 5 proyectos bilingües (ES/EN) en showcase superpuesto, filtros interactivos en JS nativo, Footer llamativo con tarjetas de redes a color + botón editorial `VOLVER ARRIBA ↑`, y selector `ES / EN` que traduce el 100% del sitio (Hero, Experiencia Laboral con responsabilidades, Formación Académica con detalles y tags, Skills, Cards de Proyectos, páginas completas de Casos de Estudio `/proyectos/[id]`, Contacto, Footer y 404)
-- **Qué está en progreso:** Revisión visual de la traducción completa ES/EN para pasar a Fase 5 (`phase/05-seo`)
+- **Qué funciona:** Content Layer API con 5 proyectos bilingües (ES/EN), filtros interactivos con contador sincronizado en ambos idiomas, bio enfocada en la transición desde 4+ años en soporte TI hacia desarrollo web práctico mediante proyectos, encabezado `HERRAMIENTAS & TECNOLOGÍAS / STACK TECNOLÓGICO` con jerarquía Naranja-Blanco-Naranja, botones `VER DETALLES DEL PROYECTO →` en español chileno/neutro y botones `VER DEMO` y `GITHUB` con iconos a color (`#FF5A1F` y `#8B5CF6`)
+- **Qué está en progreso:** Definir si el usuario desea modificar la sección `#contacto` ahora en Fase 4 antes de avanzar a Fase 5 (`phase/05-seo`)
 - **Bloqueos o problemas conocidos:** ninguno (7 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/04-interactividad` hacia `develop` e iniciar `phase/05-seo` (sitemap, Open Graph, Twitter Cards, `robots.txt` y JSON-LD)
 
@@ -41,6 +41,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/04-interactividad` · ajuste de bio (transición Soporte TI a Desarrollo), título Stack Tecnológico y botones de proyectos con iconos a color
+- **Qué:** 1) En el Hero (`src/pages/index.astro`) y en `src/components/Footer.astro` se reescribió la presentación en ES y EN para dejar claro que los más de 4 años de experiencia corresponden a soporte TI corporativo y que actualmente enfoca su carrera en desarrollo web Full Stack y Frontend construyendo experiencia práctica basada en proyectos reales. 2) Se reemplazó el encabezado `TOOLKIT / SKILLS & EXPERTISE` por `HERRAMIENTAS & TECNOLOGÍAS` (naranja) + `STACK` (blanco) + `TECNOLÓGICO` (naranja), manteniendo el mismo patrón cromático Naranja-Blanco-Naranja de las demás secciones y su traducción a inglés (`TOOLS & TECHNOLOGIES / SKILLS & TECH STACK`). 3) Se cambió el texto del botón de las tarjetas de proyecto de `"CASO DE ESTUDIO & DESGLOSE"` a `"VER DETALLES DEL PROYECTO →"` (`"VIEW PROJECT DETAILS →"` en inglés) para un español chileno/neutro natural, y se rediseñaron los enlaces `VER DEMO` y `GITHUB` como botones con sus iconos vectoriales a color (globo web naranja `#FF5A1F` y Octocat púrpura `#8B5CF6`).
+- **Archivos clave:** `src/pages/index.astro`, `src/components/Footer.astro`, `src/pages/proyectos/[id].astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** Todos los cambios incluyen traducción sincronizada en español e inglés (`data-i18n-es` y `data-i18n-en`).
 
 ### 2026-11-14 · `phase/04-interactividad` · traducción bilingüe completa ES/EN en todas las secciones y páginas de proyectos
 - **Qué:** 1) En `src/components/Footer.astro` se restauró el diseño llamativo de tarjetas con iconos a color que prefirió el usuario, conservando el botón cuadrado editorial `VOLVER ARRIBA ↑` con hover naranja `#FF5A1F`. 2) Se amplió el esquema de Content Collections (`src/content.config.js`) y los 5 archivos `.md` en `src/content/proyectos/` con campos en inglés (`titleEn`, `tagEn`, `yearEn`, `roleEn`, `summaryEn`, `problemEn`, `solutionEn`, `architectureEn`, `resultsEn` y bloques `<div data-lang-block="es|en">`). 3) Se conectaron con `data-i18n-es` y `data-i18n-en` todos los cargos, períodos, modalidades y viñetas de **Experiencia Profesional**, todos los títulos, tipos, descripciones y etiquetas de **Formación Académica**, las categorías de **Skills**, las **Cards de Proyectos**, el interior completo de **`/proyectos/[id].astro`** y **`404.astro`**.
