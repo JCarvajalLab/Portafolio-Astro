@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
 - **Última actualización:** 2026-11-14
-- **Fase activa:** `phase/03-content` (Fase 3 completada al 100%)
-- **Rama de trabajo:** `phase/03-content`
-- **Último commit relevante:** `feat(favicon): reemplaza icono de pestaña <> por llaves { } en color naranja #FF5A1F`
+- **Fase activa:** `phase/04-interactividad` (Fase 4 completada al 100%)
+- **Rama de trabajo:** `phase/04-interactividad`
+- **Último commit relevante:** `feat(interactividad): implementa filtros nativos de proyectos, selector de idioma es/en funcional y validacion de contacto`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Content Layer API de Astro 5 con 5 proyectos ordenados del más reciente/próximo al más antiguo (`tienda-mascotas-ssr` marcado como Pendiente, `clinica-veterinaria-huellitas` con captura real del README, `ecommerce-fullstack-django`, `ecommerce-crud-testing`, `ecommerce-frontend-arquitectura`), diseño showcase superpuesto en la misma fila horizontal (`lg:row-start-1`), componente reutilizable `TechBadge.astro` de iconos a color, y `favicon.svg` actualizado con llaves `{ }` en color `#FF5A1F`
-- **Qué está en progreso:** Revisión visual de Fase 3 para avanzar a Fase 4 (`phase/04-interactividad`)
+- **Qué funciona:** Content Layer API con 5 proyectos en showcase horizontal superpuesto, barra de filtros interactivos en JavaScript nativo sin recarga (`Todos (5)`, `Full Stack & Datos (3)`, `Frontend & UI (2)`, `En Producción (1)`) con contador dinámico y atributos `aria-pressed`, selector de idioma `ES / EN` funcional con persistencia en `localStorage` para interfaz principal, Navbar y Footer, y validación interactiva + honeypot antispam en el formulario de contacto
+- **Qué está en progreso:** Revisión visual de Fase 4 para avanzar a Fase 5 (`phase/05-seo`)
 - **Bloqueos o problemas conocidos:** ninguno (7 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Integrar `phase/03-content` hacia `develop` e iniciar `phase/04-interactividad` (filtros nativos y selector funcional `ES / EN`)
+- **Siguiente paso concreto:** Integrar `phase/04-interactividad` hacia `develop` e iniciar `phase/05-seo` (sitemap, Open Graph, Twitter Cards, `robots.txt` y JSON-LD)
 
 ## 2. Decisiones importantes
 
@@ -36,10 +36,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-12 | Menú móvil accesible y navegación suave sin hashes residuales | Experiencia nativa fluida, control WCAG de `aria-expanded` y URLs visualmente limpias | Librerías pesadas o frameworks de UI |
 | 2026-11-13 | Paleta 60-30-10 (#0E0E0E, #FFFFFF, #FF5A1F) con datos del CV | Identidad potente, tecnológica y diferenciada de proyectos anteriores; contenido real de Jordan Carvajal | Paletas genéricas o pastelosas de landing comercial |
 | 2026-11-13 | Logotipo con llaves `{ }`, marca JCarvajalLab y botón maquetado ES/EN | Identidad developer limpia, remoción de botones redundantes y preparación para i18n en fase futura | Iniciales JC y botones repetidos |
+| 2026-11-14 | Filtros de proyectos y selector ES/EN en JS nativo con `data-*` | Cero dependencias externas, cambio instantáneo sin recarga y persistencia en `localStorage` | Frameworks de UI (React/Vue) o librerías pesadas de i18n |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/04-interactividad` · filtros nativos de proyectos, selector de idioma ES/EN funcional y validación de contacto
+- **Qué:** Cierre e integración de `phase/03-content` en `develop` e implementación completa de `phase/04-interactividad`: 1) Barra de filtros interactivos en JavaScript nativo dentro de `#proyectos` (`Todos (5)`, `Full Stack & Datos (3)`, `Frontend & UI (2)`, `En Producción (1)`) que filtra instantáneamente las tarjetas superpuestas por `data-category` y `data-status`, actualiza `aria-pressed` y muestra un contador dinámico (`Mostrando X de 5 proyectos`). 2) Activación funcional del botón `ES / EN` en `Navbar.astro` (escritorio y móvil) con persistencia en `localStorage`, alternando dinámicamente textos de navegación, encabezados de sección, descripciones principales, botones de proyectos, formulario y `Footer.astro` mediante atributos `data-i18n-es` y `data-i18n-en`. 3) Validación de campos en cliente y verificación silenciosa del campo honeypot `_gotcha` en el formulario de contacto.
+- **Archivos clave:** `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, ux-ui, seguridad, qa, docs-seo
+- **Notas:** `npm run build` genera 7 páginas estáticas con 0 errores y 0 vulnerabilidades.
 
 ### 2026-11-14 · `phase/03-content` · rediseño de proyectos estilo showcase superpuesto, tienda de mascotas (pendiente) y favicon `{ }`
 - **Qué:** Rediseño de la sección Proyectos Relevantes siguiendo la referencia visual del usuario (`PIXEL REVIEWS`): vista previa a la izquierda (`lg:col-start-1 lg:col-end-8 lg:row-start-1`) con animación de acercamiento (`group-hover:scale-[1.04]`) y tarjeta superpuesta a la derecha en la misma fila (`lg:col-start-7 lg:col-end-13 lg:row-start-1 z-10`) con bloques de tecnologías e iconos a color mediante el nuevo componente reutilizable `src/components/TechBadge.astro`. Se incorporó el 5° proyecto (`src/content/proyectos/tienda-mascotas-ssr.md`, marcado como `Pendiente · Próximo Desarrollo`), se extrajo la captura real desde `astro-landing-veterinaria/docs/screenshots/03-hero-dark-desktop.png` para Veterinaria Huellitas, se ordenaron los 5 proyectos del más nuevo al más antiguo y se actualizó `public/favicon.svg` de `<>` azul a `{ }` en naranja `#FF5A1F`.
