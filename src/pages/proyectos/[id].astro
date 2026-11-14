@@ -1,0 +1,248 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const proyectos = await getCollection('proyectos');
+  const sorted = [...proyectos].sort((a, b) => a.data.order - b.data.order);
+
+  return sorted.map((project, index) => {
+    const prevProject = index > 0 ? sorted[index - 1] : null;
+    const nextProject = index < sorted.length - 1 ? sorted[index + 1] : null;
+
+    return {
+      params: { id: project.id },
+      props: { project, prevProject, nextProject },
+    };
+  });
+}
+
+const { project, prevProject, nextProject } = Astro.props;
+const { data } = project;
+const { Content } = await render(project);
+---
+
+<Layout title={`${data.title} | Caso de Estudio — Jordan Carvajal`} description={data.summary}>
+  <!-- ENCABEZADO DEL CASO DE ESTUDIO CON CUADRÍCULA ARQUITECTÓNICA -->
+  <section class="relative overflow-hidden py-16 sm:py-24 border-b border-zinc-200 dark:border-[#222222]">
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-hero-grid" aria-hidden="true"></div>
+    <div
+      class="pointer-events-none absolute -top-36 right-1/4 -z-10 h-96 w-96 rounded-full bg-[#FF5A1F]/10 blur-[120px]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <!-- Navegación de retorno -->
+      <div class="mb-8">
+        <a
+          href="/#proyectos"
+          class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-zinc-500 transition hover:text-[#FF5A1F] dark:text-zinc-400 dark:hover:text-[#FF5A1F]"
+        >
+          <span aria-hidden="true">&larr;</span>
+          <span>Volver a Proyectos</span>
+        </a>
+      </div>
+
+      <!-- Eyebrow de Categoría y Estado -->
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="rounded-full bg-[#FF5A1F]/10 px-3.5 py-1 font-mono text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+          {data.tag}
+        </span>
+        {data.demoUrl ? (
+          <span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+            <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            Desplegado en Producción
+          </span>
+        ) : (
+          <span class="inline-flex items-center gap-1.5 rounded-full border border-zinc-300 bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-600 dark:border-[#2a2a2a] dark:bg-[#161616] dark:text-zinc-400">
+            Caso de Estudio Técnico
+          </span>
+        )}
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white leading-[1.08]">
+        {data.title}
+      </h1>
+
+      <!-- Resumen ejecutivo -->
+      <p class="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-3xl">
+        {data.summary}
+      </p>
+
+      <!-- Barra de Metadatos y Enlaces Directos -->
+      <div class="mt-10 pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          <div>
+            <div class="font-mono text-[11px] uppercase tracking-widest text-zinc-400">Rol</div>
+            <div class="mt-1 text-sm font-bold text-[#0E0E0E] dark:text-white">{data.role}</div>
+          </div>
+          <div>
+            <div class="font-mono text-[11px] uppercase tracking-widest text-zinc-400">Año</div>
+            <div class="mt-1 text-sm font-bold text-[#0E0E0E] dark:text-white">{data.year}</div>
+          </div>
+          <div class="col-span-2 sm:col-span-1">
+            <div class="font-mono text-[11px] uppercase tracking-widest text-zinc-400">Enfoque</div>
+            <div class="mt-1 text-sm font-bold text-[#FF5A1F] uppercase">
+              {data.category === 'fullstack' ? 'Full Stack & Datos' : 'Frontend & UX/UI'}
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de Acción (Demo y Repositorio) -->
+        <div class="flex flex-wrap items-center gap-3">
+          {data.demoUrl && (
+            <a
+              href={data.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full bg-[#FF5A1F] px-6 py-3 text-sm font-bold text-white shadow-md shadow-[#FF5A1F]/20 transition hover:bg-[#e04810]"
+            >
+              <span>Ver Sitio en Vivo</span>
+              <span aria-hidden="true">&nearr;</span>
+            </a>
+          )}
+
+          <a
+            href={data.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-6 py-3 text-sm font-bold text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#2a2a2a] dark:bg-[#161616] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+          >
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>Ver Código en GitHub</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUERPO DEL CASO DE ESTUDIO: PROBLEMA, SOLUCIÓN Y ARQUITECTURA -->
+  <section class="py-16 sm:py-24 border-b border-zinc-200 dark:border-[#222222]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 space-y-16">
+      <!-- 1. El Problema vs La Solución -->
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div class="rounded-2xl border border-zinc-200 bg-white p-7 sm:p-8 dark:border-[#262626] dark:bg-[#161616]">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FF5A1F]">
+            01. EL DESAFÍO
+          </span>
+          <h2 class="mt-2 text-2xl font-extrabold text-[#0E0E0E] dark:text-white">
+            Problema &amp; Contexto
+          </h2>
+          <p class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            {data.problem}
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-[#FF5A1F]/40 bg-white p-7 sm:p-8 dark:bg-[#161616]">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FF5A1F]">
+            02. LA PROPUESTA
+          </span>
+          <h2 class="mt-2 text-2xl font-extrabold text-[#0E0E0E] dark:text-white">
+            Solución Implementada
+          </h2>
+          <p class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+            {data.solution}
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. Stack Tecnológico Utilizado -->
+      <div class="rounded-2xl border border-zinc-200 bg-zinc-50/60 p-7 sm:p-8 dark:border-[#262626] dark:bg-[#121212]">
+        <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+          TECNOLOGÍAS &amp; HERRAMIENTAS DEL PROYECTO
+        </span>
+        <div class="mt-4 flex flex-wrap gap-2.5">
+          {data.stack.map((tech) => (
+            <span class="border border-zinc-300 bg-white px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0E0E0E] dark:border-[#2a2a2a] dark:bg-[#181818] dark:text-white">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- 3. Arquitectura Técnica y Resultados -->
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <div class="lg:col-span-7 rounded-2xl border border-zinc-200 bg-white p-7 sm:p-8 dark:border-[#262626] dark:bg-[#161616]">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FF5A1F]">
+            03. INGENIERÍA
+          </span>
+          <h2 class="mt-2 text-2xl font-extrabold text-[#0E0E0E] dark:text-white">
+            Arquitectura &amp; Implementación
+          </h2>
+          <ul class="mt-5 space-y-3.5 text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
+            {data.architecture.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-[#FF5A1F] font-bold mt-1 shrink-0">▪</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="lg:col-span-5 rounded-2xl border border-zinc-200 bg-white p-7 sm:p-8 dark:border-[#262626] dark:bg-[#161616]">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-[#FF5A1F]">
+            04. IMPACTO
+          </span>
+          <h2 class="mt-2 text-2xl font-extrabold text-[#0E0E0E] dark:text-white">
+            Resultados Clave
+          </h2>
+          <ul class="mt-5 space-y-3.5 text-sm sm:text-base text-zinc-600 dark:text-zinc-300">
+            {data.results.map((res) => (
+              <li class="flex items-start gap-3">
+                <span class="text-emerald-500 font-bold mt-0.5 shrink-0">✓</span>
+                <span>{res}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. Desarrollo Detallado (Markdown Content) -->
+      <div class="rounded-2xl border border-zinc-200 bg-white p-7 sm:p-10 dark:border-[#262626] dark:bg-[#161616]">
+        <div class="case-study-prose max-w-3xl space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-[#0E0E0E] dark:[&_h2]:text-white [&_h2]:mb-3 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-[#FF5A1F] [&_h3]:mt-6 [&_h3]:mb-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2 [&_strong]:text-[#0E0E0E] dark:[&_strong]:text-white">
+          <Content />
+        </div>
+      </div>
+
+      <!-- 5. Navegación entre Casos de Estudio -->
+      <div class="pt-6 border-t border-zinc-200 dark:border-[#222222] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        {prevProject ? (
+          <a
+            href={`/proyectos/${prevProject.id}`}
+            class="group rounded-xl border border-zinc-200 bg-white p-4 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]"
+          >
+            <div class="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+              &larr; Caso de Estudio Anterior
+            </div>
+            <div class="mt-1 text-sm font-bold text-[#0E0E0E] group-hover:text-[#FF5A1F] dark:text-white">
+              {prevProject.data.title}
+            </div>
+          </a>
+        ) : (
+          <div />
+        )}
+
+        {nextProject && (
+          <a
+            href={`/proyectos/${nextProject.id}`}
+            class="group rounded-xl border border-zinc-200 bg-white p-4 text-right transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]"
+          >
+            <div class="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+              Siguiente Caso de Estudio &rarr;
+            </div>
+            <div class="mt-1 text-sm font-bold text-[#0E0E0E] group-hover:text-[#FF5A1F] dark:text-white">
+              {nextProject.data.title}
+            </div>
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
+</Layout>

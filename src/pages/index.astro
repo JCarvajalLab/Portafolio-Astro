@@ -1,5 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const rawProjects = await getCollection('proyectos');
+const projects = [...rawProjects].sort((a, b) => a.data.order - b.data.order);
 
 const experienceList = [
   {
@@ -95,49 +99,6 @@ const skillCategories = [
       { name: 'MICROSOFT 365', icon: 'm365' },
       { name: 'CLOUDFLARE PAGES', icon: 'cloud' },
     ],
-  },
-];
-
-const projects = [
-  {
-    title: 'E-commerce Full Stack - Proyecto Final',
-    tag: 'Python / Django + PostgreSQL',
-    description:
-      'Plataforma completa de comercio electrónico desarrollada con Django y PostgreSQL. Integra catálogo de productos, autenticación de usuarios, carrito de compras dinámico y gestión de pedidos para simular un flujo real de compra. Incluye panel de administración con roles y validaciones.',
-    stack: ['Python', 'Django', 'PostgreSQL', 'Bootstrap 5', 'Git', 'GitHub'],
-    demoUrl: null,
-    repoUrl: 'https://github.com/JCarvajalLab',
-    highlight: true,
-  },
-  {
-    title: 'E-commerce CRUD con Pruebas Automatizadas',
-    tag: 'Django ORM + Testing',
-    description:
-      'Aplicación web para gestión de productos y categorías utilizando Django ORM y base de datos PostgreSQL. Incorpora validaciones personalizadas en formularios para garantizar la integridad de datos y tests unitarios automatizados para asegurar la confiabilidad del sistema.',
-    stack: ['Python', 'Django', 'PostgreSQL', 'Django ORM', 'Testing', 'Git'],
-    demoUrl: null,
-    repoUrl: 'https://github.com/JCarvajalLab',
-    highlight: false,
-  },
-  {
-    title: 'Clínica Veterinaria Huellitas',
-    tag: 'Astro 5 + Tailwind v4 + Vanilla JS',
-    description:
-      'Landing médica de alta conversión con portal interactivo de agendamiento en 4 pasos, filtrado dinámico de profesionales por especialidad, validación estricta de domingos y especies, comprobante médico con QR vectorial e impresión limpia, dark mode y 0 frameworks pesados.',
-    stack: ['Astro 5', 'Tailwind v4', 'Vanilla JS', 'SSG', 'Cloudflare Pages'],
-    demoUrl: 'https://huellitas-vet.pages.dev',
-    repoUrl: 'https://github.com/JCarvajalLab/astro-landing-veterinaria',
-    highlight: true,
-  },
-  {
-    title: 'E-commerce Frontend & Arquitectura Web',
-    tag: 'Frontend Semántico',
-    description:
-      'Desarrollo de interfaz de e-commerce aplicando estructura semántica, estilos modulares y fundamentos de desarrollo Frontend interactivo con JavaScript nativo, organizado en repositorio público con control de versiones Git.',
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'Git', 'GitHub', 'Vue.js'],
-    demoUrl: null,
-    repoUrl: 'https://github.com/JCarvajalLab',
-    highlight: false,
   },
 ];
 ---
@@ -591,59 +552,71 @@ const projects = [
 
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects.map((proj) => (
-          <article class="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 shadow-xs transition hover:border-[#FF5A1F] hover:shadow-lg hover:shadow-[#FF5A1F]/5 dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+          <article class="group flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 shadow-xs transition hover:border-[#FF5A1F] hover:shadow-lg hover:shadow-[#FF5A1F]/5 dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
             <div>
               <div class="flex items-center justify-between gap-2 mb-3">
                 <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-0.5 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
-                  {proj.tag}
+                  {proj.data.tag}
                 </span>
-                {proj.demoUrl && (
+                {proj.data.demoUrl ? (
                   <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     En Producción
+                  </span>
+                ) : (
+                  <span class="font-mono text-[11px] font-semibold text-zinc-400 dark:text-zinc-500">
+                    {proj.data.year}
                   </span>
                 )}
               </div>
 
-              <h3 class="text-xl font-bold text-[#0E0E0E] dark:text-white">{proj.title}</h3>
+              <h3 class="text-xl font-bold text-[#0E0E0E] group-hover:text-[#FF5A1F] transition-colors dark:text-white dark:group-hover:text-[#FF5A1F]">
+                <a href={`/proyectos/${proj.id}`}>{proj.data.title}</a>
+              </h3>
 
               <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                {proj.description}
+                {proj.data.summary}
               </p>
 
               <div class="mt-5 flex flex-wrap gap-1.5">
-                {proj.stack.map((tech) => (
-                  <span class="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                {proj.data.stack.map((tech) => (
+                  <span class="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-mono font-medium text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-[#222222] flex items-center justify-between text-xs font-bold">
-              {proj.demoUrl ? (
+            <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-[#222222] flex flex-wrap items-center justify-between gap-3 text-xs font-bold">
+              <a
+                href={`/proyectos/${proj.id}`}
+                class="inline-flex items-center gap-1.5 text-[#FF5A1F] hover:underline"
+              >
+                <span>Ver Caso de Estudio</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+
+              <div class="flex items-center gap-4">
+                {proj.data.demoUrl && (
+                  <a
+                    href={proj.data.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-zinc-600 hover:text-[#FF5A1F] dark:text-zinc-400 dark:hover:text-[#FF5A1F] inline-flex items-center gap-1"
+                  >
+                    Demo &nearr;
+                  </a>
+                )}
+
                 <a
-                  href={proj.demoUrl}
+                  href={proj.data.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-[#FF5A1F] hover:underline inline-flex items-center gap-1"
+                  class="text-zinc-600 hover:text-[#0E0E0E] dark:text-zinc-400 dark:hover:text-white inline-flex items-center gap-1"
                 >
-                  Ver Sitio en Vivo &nearr;
+                  GitHub &nearr;
                 </a>
-              ) : (
-                <span class="text-zinc-400 dark:text-zinc-500 font-normal">
-                  Proyecto de Aplicación
-                </span>
-              )}
-
-              <a
-                href={proj.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-zinc-600 hover:text-[#0E0E0E] dark:text-zinc-400 dark:hover:text-white inline-flex items-center gap-1"
-              >
-                Ver en GitHub &rarr;
-              </a>
+              </div>
             </div>
           </article>
         ))}
