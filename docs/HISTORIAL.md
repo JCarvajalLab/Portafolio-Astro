@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
 - **Última actualización:** 2026-11-14
-- **Fase activa:** `phase/04-interactividad` (Fase 4 completada al 100%)
+- **Fase activa:** `phase/04-interactividad` (en progreso: rediseño de Footer e iconos de redes listo; pendiente traducción completa ES/EN)
 - **Rama de trabajo:** `phase/04-interactividad`
-- **Último commit relevante:** `feat(interactividad): implementa filtros nativos de proyectos, selector de idioma es/en funcional y validacion de contacto`
+- **Último commit relevante:** `feat(ui): moderniza footer editorial e incorpora iconos vectoriales a color en redes de contacto`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Content Layer API con 5 proyectos en showcase horizontal superpuesto, barra de filtros interactivos en JavaScript nativo sin recarga (`Todos (5)`, `Full Stack & Datos (3)`, `Frontend & UI (2)`, `En Producción (1)`) con contador dinámico y atributos `aria-pressed`, selector de idioma `ES / EN` funcional con persistencia en `localStorage` para interfaz principal, Navbar y Footer, y validación interactiva + honeypot antispam en el formulario de contacto
-- **Qué está en progreso:** Revisión visual de Fase 4 para avanzar a Fase 5 (`phase/05-seo`)
+- **Qué funciona:** Content Layer API con 5 proyectos en showcase horizontal superpuesto, filtros interactivos en JS nativo, Footer moderno con resplandor ambiental, tarjetas interactivas de redes y botón `Subir ↑`, e iconos vectoriales a color en LinkedIn (`#0A66C2`) y GitHub (`#8B5CF6`) tanto en Hero como en Contacto y Footer
+- **Qué está en progreso:** Completar la traducción bilingüe `ES / EN` en las tarjetas de Experiencia Laboral, Formación Académica, tarjetas de Proyectos y páginas internas de Casos de Estudio (`/proyectos/[id]`)
 - **Bloqueos o problemas conocidos:** ninguno (7 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Integrar `phase/04-interactividad` hacia `develop` e iniciar `phase/05-seo` (sitemap, Open Graph, Twitter Cards, `robots.txt` y JSON-LD)
+- **Siguiente paso concreto:** Validar con el usuario el nuevo Footer y los iconos de redes a color, y luego extender la traducción `ES / EN` al 100% del contenido de experiencia, formación y proyectos
 
 ## 2. Decisiones importantes
 
@@ -41,6 +41,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/04-interactividad` · modernización de footer e iconos de redes sociales a color
+- **Qué:** Rediseño completo de `src/components/Footer.astro` con estética editorial moderna (`dark:bg-[#0B0B0B]`, resplandor superior naranja `#FF5A1F/10`, badge esmeralda animado de disponibilidad, numeración técnica `01. EXPLORAR` y `02. CONECTAR & REDES`, tarjetas interactivas con iconos a color y botón `Subir ↑`). Además, se reemplazaron los cuadros de texto (`in` y `GH`) de la sección `#contacto` y los círculos del Hero en `src/pages/index.astro` por iconos vectoriales SVG oficiales a color con brillo sutil: azul LinkedIn (`#0A66C2`) y púrpura GitHub (`#8B5CF6` / `#6D28D9`).
+- **Archivos clave:** `src/components/Footer.astro`, `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** Listo para revisión visual antes de abordar la traducción completa ES/EN de experiencia, formación y proyectos.
 
 ### 2026-11-14 · `phase/04-interactividad` · filtros nativos de proyectos, selector de idioma ES/EN funcional y validación de contacto
 - **Qué:** Cierre e integración de `phase/03-content` en `develop` e implementación completa de `phase/04-interactividad`: 1) Barra de filtros interactivos en JavaScript nativo dentro de `#proyectos` (`Todos (5)`, `Full Stack & Datos (3)`, `Frontend & UI (2)`, `En Producción (1)`) que filtra instantáneamente las tarjetas superpuestas por `data-category` y `data-status`, actualiza `aria-pressed` y muestra un contador dinámico (`Mostrando X de 5 proyectos`). 2) Activación funcional del botón `ES / EN` en `Navbar.astro` (escritorio y móvil) con persistencia en `localStorage`, alternando dinámicamente textos de navegación, encabezados de sección, descripciones principales, botones de proyectos, formulario y `Footer.astro` mediante atributos `data-i18n-es` y `data-i18n-en`. 3) Validación de campos en cliente y verificación silenciosa del campo honeypot `_gotcha` en el formulario de contacto.
