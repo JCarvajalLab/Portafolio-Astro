@@ -1,9 +1,11 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 
 const {
-  title = 'Portafolio Profesional | Casos de Estudio y Desarrollo Web',
-  description = 'Portafolio de desarrollo frontend y aplicaciones web de alto rendimiento construidas con Astro y Tailwind CSS.',
+  title = 'Jordan Carvajal | Desarrollador Web Full Stack & Frontend',
+  description = 'Portafolio profesional de Jordan Carvajal. Ingeniero en Informática (INACAP), Desarrollador Web (Python, Django, PostgreSQL, Vue.js, Astro y Tailwind CSS).',
   image = '/og-portfolio.jpg',
 } = Astro.props;
 
@@ -23,7 +25,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://jcarvaja
 
     <!-- Open Graph / Redes Sociales -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Portafolio Profesional" />
+    <meta property="og:site_name" content="Jordan Carvajal - Portafolio Profesional" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -37,9 +39,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://jcarvaja
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
 
-    <!-- Theme Color dinámico para navegadores móviles -->
-    <meta name="theme-color" content="#4f46e5" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#020617" media="(prefers-color-scheme: dark)" />
+    <!-- Theme Color dinámico -->
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0e0e0e" media="(prefers-color-scheme: dark)" />
 
     <!-- Script síncrono anti-parpadeo (anti-FOUC) para Modo Nocturno -->
     <script is:inline>
@@ -58,13 +60,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://jcarvaja
       })();
     </script>
   </head>
-  <body class="flex min-h-screen flex-col bg-slate-50 text-slate-800 antialiased selection:bg-indigo-100 selection:text-indigo-900 transition-colors duration-200 dark:bg-slate-950 dark:text-slate-100 dark:selection:bg-indigo-900/60 dark:selection:text-indigo-200">
+  <body class="flex min-h-screen flex-col bg-[#F9FAFB] text-[#0E0E0E] antialiased selection:bg-[#FF5A1F] selection:text-white transition-colors duration-200 dark:bg-[#0E0E0E] dark:text-[#FFFFFF]">
     <a href="#main-content" class="skip-link">
-      Saltar al contenido principal
+      {' '}
+      Saltar al contenido principal{' '}
     </a>
+
+    <Navbar />
 
     <main id="main-content" class="flex-1">
       <slot />
     </main>
+
+    <Footer />
   </body>
 </html>

@@ -1,120 +1,911 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const experienceList = [
+  {
+    role: 'Ejecutivo de asistencia técnica',
+    company: 'Entel Connect Center',
+    period: '2021 — Enero 2025',
+    badge: 'Tiempo Completo · 4 Años',
+    responsibilities: [
+      'Gestión de incidencias técnicas mediante atención telefónica y canales digitales, orientando a usuarios y derivando casos para asegurar la continuidad del servicio.',
+      'Uso de herramientas internas de soporte para análisis de problemas técnicos, registro de solicitudes y seguimiento de requerimientos.',
+      'Atención de consultas técnicas por redes sociales y canales de contacto directo, entregando orientación y resolución oportuna.',
+      'Aplicación diaria de habilidades de comunicación efectiva, pensamiento analítico y resolución metódica de problemas en un entorno de soporte crítico.',
+    ],
+  },
+  {
+    role: 'Práctica profesional en soporte mesa de servicio',
+    company: 'Conytec Consultores SPA',
+    period: '2018',
+    badge: 'Práctica Profesional',
+    responsibilities: [
+      'Administración de cuentas de usuario en Active Directory (creación, modificación y anulación según solicitudes internas).',
+      'Gestión de licencias y cuentas en Office 365 (habilitación, modificación y deshabilitación de usuarios).',
+      'Elaboración de reportes semanales de actividades del área de soporte TI.',
+      'Transferencia de archivos y despliegues desde servidores de QA hacia servidores de producción siguiendo procedimientos estandarizados.',
+    ],
+  },
+];
+
+const educationList = [
+  {
+    title: 'Desarrollo de Aplicaciones Full Stack Python Trainee',
+    institution: 'Talento Digital para Chile',
+    period: 'Feb. 2026 — Jul. 2026',
+    type: 'Especialización Intensiva',
+    detail:
+      'Programa intensivo orientado a arquitectura y desarrollo de aplicaciones web Full Stack, integrando lógica de servidor, persistencia relacional y control de versiones colaborativo.',
+    tags: ['Python', 'Django', 'PostgreSQL', 'JavaScript', 'Git & GitHub'],
+  },
+  {
+    title: 'Desarrollo de Aplicaciones Front-End Trainee',
+    institution: 'Talento Digital para Chile',
+    period: 'Jul. 2024 — Ene. 2025',
+    type: 'Especialización Intensiva',
+    detail:
+      'Formación práctica en construcción de interfaces web responsivas, componentes reactivos, consumo de APIs y maquetación semántica bajo estándares modernos.',
+    tags: ['Vue.js', 'JavaScript ES6+', 'HTML5 & CSS3', 'Bootstrap', 'Git'],
+  },
+  {
+    title: 'Ingeniería en Informática',
+    institution: 'Universidad Tecnológica de Chile, INACAP',
+    period: '2014 — 2018',
+    type: 'Título Profesional Universitario',
+    detail:
+      'Formación integral en ingeniería de software, análisis y diseño de sistemas, modelado de bases de datos, administración de infraestructura y gestión de proyectos TI.',
+    tags: [
+      'Ingeniería de Software',
+      'Bases de Datos',
+      'Arquitectura de Sistemas',
+      'Infraestructura TI',
+    ],
+  },
+];
+
+const skillCategories = [
+  {
+    number: '01',
+    name: 'FRONTEND & UI',
+    items: [
+      { name: 'ASTRO', icon: 'astro' },
+      { name: 'VUE.JS', icon: 'vue' },
+      { name: 'JAVASCRIPT', icon: 'js' },
+      { name: 'TAILWIND CSS', icon: 'tailwind' },
+      { name: 'HTML5 & CSS3', icon: 'html' },
+      { name: 'BOOTSTRAP', icon: 'bootstrap' },
+    ],
+  },
+  {
+    number: '02',
+    name: 'BACKEND & BASES DE DATOS',
+    items: [
+      { name: 'PYTHON', icon: 'python' },
+      { name: 'DJANGO', icon: 'django' },
+      { name: 'POSTGRESQL', icon: 'postgres' },
+      { name: 'SQL', icon: 'sql' },
+    ],
+  },
+  {
+    number: '03',
+    name: 'SISTEMAS & INFRAESTRUCTURA',
+    items: [
+      { name: 'GIT & GITHUB', icon: 'git' },
+      { name: 'ACTIVE DIRECTORY', icon: 'ad' },
+      { name: 'MICROSOFT 365', icon: 'm365' },
+      { name: 'CLOUDFLARE PAGES', icon: 'cloud' },
+    ],
+  },
+];
+
+const projects = [
+  {
+    title: 'E-commerce Full Stack - Proyecto Final',
+    tag: 'Python / Django + PostgreSQL',
+    description:
+      'Plataforma completa de comercio electrónico desarrollada con Django y PostgreSQL. Integra catálogo de productos, autenticación de usuarios, carrito de compras dinámico y gestión de pedidos para simular un flujo real de compra. Incluye panel de administración con roles y validaciones.',
+    stack: ['Python', 'Django', 'PostgreSQL', 'Bootstrap 5', 'Git', 'GitHub'],
+    demoUrl: null,
+    repoUrl: 'https://github.com/JCarvajalLab',
+    highlight: true,
+  },
+  {
+    title: 'E-commerce CRUD con Pruebas Automatizadas',
+    tag: 'Django ORM + Testing',
+    description:
+      'Aplicación web para gestión de productos y categorías utilizando Django ORM y base de datos PostgreSQL. Incorpora validaciones personalizadas en formularios para garantizar la integridad de datos y tests unitarios automatizados para asegurar la confiabilidad del sistema.',
+    stack: ['Python', 'Django', 'PostgreSQL', 'Django ORM', 'Testing', 'Git'],
+    demoUrl: null,
+    repoUrl: 'https://github.com/JCarvajalLab',
+    highlight: false,
+  },
+  {
+    title: 'Clínica Veterinaria Huellitas',
+    tag: 'Astro 5 + Tailwind v4 + Vanilla JS',
+    description:
+      'Landing médica de alta conversión con portal interactivo de agendamiento en 4 pasos, filtrado dinámico de profesionales por especialidad, validación estricta de domingos y especies, comprobante médico con QR vectorial e impresión limpia, dark mode y 0 frameworks pesados.',
+    stack: ['Astro 5', 'Tailwind v4', 'Vanilla JS', 'SSG', 'Cloudflare Pages'],
+    demoUrl: 'https://huellitas-vet.pages.dev',
+    repoUrl: 'https://github.com/JCarvajalLab/astro-landing-veterinaria',
+    highlight: true,
+  },
+  {
+    title: 'E-commerce Frontend & Arquitectura Web',
+    tag: 'Frontend Semántico',
+    description:
+      'Desarrollo de interfaz de e-commerce aplicando estructura semántica, estilos modulares y fundamentos de desarrollo Frontend interactivo con JavaScript nativo, organizado en repositorio público con control de versiones Git.',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Git', 'GitHub', 'Vue.js'],
+    demoUrl: null,
+    repoUrl: 'https://github.com/JCarvajalLab',
+    highlight: false,
+  },
+];
 ---
 
-<Layout title="Portafolio Profesional | Casos de Estudio">
-  <div class="relative overflow-hidden py-24 sm:py-32">
-    <!-- Efecto de gradiente de fondo -->
-    <div
-      class="pointer-events-none absolute -top-40 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:-top-80"
-      aria-hidden="true"
-    >
-      <div
-        class="aspect-[1155/678] w-[68.4375rem] bg-gradient-to-tr from-indigo-500 to-purple-600 opacity-20 sm:w-[72.1875rem] dark:opacity-25"
-        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-      ></div>
-    </div>
+<Layout title="Jordan Carvajal | Desarrollador Web & Ingeniero en Informática">
+  <!-- HERO SECTION ESTILO EDITORIAL / ARQUITECTÓNICO CON PALETA 60-30-10 -->
+  <section class="relative overflow-hidden py-20 sm:py-28 lg:py-32 border-b border-zinc-200 dark:border-[#222222]">
+    <!-- Cuadrícula arquitectónica de fondo -->
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-hero-grid" aria-hidden="true"></div>
 
-    <div class="mx-auto max-w-5xl px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium text-indigo-700 bg-indigo-50 border border-indigo-200/60 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-800/80 mb-6">
-        <span class="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>Fase 1: Setup Inicial Completado</span>
+    <!-- Resplandor ambiental sutil -->
+    <div
+      class="pointer-events-none absolute -top-36 left-1/3 -z-10 h-[28rem] w-[28rem] rounded-full bg-[#FF5A1F]/10 blur-[120px]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <!-- Eyebrow superior técnico (estilo referencia) -->
+      <div class="flex flex-wrap items-center gap-3 text-[11px] sm:text-xs font-mono uppercase tracking-[0.18em] mb-7">
+        <span class="inline-flex items-center gap-2 font-bold text-[#0E0E0E] dark:text-white">
+          <span class="h-2 w-2 rounded-full bg-[#FF5A1F] shadow-[0_0_10px_#FF5A1F] animate-pulse"></span>
+          Disponible para oportunidades laborales
+        </span>
+        <span class="text-zinc-300 dark:text-zinc-700 select-none" aria-hidden="true">
+          |
+        </span>
+        <span class="text-zinc-500 dark:text-zinc-400">
+          Ingeniero en Informática · Desarrollo Web &amp; Soporte TI
+        </span>
       </div>
 
-      <h1 class="text-4xl font-extrabold tracking-tight sm:text-6xl text-slate-900 dark:text-white">
-        Portafolio &{' '}
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500 dark:from-indigo-400 dark:to-violet-400">
-          Casos de Estudio
+      <!-- Titular gigante: Blanco + Naranja animado -->
+      <h1 class="text-4xl sm:text-6xl lg:text-[4.75rem] font-extrabold tracking-tight leading-[1.06]">
+        <span class="block text-[#0E0E0E] dark:text-white">Jordan Carvajal</span>
+        <span class="block mt-1 sm:mt-2 text-[#FF5A1F]">Construyendo soluciones con</span>
+        <span class="block text-[#FF5A1F] min-h-[1.15em]">
+          <span id="hero-typed-stack">Python &amp; Django.</span>
+          <span
+            class="inline-block ml-1 font-light text-[#FF5A1F] animate-caret"
+            aria-hidden="true"
+          >
+            |
+          </span>
         </span>
       </h1>
 
-      <p class="mt-6 text-lg leading-8 text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-        Arquitectura moderna construida con{' '}
-        <strong class="text-slate-900 dark:text-white">Astro</strong>,{' '}
-        <strong class="text-slate-900 dark:text-white">Tailwind CSS v4</strong> y JavaScript nativo.
-        Desarrollado con enfoque en rendimiento, accesibilidad y costo cero.
-      </p>
+      <!-- Barra visible de Stacks / Enfoque actual para lectura inmediata -->
+      <div class="mt-8 flex flex-wrap items-center gap-2">
+        <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mr-1">
+          Stack &amp; Aprendizaje activo:
+        </span>
+        {[
+          { label: 'Python & Django', phrase: 'Python & Django.' },
+          { label: 'Astro & Tailwind CSS', phrase: 'Astro & Tailwind CSS.' },
+          { label: 'JavaScript & Vue.js', phrase: 'JavaScript & Vue.js.' },
+          { label: 'PostgreSQL & SQL', phrase: 'PostgreSQL & SQL.' },
+          { label: 'Git & GitHub', phrase: 'Git, GitHub & Clean Code.' },
+        ].map((item) => (
+          <button
+            type="button"
+            data-stack-phrase={item.phrase}
+            class="hero-stack-pill cursor-pointer rounded-full border border-zinc-300/80 bg-white/80 px-3.5 py-1 text-xs font-semibold text-zinc-700 transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#262626] dark:bg-[#141414]/90 dark:text-zinc-300 dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+          >
+            {item.label}
+          </button>
+        ))}
+      </div>
 
-      <!-- Grid de proyectos planeados -->
-      <div class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
-        <!-- Tarjeta 1: Landing Veterinaria -->
-        <div class="relative rounded-2xl border border-slate-200/80 bg-white/70 p-6 backdrop-blur-sm shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900/60">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-2xl">🐾</span>
-            <span class="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-semibold text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
-              Completado v1.0.0
-            </span>
-          </div>
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-            Clínica Veterinaria Huellitas
+      <!-- Línea divisoria horizontal a ancho completo (estilo referencia) -->
+      <div class="my-10 border-t border-zinc-200 dark:border-white/10"></div>
+
+      <!-- Fila inferior en dos columnas: Descripción a la izquierda + Botones píldora a la derecha -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+          Ingeniero en Informática (INACAP) desarrollando interfaces modernas y aplicaciones Full
+          Stack. Combino código limpio en el frontend y backend con más de 4 años de experiencia
+          resolviendo incidencias críticas en soporte TI corporativo, entregando soluciones claras,
+          estables y enfocadas en las personas.
+        </p>
+
+        <!-- Botones tipo píldora (estilo referencia) -->
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <a
+            href="#proyectos"
+            class="inline-flex items-center gap-2.5 rounded-full bg-[#0E0E0E] px-7 py-3.5 text-sm font-bold text-white transition hover:bg-[#FF5A1F] dark:bg-white dark:text-[#0E0E0E] dark:hover:bg-[#FF5A1F] dark:hover:text-white focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
+          >
+            <span>Ver mi trabajo</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/jcarvajallab/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Perfil de LinkedIn"
+            title="LinkedIn"
+            class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 bg-white text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-white/15 dark:bg-[#141414] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+          >
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+          </a>
+
+          <a
+            href="https://github.com/JCarvajalLab"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Repositorios en GitHub"
+            title="GitHub"
+            class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-zinc-300 bg-white text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-white/15 dark:bg-[#141414] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]"
+          >
+            <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. EXPERIENCIA PROFESIONAL EN TI -->
+  <section
+    id="experiencia"
+    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222]"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+            Trayectoria Laboral
+          </span>
+          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+            Experiencia Profesional en TI
           </h2>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Landing page médica de alta conversión con agendamiento clínico interactivo en 4 pasos,
-            dark mode y 0 dependencias pesadas.
-          </p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
-              Astro · Tailwind v4
-            </span>
-            <a
-              href="https://huellitas-vet.pages.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-xs font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400"
-            >
-              Ver demo &rarr;
-            </a>
+        </div>
+        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+          Años de trabajo continuo en entornos corporativos de soporte, atención de incidencias
+          críticas y resolución estructurada de problemas.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {experienceList.map((job) => (
+          <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-zinc-100 pb-4 dark:border-[#222222]">
+              <div>
+                <h3 class="text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white">
+                  {job.role}
+                </h3>
+                <p class="text-sm font-semibold text-[#FF5A1F]">{job.company}</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                  {job.period}
+                </span>
+                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                  {job.badge}
+                </span>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-sm text-zinc-600 dark:text-zinc-300">
+              {job.responsibilities.map((task) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-[#FF5A1F] mt-1 shrink-0 font-bold">▪</span>
+                  <span>{task}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FORMACIÓN ACADÉMICA (LÍNEA DE TIEMPO EDITORIAL ORDENADA) -->
+  <section
+    id="formacion"
+    class="scroll-mt-20 py-20 sm:py-24 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/50 dark:bg-[#111111]/40"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
+        <!-- Columna Izquierda: Encabezado Editorial -->
+        <div class="lg:col-span-4 lg:sticky lg:top-28">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FF5A1F]">
+            EDUCACIÓN &amp; ESPECIALIZACIÓN
+          </span>
+          <h2 class="mt-3 text-3xl sm:text-5xl font-black uppercase tracking-tight leading-[0.98] text-[#0E0E0E] dark:text-white">
+            FORMACIÓN
+            <br />
+            <span class="text-[#FF5A1F]">ACADÉMICA</span>
+          </h2>
+          <p class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Base universitaria en Ingeniería en Informática complementada con especializaciones
+            intensivas en desarrollo Full Stack y Frontend moderno, ordenadas de la más reciente a
+            la más antigua.
+          </p>
         </div>
 
-        <!-- Tarjeta 2: Portafolio Actual -->
-        <div class="relative rounded-2xl border-2 border-indigo-500/80 bg-white/90 p-6 backdrop-blur-sm shadow-md dark:border-indigo-500/70 dark:bg-slate-900/80">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-2xl">💼</span>
-            <span class="rounded-full bg-indigo-100 px-2.5 py-0.5 text-xs font-semibold text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300">
-              En progreso
-            </span>
-          </div>
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-            Portafolio Profesional
-          </h2>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Casos de estudio detallados utilizando Content Collections de Astro, filtros dinámicos
-            en JS nativo y SEO técnico completo.
-          </p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
-              Content Collections
-            </span>
-            <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400">
-              Fase 1 Activa
-            </span>
-          </div>
-        </div>
+        <!-- Columna Derecha: Línea de Tiempo Vertical con Tarjetas Horizontales Amplias -->
+        <div class="lg:col-span-8">
+          <div class="relative border-l-2 border-zinc-200 dark:border-[#262626] ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-6">
+            {educationList.map((edu, index) => (
+              <div class="group relative rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+                <!-- Nodo indicador en la línea de tiempo -->
+                <span
+                  class:list={[
+                    'absolute -left-[31px] sm:-left-[39px] top-7 flex h-4 w-4 items-center justify-center rounded-full border-2 transition',
+                    index === 0
+                      ? 'border-[#FF5A1F] bg-[#FF5A1F] shadow-[0_0_12px_#FF5A1F]'
+                      : 'border-zinc-300 bg-white group-hover:border-[#FF5A1F] dark:border-[#3a3a3a] dark:bg-[#0E0E0E] dark:group-hover:border-[#FF5A1F]',
+                  ]}
+                  aria-hidden="true"
+                />
 
-        <!-- Tarjeta 3: Ecommerce Tienda de Mascotas -->
-        <div class="relative rounded-2xl border border-slate-200/80 bg-white/70 p-6 backdrop-blur-sm shadow-sm transition hover:shadow-md dark:border-slate-800 dark:bg-slate-900/60 sm:col-span-2 lg:col-span-1">
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-2xl">🛒</span>
-            <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-300">
-              Próximo
-            </span>
-          </div>
-          <h2 class="text-lg font-semibold text-slate-900 dark:text-white">
-            Tienda de Mascotas Ecommerce
-          </h2>
-          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
-            Catálogo de artículos, carrito interactivo con almacenamiento local, Astro SSR y
-            pasarela de pago en modo sandbox.
-          </p>
-          <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
-              Astro SSR · Cart
-            </span>
-            <span class="text-xs text-slate-400">Proyecto 3</span>
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-zinc-100 dark:border-[#222222]">
+                  <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                    {edu.type}
+                  </span>
+                  <span class="rounded-full bg-zinc-100 px-3 py-1 font-mono text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                    {edu.period}
+                  </span>
+                </div>
+
+                <h3 class="mt-4 text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white">
+                  {edu.title}
+                </h3>
+                <p class="mt-1 text-sm font-semibold text-[#FF5A1F]">{edu.institution}</p>
+                <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                  {edu.detail}
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-1.5">
+                  {edu.tags.map((tag) => (
+                    <span class="rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-[11px] font-mono font-medium text-zinc-600 dark:border-[#2a2a2a] dark:bg-[#111111] dark:text-zinc-400">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- 3. COMPETENCIAS TÉCNICAS & STACK (ESTILO TOOLKIT CON ICONOS A COLOR) -->
+  <section
+    id="competencias"
+    class="scroll-mt-20 py-20 sm:py-24 border-b border-zinc-200 dark:border-[#222222]"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
+        <!-- Columna Izquierda: Título Editorial Toolkit -->
+        <div class="lg:col-span-4 lg:sticky lg:top-28">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400">
+            TOOLKIT
+          </span>
+          <h2 class="mt-3 text-4xl sm:text-5xl font-black uppercase tracking-tight leading-[0.95] text-[#0E0E0E] dark:text-white">
+            SKILLS &amp;
+            <br />
+            <span class="text-[#FF5A1F]">EXPERTISE</span>
+          </h2>
+          <p class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Una selección curada de frameworks, lenguajes y tecnologías en las que me enfoco para
+            construir aplicaciones web robustas, rápidas y mantenibles.
+          </p>
+        </div>
+
+        <!-- Columna Derecha: Categorías Numeradas con Bloques de Iconos Oficiales a Color -->
+        <div class="lg:col-span-8 space-y-12">
+          {skillCategories.map((cat) => (
+            <div>
+              <div class="border-b border-zinc-200 pb-3 mb-5 dark:border-[#262626]">
+                <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+                  <span class="text-[#FF5A1F]">{cat.number}.</span> {cat.name}
+                </h3>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                {cat.items.map((skill) => (
+                  <div class="group inline-flex items-center gap-3 border border-zinc-300 bg-white px-4 py-3 text-xs font-mono font-bold uppercase tracking-wider text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 dark:border-[#2a2a2a] dark:bg-[#161616] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:bg-[#FF5A1F]/10">
+                    <span class="flex h-5 w-5 items-center justify-center shrink-0 transition-transform group-hover:scale-110">
+                      {skill.icon === 'astro' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="#FF5D01" d="M12 2L3 19h4.6l4.4-9.8L16.4 19H21L12 2z" />
+                          <path
+                            fill="#FF1639"
+                            d="M12 15.2c-1.9 0-3.2 1.2-3.2 2.8 0 1.3 1 2.4 2.3 2.7-.2-.5-.2-1.2.2-1.7.4-.5 1.2-.6 1.7-.2.5.4.6 1.2.2 1.7-.1.1-.2.2-.3.2 1.4-.3 2.3-1.4 2.3-2.7 0-1.6-1.3-2.8-3.2-2.8z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'vue' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="#41B883" d="M2 3h4l6 10.4L18 3h4L12 20.4 2 3z" />
+                          <path fill="#35495E" d="M6 3h3.6L12 7.2 14.4 3H18l-6 10.4L6 3z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'js' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <rect width="20" height="20" x="2" y="2" rx="2.5" fill="#F7DF1E" />
+                          <path
+                            fill="#000000"
+                            d="M12.7 16.5c0 1.8-1.1 2.6-2.6 2.6-1.4 0-2.2-.7-2.6-1.6l1.4-.8c.3.5.6.9 1.2.9.6 0 1-.2 1-1.1v-5.8h1.6v5.8zm4.8 2.6c-1.6 0-2.7-.8-3.2-1.9l1.4-.8c.4.6.9 1.1 1.8 1.1.8 0 1.3-.4 1.3-.9 0-.6-.5-.9-1.4-1.3l-.5-.2c-1.4-.6-2.3-1.3-2.3-2.9 0-1.4 1.1-2.5 2.8-2.5 1.2 0 2.1.4 2.7 1.5l-1.4.9c-.3-.6-.7-.8-1.3-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.2 1.2l.5.2c1.6.7 2.5 1.4 2.5 3 0 1.7-1.3 2.6-3.1 2.6z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'tailwind' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            fill="#38BDF8"
+                            d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C15.61 7.15 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C10.61 13.15 9.5 12 7 12z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'html' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="#E34F26" d="M4 2h16l-1.5 17L12 22l-6.5-3L4 2z" />
+                          <path fill="#EF652A" d="M12 3.5V20l5.2-2.4L18.4 3.5H12z" />
+                          <path
+                            fill="#FFFFFF"
+                            d="M16.8 7.5H7.2l.2 2.2h9.2l-.6 6.8-4 1.1-4-1.1-.3-3.1h2l.2 1.5 2.1.6 2.1-.6.2-2.9H7.6L7 5.3h10l-.2 2.2z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'bootstrap' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <rect width="20" height="20" x="2" y="2" rx="4" fill="#7952B3" />
+                          <path
+                            fill="#FFFFFF"
+                            d="M8.5 7.5v9h4.6c2.1 0 3.4-1.1 3.4-2.7 0-1.2-.8-2.1-2-2.3v-.1c1-.2 1.6-1 1.6-2 0-1.4-1.1-1.9-2.9-1.9H8.5zm2.1 1.7h2c.9 0 1.4.4 1.4 1s-.5 1-1.4 1h-2V9.2zm0 3.7h2.3c1 0 1.6.4 1.6 1.1 0 .7-.6 1.1-1.6 1.1h-2.3v-2.2z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'python' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            fill="#3776AB"
+                            d="M12 2c-4.5 0-4.2 2-4.2 2v2.1h4.3v.7H6.1S2 6.5 2 11.9s3.6 5.2 3.6 5.2h2.1v-2.5s-.1-3 2.9-3h4.9s2.7.1 2.7-2.6V4.6S18.7 2 12 2zm-2.4 1.5c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9z"
+                          />
+                          <path
+                            fill="#FFD43B"
+                            d="M12 22c4.5 0 4.2-2 4.2-2v-2.1h-4.3v-.7h6s4.1.3 4.1-5.1-3.6-5.2-3.6-5.2h-2.1v2.5s.1 3-2.9 3H8.5s-2.7-.1-2.7 2.6v4.4S5.3 22 12 22zm2.4-1.5c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'django' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <rect width="20" height="20" x="2" y="2" rx="3" fill="#092E20" />
+                          <path
+                            fill="#44B78B"
+                            d="M11.1 5h2.4v10.5c-1.2.2-2.1.3-3.1.3-2.9 0-4.4-1.3-4.4-3.9 0-2.4 1.6-4 4.1-4 .4 0 .7.1 1 .2V5zm0 5.3c-.3-.1-.6-.2-.9-.2-1.3 0-2.1.8-2.1 2.2 0 1.4.7 2.2 2.1 2.2.3 0 .6 0 .9-.1v-4.1zm4.1-1.8h2.4v7.6c0 2.6-.2 3.8-.8 4.9-.5 1-1.2 1.6-2.6 2.2l-2-1c1.4-.7 2.1-1.2 2.5-2 .4-.8.5-1.8.5-4.4V8.5zm0-3.5h2.4v2.3h-2.4V5z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'postgres' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            fill="#336791"
+                            d="M12 2C7 2 3 4.2 3 7v10c0 2.8 4 5 9 5s9-2.2 9-5V7c0-2.8-4-5-9-5z"
+                          />
+                          <path
+                            fill="#60A5FA"
+                            d="M12 4c4.1 0 7 1.5 7 3s-2.9 3-7 3-7-1.5-7-3 2.9-3 7-3zm0 16c-4.1 0-7-1.5-7-3v-2.1c1.8 1.3 4.3 2.1 7 2.1s5.2-.8 7-2.1V17c0 1.5-2.9 3-7 3zm0-5c-4.1 0-7-1.5-7-3V9.9c1.8 1.3 4.3 2.1 7 2.1s5.2-.8 7-2.1V12c0 1.5-2.9 3-7 3z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'sql' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="#F59E0B" d="M4 5h16v4H4V5zm0 5h16v4H4v-4zm0 5h16v4H4v-4z" />
+                          <path fill="#FEF3C7" d="M6 6.5h2v1H6v-1zm0 5h2v1H6v-1zm0 5h2v1H6v-1z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'git' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            fill="#F05032"
+                            d="M21.6 11.1L12.9 2.4c-.5-.5-1.3-.5-1.8 0L9.2 4.3l2.3 2.3c.5-.2 1.2-.1 1.6.3.4.4.5 1.1.3 1.6l2.2 2.2c.5-.2 1.2-.1 1.6.3.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.4-.4-.5-1.1-.3-1.6L12.6 9.5v5.5c.2.1.3.2.5.3.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.6-.6-.6-1.6 0-2.2.2-.2.3-.3.5-.4V9.3c-.2-.1-.3-.2-.5-.3-.5-.4-.6-1.1-.3-1.6L8.3 5.1 2.4 11c-.5.5-.5 1.3 0 1.8l8.7 8.7c.5.5 1.3.5 1.8 0l8.7-8.7c.5-.5.5-1.2 0-1.7z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'ad' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            fill="#0078D4"
+                            d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5z"
+                          />
+                          <path
+                            fill="#50E6FF"
+                            d="M12 7a3 3 0 110 6 3 3 0 010-6zm0 11c-2.5 0-4.7-1.3-6-3.2.1-2 4-3.1 6-3.1s5.9 1.1 6 3.1c-1.3 1.9-3.5 3.2-6 3.2z"
+                          />
+                        </svg>
+                      )}
+                      {skill.icon === 'm365' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="#F25022" d="M3 3h8.5v8.5H3V3z" />
+                          <path fill="#7FBA00" d="M12.5 3H21v8.5h-8.5V3z" />
+                          <path fill="#00A4EF" d="M3 12.5h8.5V21H3v-8.5z" />
+                          <path fill="#FFB900" d="M12.5 12.5H21V21h-8.5v-8.5z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'cloud' && (
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true">
+                          <path
+                            fill="#F38020"
+                            d="M19.4 10c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.7 4C2.3 8.4 0 10.9 0 14c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2-4.8-4.6-5z"
+                          />
+                          <path
+                            fill="#FAAD3F"
+                            d="M19 20h1.5c2 0 3.5-1.6 3.5-3.5 0-1.8-1.3-3.3-3-3.5-.4-2.3-2.4-4-4.8-4-.8 0-1.5.2-2.2.5 1.8 1.3 3 3.4 3 5.8V20H19z"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROYECTOS RELEVANTES & LABORATORIO -->
+  <section
+    id="proyectos"
+    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/50 dark:bg-[#111111]/40"
+  >
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+            Desarrollo de Software
+          </span>
+          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+            Proyectos Relevantes & Laboratorio
+          </h2>
+        </div>
+        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+          Aplicaciones donde pongo en práctica arquitecturas full-stack, autenticación, persistencia
+          y optimización frontend.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        {projects.map((proj) => (
+          <article class="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 sm:p-7 shadow-xs transition hover:border-[#FF5A1F] hover:shadow-lg hover:shadow-[#FF5A1F]/5 dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-0.5 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                  {proj.tag}
+                </span>
+                {proj.demoUrl && (
+                  <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    En Producción
+                  </span>
+                )}
+              </div>
+
+              <h3 class="text-xl font-bold text-[#0E0E0E] dark:text-white">{proj.title}</h3>
+
+              <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                {proj.description}
+              </p>
+
+              <div class="mt-5 flex flex-wrap gap-1.5">
+                {proj.stack.map((tech) => (
+                  <span class="rounded-md bg-zinc-100 px-2 py-0.5 text-[11px] font-medium text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-zinc-100 dark:border-[#222222] flex items-center justify-between text-xs font-bold">
+              {proj.demoUrl ? (
+                <a
+                  href={proj.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-[#FF5A1F] hover:underline inline-flex items-center gap-1"
+                >
+                  Ver Sitio en Vivo &nearr;
+                </a>
+              ) : (
+                <span class="text-zinc-400 dark:text-zinc-500 font-normal">
+                  Proyecto de Aplicación
+                </span>
+              )}
+
+              <a
+                href={proj.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-zinc-600 hover:text-[#0E0E0E] dark:text-zinc-400 dark:hover:text-white inline-flex items-center gap-1"
+              >
+                Ver en GitHub &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CONTACTO DIRECTO -->
+  <section id="contacto" class="scroll-mt-20 py-16 sm:py-24">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <div class="rounded-3xl border border-zinc-200 bg-white p-8 sm:p-12 shadow-sm dark:border-[#262626] dark:bg-[#161616]">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FF5A1F]/10 px-3.5 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+          ¿Buscando sumar un desarrollador al equipo?
+        </span>
+
+        <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold text-[#0E0E0E] dark:text-white">
+          Conversemos sobre tu Proyecto o Puesto
+        </h2>
+
+        <p class="mt-3 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto leading-relaxed">
+          Estoy disponible para integrarme a equipos de tecnología, aportar mi experiencia en
+          soporte y desarrollo full-stack, y seguir aprendiendo con dedicación.
+        </p>
+
+        <!-- Opciones de contacto seguras: Formulario y LinkedIn -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-12 gap-8 text-left">
+          <!-- Columna Izquierda: Redes Profesionales -->
+          <div class="md:col-span-5 flex flex-col justify-between space-y-4">
+            <div>
+              <h3 class="text-lg font-bold text-[#0E0E0E] dark:text-white mb-2">
+                Canales Profesionales
+              </h3>
+              <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+                Puedes conectar directamente conmigo a través de LinkedIn para propuestas laborales,
+                o escribirme a través del formulario.
+              </p>
+
+              <a
+                href="https://www.linkedin.com/in/jcarvajallab/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-4 transition hover:border-[#FF5A1F] hover:shadow-md dark:border-[#262626] dark:bg-[#111111] dark:hover:border-[#FF5A1F] group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-[#0077B5] text-white font-bold text-sm">
+                    in
+                  </span>
+                  <div>
+                    <div class="text-xs font-bold text-[#0E0E0E] dark:text-white">
+                      Perfil en LinkedIn
+                    </div>
+                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400">Jordan Carvajal</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#FF5A1F] group-hover:translate-x-1 transition-transform">
+                  &rarr;
+                </span>
+              </a>
+
+              <a
+                href="https://github.com/JCarvajalLab"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 flex items-center justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-4 transition hover:border-[#FF5A1F] hover:shadow-md dark:border-[#262626] dark:bg-[#111111] dark:hover:border-[#FF5A1F] group"
+              >
+                <div class="flex items-center gap-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-zinc-900 text-white font-bold text-sm dark:bg-zinc-800">
+                    GH
+                  </span>
+                  <div>
+                    <div class="text-xs font-bold text-[#0E0E0E] dark:text-white">
+                      Repositorios en GitHub
+                    </div>
+                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400">@JCarvajalLab</div>
+                  </div>
+                </div>
+                <span class="text-xs font-bold text-[#FF5A1F] group-hover:translate-x-1 transition-transform">
+                  &rarr;
+                </span>
+              </a>
+            </div>
+
+            <div class="pt-4 border-t border-zinc-100 dark:border-[#222222] text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
+              <div>💼 Modalidad: Remoto / Híbrido</div>
+              <div>⚡ Respuesta habitual en menos de 24 horas</div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Formulario de Contacto -->
+          <div class="md:col-span-7 rounded-2xl border border-zinc-200 bg-zinc-50/70 p-6 dark:border-[#262626] dark:bg-[#111111]">
+            <h3 class="text-base font-bold text-[#0E0E0E] dark:text-white mb-1">
+              Envíame un Mensaje
+            </h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
+              Completa los datos y me comunicaré contigo a la brevedad.
+            </p>
+
+            <form id="contact-form" class="space-y-3.5 text-xs">
+              <!-- Honeypot silencioso antispam -->
+              <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+              <div>
+                <label
+                  for="contact-name"
+                  class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
+                >
+                  Tu Nombre
+                </label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="nombre"
+                  required
+                  placeholder="Ej. María González"
+                  class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-email"
+                  class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
+                >
+                  Tu Correo Electrónico
+                </label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  required
+                  placeholder="ejemplo@empresa.com"
+                  class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="contact-message"
+                  class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
+                >
+                  Mensaje / Asunto
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="mensaje"
+                  rows="3"
+                  required
+                  placeholder="Cuéntame sobre la oportunidad, proyecto o consulta..."
+                  class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full rounded-lg bg-[#FF5A1F] py-2.5 font-bold text-white shadow-sm hover:bg-[#e04810] transition focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
+              >
+                Enviar Mensaje &rarr;
+              </button>
+
+              <p
+                id="form-feedback"
+                class="hidden text-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 pt-1"
+              >
+                ✓ ¡Mensaje preparado! Te responderé lo antes posible.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-zinc-100 dark:border-[#222222] flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-zinc-500">
+          <span>🎓 INACAP (Ing. Informática)</span>
+          <span>·</span>
+          <span>💼 Entel Connect Center (4 años exp. TI)</span>
+          <span>·</span>
+          <span>🚀 Full Stack Python/Django & Frontend</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Animación interactiva de los stacks en el titular naranja del Hero
+    const typedEl = document.getElementById('hero-typed-stack');
+    const stackPills = Array.from(document.querySelectorAll('.hero-stack-pill'));
+
+    if (typedEl && stackPills.length > 0) {
+      const phrases = stackPills.map(
+        (btn) => btn.getAttribute('data-stack-phrase') || 'Python & Django.'
+      );
+      let currentIndex = 0;
+      let charIndex = phrases[0].length;
+      let isDeleting = false;
+      let timerId = null;
+
+      const highlightPill = (activeIdx) => {
+        stackPills.forEach((pill, idx) => {
+          if (idx === activeIdx) {
+            pill.classList.add('!border-[#FF5A1F]', '!text-[#FF5A1F]', '!bg-[#FF5A1F]/10');
+          } else {
+            pill.classList.remove('!border-[#FF5A1F]', '!text-[#FF5A1F]', '!bg-[#FF5A1F]/10');
+          }
+        });
+      };
+
+      const step = () => {
+        const currentPhrase = phrases[currentIndex];
+
+        if (!isDeleting) {
+          charIndex++;
+          typedEl.textContent = currentPhrase.slice(0, charIndex);
+
+          if (charIndex >= currentPhrase.length) {
+            isDeleting = true;
+            timerId = window.setTimeout(step, 2400);
+            return;
+          }
+          timerId = window.setTimeout(step, 55);
+        } else {
+          charIndex--;
+          typedEl.textContent = currentPhrase.slice(0, charIndex);
+
+          if (charIndex <= 0) {
+            isDeleting = false;
+            currentIndex = (currentIndex + 1) % phrases.length;
+            highlightPill(currentIndex);
+            timerId = window.setTimeout(step, 260);
+            return;
+          }
+          timerId = window.setTimeout(step, 28);
+        }
+      };
+
+      highlightPill(0);
+      timerId = window.setTimeout(() => {
+        isDeleting = true;
+        step();
+      }, 2400);
+
+      // Permitir hacer clic en cualquier píldora de stack para mostrarla al instante
+      stackPills.forEach((pill, idx) => {
+        pill.addEventListener('click', () => {
+          if (timerId) window.clearTimeout(timerId);
+          currentIndex = idx;
+          isDeleting = false;
+          charIndex = 0;
+          typedEl.textContent = '';
+          highlightPill(currentIndex);
+          step();
+        });
+      });
+    }
+
+    // Feedback del formulario de contacto
+    const contactForm = document.getElementById('contact-form');
+    const feedbackEl = document.getElementById('form-feedback');
+
+    if (contactForm && feedbackEl) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        feedbackEl.classList.remove('hidden');
+        contactForm.reset();
+      });
+    }
+  </script>
 </Layout>

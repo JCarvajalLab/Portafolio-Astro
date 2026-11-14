@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="404: Página no encontrada | Jordan Carvajal"
+  description="La ruta a la que intentas acceder no existe en este servidor. Regresa al portafolio de Jordan Carvajal."
+>
+  <section class="flex min-h-[calc(100vh-14rem)] items-center justify-center px-4 py-16 sm:py-24">
+    <div class="mx-auto max-w-md text-center">
+      <span class="inline-flex items-center gap-1.5 rounded-full border border-[#FF5A1F]/30 bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F]">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#FF5A1F] animate-pulse"></span>
+        Error 404
+      </span>
+
+      <div class="font-black text-8xl tracking-tight text-[#0E0E0E] dark:text-white my-4">
+        4<span class="text-[#FF5A1F]">0</span>4
+      </div>
+
+      <h1 class="text-xl sm:text-2xl font-bold text-[#0E0E0E] dark:text-white">
+        Ruta no encontrada
+      </h1>
+
+      <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+        El enlace que intentaste abrir no existe en el árbol de rutas o fue reorganizado en las
+        fases de desarrollo.
+      </p>
+
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a
+          href="/"
+          class="rounded-lg bg-[#FF5A1F] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-[#FF5A1F]/20 hover:bg-[#e04810] transition"
+        >
+          &larr; Volver al inicio
+        </a>
+
+        <a
+          href="/#proyectos"
+          class="rounded-lg border border-zinc-300 bg-white px-5 py-2.5 text-xs font-bold text-[#0E0E0E] hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:text-white transition"
+        >
+          Ver proyectos
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

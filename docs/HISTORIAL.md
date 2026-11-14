@@ -12,15 +12,15 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
-- **Última actualización:** 2026-11-12
-- **Fase activa:** `phase/01-setup` (Fase 1 completada al 100%)
-- **Rama de trabajo:** `phase/01-setup`
-- **Último commit relevante:** `feat(setup): inicializa proyecto astro con tailwind v4, eslint y prettier`
+- **Última actualización:** 2026-11-14
+- **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
+- **Rama de trabajo:** `phase/02-base`
+- **Último commit relevante:** `feat(ux-ui): incorpora iconos oficiales a color en skills y linea de tiempo editorial en formacion`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Entorno base inicializado con Astro 5+, Tailwind CSS v4 (@tailwindcss/vite), ESLint v9 flat config, Prettier con plugins oficiales, script síncrono anti-FOUC en Layout, `favicon.svg`, `robots.txt` y página de inicio con vista previa de proyectos
-- **Qué está en progreso:** Revisión visual y cierre de Fase 1 para avanzar a Fase 2 (Base)
+- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula de fondo y animación typewriter de stacks, sección de Experiencia con badges de modalidad coherentes, sección de Formación Académica rediseñada con línea de tiempo vertical y tarjetas horizontales amplias (4/8 editorial split), y sección `SKILLS & EXPERTISE` con iconos vectoriales SVG en sus colores oficiales de marca (`Astro`, `Vue.js`, `JavaScript`, `Tailwind CSS`, `HTML5`, `Bootstrap`, `Python`, `Django`, `PostgreSQL`, `SQL`, `Git`, `Active Directory`, `Microsoft 365`, `Cloudflare Pages`)
+- **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Inspección visual en navegador local y preparación de PR hacia `develop`
+- **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
 
 ## 2. Decisiones importantes
 
@@ -33,10 +33,55 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-12 | Usar Cloudflare Pages para despliegue de sitios estáticos | Costo $0, CDN global, enlace público rápido `.pages.dev` y CI/CD continuo conectado a GitHub | GitHub Pages (rutas base rígidas), Vercel o Netlify |
 | 2026-11-12 | Implementar Dark Mode con script anti-FOUC y `@custom-variant dark` | Probado en Veterinaria: previene parpadeos en recargas y sincroniza preferencia de OS y localStorage | Implementaciones reactivas lentas o sin persistencia |
 | 2026-11-12 | Incluir página personalizada `src/pages/404.astro` | Retención de usuarios y experiencia visual consistente ante rutas inexistentes | Página 404 genérica del hosting |
+| 2026-11-12 | Menú móvil accesible y navegación suave sin hashes residuales | Experiencia nativa fluida, control WCAG de `aria-expanded` y URLs visualmente limpias | Librerías pesadas o frameworks de UI |
+| 2026-11-13 | Paleta 60-30-10 (#0E0E0E, #FFFFFF, #FF5A1F) con datos del CV | Identidad potente, tecnológica y diferenciada de proyectos anteriores; contenido real de Jordan Carvajal | Paletas genéricas o pastelosas de landing comercial |
+| 2026-11-13 | Logotipo con llaves `{ }`, marca JCarvajalLab y botón maquetado ES/EN | Identidad developer limpia, remoción de botones redundantes y preparación para i18n en fase futura | Iniciales JC y botones repetidos |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/02-base` · iconos a color en skills y línea de tiempo editorial en formación académica
+- **Qué:** 1) En `SKILLS & EXPERTISE` se actualizaron todos los iconos SVG a sus colores oficiales de marca (Astro `#FF5D01/#FF1639`, Vue `#41B883/#35495E`, JavaScript `#F7DF1E`, Tailwind `#38BDF8`, HTML5 `#E34F26`, Bootstrap `#7952B3`, Python `#3776AB/#FFD43B`, Django `#092E20/#44B78B`, PostgreSQL `#336791/#60A5FA`, SQL `#F59E0B`, Git `#F05032`, Active Directory `#0078D4`, Microsoft 365 multicolor y Cloudflare `#F38020/#FAAD3F`). 2) En Formación Académica se descartó la grilla de 3 columnas verticales estrechas y se diseñó una línea de tiempo editorial (`lg:col-span-4` encabezado fijo + `lg:col-span-8` línea de tiempo vertical con tarjetas horizontales amplias, nodos luminosos e insignias de enfoque por programa), recuperando la legibilidad horizontal que le gustó al usuario pero sin el espacio muerto de las certificaciones eliminadas.
+- **Archivos clave:** `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 521ms con 0 errores y 0 vulnerabilidades.
+
+### 2026-11-14 · `phase/02-base` · rediseño de skills estilo toolkit con iconos, orden de formación y badges de experiencia
+- **Qué:** 1) En Experiencia Profesional se unificó el criterio de los badges naranjas para que ambos expresen modalidad/vínculo (`Tiempo Completo · 4 Años` en Entel Connect Center y `Práctica Profesional` en Conytec Consultores SPA). 2) En Formación Académica se eliminó la subsección de Certificaciones Técnicas y se ordenaron los 3 programas de estudio cronológicamente del más reciente al más antiguo en una grilla de 3 columnas (`Feb. 2026 — Jul. 2026` Full Stack Python, `Jul. 2024 — Ene. 2025` Front-End Trainee y `2014 — 2018` Ingeniería en Informática INACAP). 3) En Competencias Técnicas se implementó el diseño editorial `TOOLKIT / SKILLS & EXPERTISE` de la imagen de referencia del usuario, con columna izquierda fija y columna derecha dividida en `01. FRONTEND & UI`, `02. BACKEND & BASES DE DATOS` y `03. SISTEMAS & INFRAESTRUCTURA`, usando bloques rectangulares con iconos vectoriales SVG para cada tecnología.
+- **Archivos clave:** `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 398ms con 0 errores y 0 vulnerabilidades.
+
+### 2026-11-14 · `phase/02-base` · portada editorial con cuadrícula de fondo y animación de stacks en naranja
+- **Qué:** Rediseño de la portada (Hero) inspirado en la referencia visual del usuario: fondo con patrón de cuadrícula arquitectónica sutil (`.bg-hero-grid`), encabezado técnico en fuente monoespaciada (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA · DESARROLLO WEB & SOPORTE TI`), titular de alto impacto con `Jordan Carvajal` en blanco puro (sin punto final) y frase naranja animada (`Construyendo soluciones con [Stack] |`) que alterna dinámicamente entre los stacks activos y en aprendizaje (`Python & Django.`, `Astro & Tailwind CSS.`, `JavaScript & Vue.js.`, `PostgreSQL & SQL.`, `Git, GitHub & Clean Code.`), barra interactiva de píldoras de stack clicables al instante, línea divisoria horizontal de ancho completo y sección inferior en dos columnas con descripción a la izquierda y botón tipo píldora `Ver mi trabajo ->` junto con LinkedIn y GitHub a la derecha.
+- **Archivos clave:** `src/pages/index.astro`, `src/styles/global.css`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 458ms con 0 errores y 0 vulnerabilidades.
+
+### 2026-11-13 · `phase/02-base` · simplificación de nombre y expansión de hero a ancho completo
+- **Qué:** Simplificación del nombre en todo el sitio a "Jordan Carvajal" en una sola línea y un único color sólido (`#0E0E0E` / `#FFFFFF`) para no distraer de la información inferior; expansión del contenedor del Hero de `max-w-4xl` a `max-w-6xl` sin restricción de ancho en el párrafo descriptivo (distribución tipo jumbotron alineada con Navbar y secciones inferiores); eliminación de las menciones restantes a "Santiago, Chile" en `experienceList` y actualización de todos los enlaces de LinkedIn a `https://www.linkedin.com/in/jcarvajallab/`.
+- **Archivos clave:** `src/pages/index.astro`, `src/components/Footer.astro`, `src/layouts/Layout.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 493ms con 0 errores y 0 vulnerabilidades.
+
+### 2026-11-13 · `phase/02-base` · refinamiento de navbar, hero y selector de idioma
+- **Qué:** Actualización del logo en Navbar y Footer a `{ } JCarvajalLab`, remoción de badge "Disponible" en header, remoción del botón duplicado de contacto ("Contactar ->") dejando solo el enlace normal de navegación, incorporación del botón de cambio de idioma maquetado `ES / EN` al lado del modo nocturno, remoción de la tarjeta lateral de resumen del Hero para darle mayor amplitud al contenido principal y eliminación de la mención a ubicación física en resguardo de privacidad.
+- **Archivos clave:** `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 649ms con 0 vulnerabilidades.
+
+### 2026-11-13 · `phase/02-base` · identidad 60-30-10 y contenido real del cv
+- **Qué:** Implementación de la paleta solicitada por el usuario bajo la regla 60-30-10 (60% Negro `#0E0E0E`, 30% Blanco `#FFFFFF`, 10% Acento Naranja `#FF5A1F`). Integración completa del contenido verídico del CV: Ingeniería en Informática (INACAP), 4 años de soporte TI en Entel Connect Center, especializaciones en Talento Digital para Chile (Full Stack Python/Django y Frontend Vue.js), certificaciones de Git & GitHub y proyectos de e-commerce.
+- **Archivos clave:** `src/styles/global.css`, `src/layouts/Layout.astro`, `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/pages/index.astro`, `src/pages/404.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** Compilación estática limpia en 559ms; 0 vulnerabilidades en audit; servidor de desarrollo activo en `http://localhost:4321/`.
+
+### 2026-11-12 · `phase/02-base` · layout, navbar con modo oscuro, footer y pagina 404
+- **Qué:** Creación de componentes `Navbar.astro` flotante con efecto Glassmorphism, botón toggle Sol/Luna para Dark Mode en desktop y móvil con persistencia en `localStorage`, menú móvil accesible, navegación suave que limpia el hash de la URL; componente `Footer.astro` con enlaces rápidos y notas técnicas; creación de `src/pages/404.astro` con ilustración vectorial SVG animada y soporte dark mode; e integración en `Layout.astro` y estructuración semántica de secciones en `src/pages/index.astro`.
+- **Archivos clave:** `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/layouts/Layout.astro`, `src/pages/404.astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, ux-ui, qa, docs-seo
+- **Notas:** `npm run build` genera 2 páginas en 538ms con 0 errores; ESLint y Prettier limpios; 0 vulnerabilidades en audit. Verificado en servidor local en `http://localhost:4321/`.
 
 ### 2026-11-12 · `phase/01-setup` · inicialización de proyecto base
 - **Qué:** Inicialización de proyecto Astro 5+, Tailwind CSS v4 (@tailwindcss/vite), ESLint v9 LTS, Prettier con plugins de Astro y Tailwind, configuración de scripts de calidad en `package.json`, layout base con script anti-FOUC para Dark Mode y página de inicio de presentación.

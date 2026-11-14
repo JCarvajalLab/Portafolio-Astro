@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-brand-black: #0e0e0e;
+  --color-brand-card: #161616;
+  --color-brand-card-hover: #1e1e1e;
+  --color-brand-border: #262626;
+  --color-brand-orange: #ff5a1f;
+  --color-brand-orange-hover: #e04810;
+  --color-brand-orange-subtle: rgba(255, 90, 31, 0.12);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -11,25 +21,56 @@
       BlinkMacSystemFont,
       'Segoe UI',
       Roboto,
-      Oxygen,
-      Ubuntu,
-      Cantarell,
+      'Helvetica Neue',
+      Arial,
       sans-serif;
   }
 
-  /* Accesibilidad: enlace para saltar al contenido principal */
+  /* Accesibilidad: skip-link */
   .skip-link {
     position: absolute;
     top: -40px;
     left: 0;
-    background: #4f46e5;
-    color: white;
+    background: #ff5a1f;
+    color: #ffffff;
     padding: 8px 16px;
     z-index: 100;
+    font-weight: 600;
+    font-size: 13px;
     transition: top 0.2s ease;
   }
 
   .skip-link:focus {
     top: 0;
   }
+}
+
+/* Fondo de cuadrícula arquitectónica para el Hero (inspirado en diseño de referencia) */
+.bg-hero-grid {
+  background-size: 64px 64px;
+  background-image:
+    linear-gradient(to right, rgba(14, 14, 14, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 14, 14, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 65%, transparent 100%);
+}
+
+.dark .bg-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+}
+
+/* Cursor parpadeante para la animación del texto naranja en el Hero */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-caret {
+  animation: caret-blink 1s step-end infinite;
 }
