@@ -15,9 +15,9 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-14
 - **Fase activa:** `phase/03-content` (Fase 3 completada al 100%)
 - **Rama de trabajo:** `phase/03-content`
-- **Último commit relevante:** `feat(projects): rediseña proyectos estilo showcase superpuesto con zoom, iconos a color y proyecto 5 tienda de mascotas pendiente`
+- **Último commit relevante:** `feat(favicon): reemplaza icono de pestaña <> por llaves { } en color naranja #FF5A1F`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Content Layer API de Astro 5 con 5 proyectos ordenados del más reciente/próximo al más antiguo (`tienda-mascotas-ssr` marcado como Pendiente, `clinica-veterinaria-huellitas` con captura real del README, `ecommerce-fullstack-django`, `ecommerce-crud-testing`, `ecommerce-frontend-arquitectura`), diseño showcase superpuesto (imagen izquierda con zoom suave al pasar el mouse + tarjeta derecha superpuesta con componente reutilizable `TechBadge.astro` de iconos a color y botón `CASO DE ESTUDIO & DESGLOSE ->`)
+- **Qué funciona:** Content Layer API de Astro 5 con 5 proyectos ordenados del más reciente/próximo al más antiguo (`tienda-mascotas-ssr` marcado como Pendiente, `clinica-veterinaria-huellitas` con captura real del README, `ecommerce-fullstack-django`, `ecommerce-crud-testing`, `ecommerce-frontend-arquitectura`), diseño showcase superpuesto en la misma fila horizontal (`lg:row-start-1`), componente reutilizable `TechBadge.astro` de iconos a color, y `favicon.svg` actualizado con llaves `{ }` en color `#FF5A1F`
 - **Qué está en progreso:** Revisión visual de Fase 3 para avanzar a Fase 4 (`phase/04-interactividad`)
 - **Bloqueos o problemas conocidos:** ninguno (7 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/03-content` hacia `develop` e iniciar `phase/04-interactividad` (filtros nativos y selector funcional `ES / EN`)
@@ -41,9 +41,9 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 
 _Una entrada por cada push o cierre de tarea._
 
-### 2026-11-14 · `phase/03-content` · rediseño de proyectos estilo showcase superpuesto y adición de tienda de mascotas (pendiente)
-- **Qué:** Rediseño de la sección Proyectos Relevantes siguiendo la referencia visual del usuario (`PIXEL REVIEWS`): vista previa a la izquierda con animación de acercamiento (`group-hover:scale-[1.04]`) y tarjeta superpuesta a la derecha (`lg:-ml-12 z-10`) con bloques de tecnologías e iconos a color mediante el nuevo componente reutilizable `src/components/TechBadge.astro`. Se incorporó el 5° proyecto (`src/content/proyectos/tienda-mascotas-ssr.md`, marcado como `Pendiente · Próximo Desarrollo`), se extrajo la captura real desde `astro-landing-veterinaria/docs/screenshots/03-hero-dark-desktop.png` para Veterinaria Huellitas y se ordenaron los 5 proyectos del más nuevo al más antiguo.
-- **Archivos clave:** `src/components/TechBadge.astro`, `src/content.config.js`, `src/content/proyectos/*.md`, `public/projects/*`, `src/pages/index.astro`, `src/pages/proyectos/[id].astro`, `docs/HISTORIAL.md`
+### 2026-11-14 · `phase/03-content` · rediseño de proyectos estilo showcase superpuesto, tienda de mascotas (pendiente) y favicon `{ }`
+- **Qué:** Rediseño de la sección Proyectos Relevantes siguiendo la referencia visual del usuario (`PIXEL REVIEWS`): vista previa a la izquierda (`lg:col-start-1 lg:col-end-8 lg:row-start-1`) con animación de acercamiento (`group-hover:scale-[1.04]`) y tarjeta superpuesta a la derecha en la misma fila (`lg:col-start-7 lg:col-end-13 lg:row-start-1 z-10`) con bloques de tecnologías e iconos a color mediante el nuevo componente reutilizable `src/components/TechBadge.astro`. Se incorporó el 5° proyecto (`src/content/proyectos/tienda-mascotas-ssr.md`, marcado como `Pendiente · Próximo Desarrollo`), se extrajo la captura real desde `astro-landing-veterinaria/docs/screenshots/03-hero-dark-desktop.png` para Veterinaria Huellitas, se ordenaron los 5 proyectos del más nuevo al más antiguo y se actualizó `public/favicon.svg` de `<>` azul a `{ }` en naranja `#FF5A1F`.
+- **Archivos clave:** `public/favicon.svg`, `src/layouts/Layout.astro`, `src/components/TechBadge.astro`, `src/content.config.js`, `src/content/proyectos/*.md`, `public/projects/*`, `src/pages/index.astro`, `src/pages/proyectos/[id].astro`, `docs/HISTORIAL.md`
 - **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
 - **Notas:** `npm run build` genera 7 páginas estáticas en 616ms con 0 errores y 0 vulnerabilidades.
 
