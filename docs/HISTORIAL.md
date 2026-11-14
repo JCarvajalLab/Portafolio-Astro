@@ -15,9 +15,9 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-14
 - **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
 - **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(sections): rediseña skills con bloques de iconos estilo toolkit, ordena formacion y unifica badges de experiencia`
+- **Último commit relevante:** `feat(ux-ui): incorpora iconos oficiales a color en skills y linea de tiempo editorial en formacion`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula de fondo y animación typewriter de stacks, sección de Experiencia con badges de modalidad coherentes (`Tiempo Completo · 4 Años` y `Práctica Profesional`), sección de Formación Académica ordenada cronológicamente en 3 columnas (sin certificaciones sueltas) y sección `SKILLS & EXPERTISE` estilo Toolkit en dos columnas con bloques rectangulares e iconos SVG por tecnología (`01. FRONTEND & UI`, `02. BACKEND & BASES DE DATOS`, `03. SISTEMAS & INFRAESTRUCTURA`)
+- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula de fondo y animación typewriter de stacks, sección de Experiencia con badges de modalidad coherentes, sección de Formación Académica rediseñada con línea de tiempo vertical y tarjetas horizontales amplias (4/8 editorial split), y sección `SKILLS & EXPERTISE` con iconos vectoriales SVG en sus colores oficiales de marca (`Astro`, `Vue.js`, `JavaScript`, `Tailwind CSS`, `HTML5`, `Bootstrap`, `Python`, `Django`, `PostgreSQL`, `SQL`, `Git`, `Active Directory`, `Microsoft 365`, `Cloudflare Pages`)
 - **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
@@ -40,6 +40,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/02-base` · iconos a color en skills y línea de tiempo editorial en formación académica
+- **Qué:** 1) En `SKILLS & EXPERTISE` se actualizaron todos los iconos SVG a sus colores oficiales de marca (Astro `#FF5D01/#FF1639`, Vue `#41B883/#35495E`, JavaScript `#F7DF1E`, Tailwind `#38BDF8`, HTML5 `#E34F26`, Bootstrap `#7952B3`, Python `#3776AB/#FFD43B`, Django `#092E20/#44B78B`, PostgreSQL `#336791/#60A5FA`, SQL `#F59E0B`, Git `#F05032`, Active Directory `#0078D4`, Microsoft 365 multicolor y Cloudflare `#F38020/#FAAD3F`). 2) En Formación Académica se descartó la grilla de 3 columnas verticales estrechas y se diseñó una línea de tiempo editorial (`lg:col-span-4` encabezado fijo + `lg:col-span-8` línea de tiempo vertical con tarjetas horizontales amplias, nodos luminosos e insignias de enfoque por programa), recuperando la legibilidad horizontal que le gustó al usuario pero sin el espacio muerto de las certificaciones eliminadas.
+- **Archivos clave:** `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 521ms con 0 errores y 0 vulnerabilidades.
 
 ### 2026-11-14 · `phase/02-base` · rediseño de skills estilo toolkit con iconos, orden de formación y badges de experiencia
 - **Qué:** 1) En Experiencia Profesional se unificó el criterio de los badges naranjas para que ambos expresen modalidad/vínculo (`Tiempo Completo · 4 Años` en Entel Connect Center y `Práctica Profesional` en Conytec Consultores SPA). 2) En Formación Académica se eliminó la subsección de Certificaciones Técnicas y se ordenaron los 3 programas de estudio cronológicamente del más reciente al más antiguo en una grilla de 3 columnas (`Feb. 2026 — Jul. 2026` Full Stack Python, `Jul. 2024 — Ene. 2025` Front-End Trainee y `2014 — 2018` Ingeniería en Informática INACAP). 3) En Competencias Técnicas se implementó el diseño editorial `TOOLKIT / SKILLS & EXPERTISE` de la imagen de referencia del usuario, con columna izquierda fija y columna derecha dividida en `01. FRONTEND & UI`, `02. BACKEND & BASES DE DATOS` y `03. SISTEMAS & INFRAESTRUCTURA`, usando bloques rectangulares con iconos vectoriales SVG para cada tecnología.
