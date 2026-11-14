@@ -6,7 +6,7 @@ const experienceList = [
     role: 'Ejecutivo de asistencia técnica',
     company: 'Entel Connect Center',
     period: '2021 — Enero 2025',
-    badge: '4 Años de Experiencia',
+    badge: 'Tiempo Completo · 4 Años',
     responsibilities: [
       'Gestión de incidencias técnicas mediante atención telefónica y canales digitales, orientando a usuarios y derivando casos para asegurar la continuidad del servicio.',
       'Uso de herramientas internas de soporte para análisis de problemas técnicos, registro de solicitudes y seguimiento de requerimientos.',
@@ -18,7 +18,7 @@ const experienceList = [
     role: 'Práctica profesional en soporte mesa de servicio',
     company: 'Conytec Consultores SPA',
     period: '2018',
-    badge: 'Soporte TI',
+    badge: 'Práctica Profesional',
     responsibilities: [
       'Administración de cuentas de usuario en Active Directory (creación, modificación y anulación según solicitudes internas).',
       'Gestión de licencias y cuentas en Office 365 (habilitación, modificación y deshabilitación de usuarios).',
@@ -29,14 +29,6 @@ const experienceList = [
 ];
 
 const educationList = [
-  {
-    title: 'Ingeniería en Informática',
-    institution: 'Universidad Tecnológica de Chile, INACAP',
-    period: '2014 — 2018',
-    type: 'Educación Superior',
-    detail:
-      'Formación profesional en ingeniería de software, arquitectura de sistemas, desarrollo de aplicaciones, soporte y tecnologías de la información.',
-  },
   {
     title: 'Desarrollo de Aplicaciones Full Stack Python Trainee',
     institution: 'Talento Digital para Chile',
@@ -53,74 +45,47 @@ const educationList = [
     detail:
       'Desarrollo web Frontend moderno con HTML, CSS, JavaScript, Bootstrap, Git, GitHub y Vue.js.',
   },
-];
-
-const certifications = [
   {
-    title: 'Bootcamp Desarrollo Aplicaciones Front-End Trainee',
-    issuer: 'Acreditta / Talento Digital para Chile',
-    date: '16-05-2025',
-  },
-  {
-    title: 'Bootcamp de Git & GitHub',
-    issuer: 'Código Facilito',
-    date: '07-07-2026',
-  },
-  {
-    title: 'Curso a fondo de GitHub',
-    issuer: 'Código Facilito',
-    date: '26-05-2026',
+    title: 'Ingeniería en Informática',
+    institution: 'Universidad Tecnológica de Chile, INACAP',
+    period: '2014 — 2018',
+    type: 'Educación Superior',
+    detail:
+      'Formación profesional en ingeniería de software, arquitectura de sistemas, desarrollo de aplicaciones, soporte y tecnologías de la información.',
   },
 ];
 
 const skillCategories = [
   {
-    name: 'Frontend & UI',
-    color: '#FF5A1F',
+    number: '01',
+    name: 'FRONTEND & UI',
     items: [
-      'HTML5 Semántico',
-      'CSS3 & Flexbox/Grid',
-      'JavaScript (ES6+)',
-      'Tailwind CSS v4',
-      'Vue.js',
-      'Bootstrap 5',
-      'Astro 5+',
+      { name: 'ASTRO', icon: 'astro' },
+      { name: 'VUE.JS', icon: 'vue' },
+      { name: 'JAVASCRIPT', icon: 'js' },
+      { name: 'TAILWIND CSS', icon: 'tailwind' },
+      { name: 'HTML5 & CSS3', icon: 'html' },
+      { name: 'BOOTSTRAP', icon: 'bootstrap' },
     ],
   },
   {
-    name: 'Backend & Datos',
-    color: '#FF5A1F',
+    number: '02',
+    name: 'BACKEND & BASES DE DATOS',
     items: [
-      'Python',
-      'Django & Django ORM',
-      'PostgreSQL & SQL',
-      'Modelado de Bases de Datos',
-      'Autenticación & Sesiones',
-      'pgAdmin',
+      { name: 'PYTHON', icon: 'python' },
+      { name: 'DJANGO', icon: 'django' },
+      { name: 'POSTGRESQL', icon: 'postgres' },
+      { name: 'SQL', icon: 'sql' },
     ],
   },
   {
-    name: 'Soporte TI & Sistemas',
-    color: '#FF5A1F',
+    number: '03',
+    name: 'SISTEMAS & INFRAESTRUCTURA',
     items: [
-      'Active Directory',
-      'Office 365 (Licencias)',
-      'Gestión de Incidencias',
-      'Resolución de Problemas',
-      'Atención a Usuarios',
-      'Continuidad Operativa',
-    ],
-  },
-  {
-    name: 'Herramientas & Flujo',
-    color: '#FF5A1F',
-    items: [
-      'Git & GitHub (Flujo de Ramas)',
-      'Visual Studio Code',
-      'Entornos Virtuales (.venv)',
-      'Git Bash & Terminal',
-      'Cloudflare Pages (CI/CD)',
-      'ESLint & Prettier',
+      { name: 'GIT & GITHUB', icon: 'git' },
+      { name: 'ACTIVE DIRECTORY', icon: 'ad' },
+      { name: 'MICROSOFT 365', icon: 'm365' },
+      { name: 'CLOUDFLARE PAGES', icon: 'cloud' },
     ],
   },
 ];
@@ -344,106 +309,176 @@ const projects = [
     </div>
   </section>
 
-  <!-- 2. FORMACIÓN ACADÉMICA & CERTIFICACIONES -->
+  <!-- 2. FORMACIÓN ACADÉMICA (ORDENADA CRONOLÓGICAMENTE) -->
   <section
     id="formacion"
     class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/50 dark:bg-[#111111]/40"
   >
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
-          Estudios & Acreditaciones
-        </span>
-        <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
-          Formación Académica & Certificaciones
-        </h2>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+            Educación &amp; Especialización
+          </span>
+          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+            Formación Académica
+          </h2>
+        </div>
+        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+          Evolución académica ordenada desde mis especializaciones más recientes hasta mi título de
+          Ingeniería en Informática.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
-        <!-- Columna de Estudios -->
-        <div class="lg:col-span-7 space-y-4">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">
-            Educación Profesional & Bootcamps
-          </h3>
-          {educationList.map((edu) => (
-            <div class="rounded-xl border border-zinc-200 bg-white p-5 dark:border-[#262626] dark:bg-[#161616]">
-              <div class="flex items-center justify-between gap-2">
-                <span class="rounded-full bg-[#FF5A1F]/10 px-2.5 py-0.5 text-[11px] font-bold text-[#FF5A1F]">
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {educationList.map((edu, index) => (
+          <div class="flex flex-col justify-between rounded-2xl border border-zinc-200 bg-white p-6 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
+            <div>
+              <div class="flex items-center justify-between gap-2 pb-4 border-b border-zinc-100 dark:border-[#222222]">
+                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-[11px] font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
                   {edu.type}
                 </span>
-                <span class="text-xs font-semibold text-zinc-500 dark:text-zinc-400">
+                <span class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400">
                   {edu.period}
                 </span>
               </div>
-              <h4 class="mt-2 text-base font-bold text-[#0E0E0E] dark:text-white">{edu.title}</h4>
-              <p class="text-xs font-semibold text-zinc-600 dark:text-zinc-400">
-                {edu.institution}
-              </p>
-              <p class="mt-2 text-xs text-zinc-600 dark:text-zinc-300 leading-relaxed">
+
+              <h3 class="mt-4 text-lg font-bold text-[#0E0E0E] dark:text-white leading-snug">
+                {edu.title}
+              </h3>
+              <p class="mt-1 text-xs font-semibold text-[#FF5A1F]">{edu.institution}</p>
+              <p class="mt-3 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
                 {edu.detail}
               </p>
             </div>
-          ))}
-        </div>
 
-        <!-- Columna de Certificaciones -->
-        <div class="lg:col-span-5 space-y-4">
-          <h3 class="text-sm font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">
-            Certificaciones Técnicas
-          </h3>
-          {certifications.map((cert) => (
-            <div class="rounded-xl border border-zinc-200 bg-white p-5 dark:border-[#262626] dark:bg-[#161616]">
-              <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
-                <span>{cert.issuer}</span>
-                <span class="font-mono text-[11px]">{cert.date}</span>
-              </div>
-              <h4 class="mt-1.5 text-sm font-bold text-[#0E0E0E] dark:text-white">{cert.title}</h4>
-              <div class="mt-2 flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
-                <span>✓</span> Acreditado & Aprobado
-              </div>
+            <div class="mt-6 pt-3 border-t border-zinc-100 dark:border-[#222222] flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <span>ETAPA 0{index + 1}</span>
+              <span class="text-emerald-600 dark:text-emerald-400 font-sans font-semibold">
+                ✓ Completado
+              </span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- 3. COMPETENCIAS TÉCNICAS -->
+  <!-- 3. COMPETENCIAS TÉCNICAS & STACK (ESTILO TOOLKIT CON ICONOS) -->
   <section
     id="competencias"
-    class="scroll-mt-20 py-16 sm:py-20 border-b border-zinc-200 dark:border-[#222222]"
+    class="scroll-mt-20 py-20 sm:py-24 border-b border-zinc-200 dark:border-[#222222]"
   >
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mb-12">
-        <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
-          Habilidades Prácticas
-        </span>
-        <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
-          Competencias Técnicas & Stack
-        </h2>
-        <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          Conjunto de tecnologías dominadas en proyectos prácticos, formación intensiva y soporte
-          operativo.
-        </p>
-      </div>
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
+        <!-- Columna Izquierda: Título Editorial Toolkit -->
+        <div class="lg:col-span-4 lg:sticky lg:top-28">
+          <span class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400">
+            TOOLKIT
+          </span>
+          <h2 class="mt-3 text-4xl sm:text-5xl font-black uppercase tracking-tight leading-[0.95] text-[#0E0E0E] dark:text-white">
+            SKILLS &amp;
+            <br />
+            <span class="text-[#FF5A1F]">EXPERTISE</span>
+          </h2>
+          <p class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Una selección curada de frameworks, lenguajes y tecnologías en las que me enfoco para
+            construir aplicaciones web robustas, rápidas y mantenibles.
+          </p>
+        </div>
 
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {skillCategories.map((cat) => (
-          <div class="rounded-2xl border border-zinc-200 bg-white p-5 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
-            <div class="flex items-center gap-2 border-b border-zinc-100 pb-3 dark:border-[#222222]">
-              <span class="h-2.5 w-2.5 rounded-full bg-[#FF5A1F]"></span>
-              <h3 class="text-sm font-bold text-[#0E0E0E] dark:text-white">{cat.name}</h3>
+        <!-- Columna Derecha: Categorías Numeradas con Bloques de Iconos -->
+        <div class="lg:col-span-8 space-y-12">
+          {skillCategories.map((cat) => (
+            <div>
+              <div class="border-b border-zinc-200 pb-3 mb-5 dark:border-[#262626]">
+                <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+                  <span class="text-[#FF5A1F]">{cat.number}.</span> {cat.name}
+                </h3>
+              </div>
+
+              <div class="flex flex-wrap gap-3">
+                {cat.items.map((skill) => (
+                  <div class="group inline-flex items-center gap-3 border border-zinc-300 bg-white px-4 py-3 text-xs font-mono font-bold uppercase tracking-wider text-[#0E0E0E] transition hover:border-[#FF5A1F] hover:bg-[#FF5A1F]/10 dark:border-[#2a2a2a] dark:bg-[#161616] dark:text-white dark:hover:border-[#FF5A1F] dark:hover:bg-[#FF5A1F]/10">
+                    <span class="flex h-5 w-5 items-center justify-center text-[#0E0E0E] transition group-hover:text-[#FF5A1F] dark:text-white dark:group-hover:text-[#FF5A1F]">
+                      {skill.icon === 'astro' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 2L3 20h4.5l4.5-10 4.5 10H21L12 2zm0 13.5c-1.8 0-3 1.2-3 2.7 0 1.2.9 2.3 2.2 2.6-.2-.5-.2-1.1.2-1.6.4-.5 1.1-.6 1.6-.2.5.4.6 1.1.2 1.6-.1.1-.2.2-.3.2 1.3-.3 2.1-1.4 2.1-2.6 0-1.5-1.2-2.7-3-2.7z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'vue' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M2 3h4l6 10.4L18 3h4L12 20.4 2 3zm7.5 0h5L12 7.4 9.5 3z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'js' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M3 3h18v18H3V3zm9.7 13.5c0 1.8-1.1 2.6-2.6 2.6-1.4 0-2.2-.7-2.6-1.6l1.4-.8c.3.5.6.9 1.2.9.6 0 1-.2 1-1.1v-5.8h1.6v5.8zm4.8 2.6c-1.6 0-2.7-.8-3.2-1.9l1.4-.8c.4.6.9 1.1 1.8 1.1.8 0 1.3-.4 1.3-.9 0-.6-.5-.9-1.4-1.3l-.5-.2c-1.4-.6-2.3-1.3-2.3-2.9 0-1.4 1.1-2.5 2.8-2.5 1.2 0 2.1.4 2.7 1.5l-1.4.9c-.3-.6-.7-.8-1.3-.8-.6 0-1 .4-1 .8 0 .6.4.8 1.2 1.2l.5.2c1.6.7 2.5 1.4 2.5 3 0 1.7-1.3 2.6-3.1 2.6z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'tailwind' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C15.61 7.15 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.31.74 1.91 1.35.98 1 2.09 2.15 4.59 2.15 2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.31-.74-1.91-1.35C10.61 13.15 9.5 12 7 12z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'html' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M4 2h16l-1.5 17L12 22l-6.5-3L4 2zm12.8 5.5H7.2l.2 2.2h9.2l-.6 6.8-4 1.1-4-1.1-.3-3.1h2l.2 1.5 2.1.6 2.1-.6.2-2.9H7.6L7 5.3h10l-.2 2.2z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'bootstrap' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M4 3h16a1 1 0 011 1v16a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm4.5 4.5v9h4.6c2.1 0 3.4-1.1 3.4-2.7 0-1.2-.8-2.1-2-2.3v-.1c1-.2 1.6-1 1.6-2 0-1.4-1.1-1.9-2.9-1.9H8.5zm2.1 1.7h2c.9 0 1.4.4 1.4 1s-.5 1-1.4 1h-2V9.2zm0 3.7h2.3c1 0 1.6.4 1.6 1.1 0 .7-.6 1.1-1.6 1.1h-2.3v-2.2z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'python' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 2c-4.5 0-4.2 2-4.2 2v2.1h4.3v.7H6.1S2 6.5 2 11.9s3.6 5.2 3.6 5.2h2.1v-2.5s-.1-3 2.9-3h4.9s2.7.1 2.7-2.6V4.6S18.7 2 12 2zm-2.4 1.5c.5 0 .9.4.9.9s-.4.9-.9.9-.9-.4-.9-.9.4-.9.9-.9zM12 22c4.5 0 4.2-2 4.2-2v-2.1h-4.3v-.7h6s4.1.3 4.1-5.1-3.6-5.2-3.6-5.2h-2.1v2.5s.1 3-2.9 3H8.5s-2.7-.1-2.7 2.6v4.4S5.3 22 12 22zm2.4-1.5c-.5 0-.9-.4-.9-.9s.4-.9.9-.9.9.4.9.9-.4.9-.9.9z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'django' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M11.1 3h2.8v13c-1.4.3-2.5.4-3.7.4-3.5 0-5.3-1.6-5.3-4.6 0-2.9 1.9-4.8 4.9-4.8.5 0 .9.1 1.3.2V3zm0 6.4c-.4-.1-.7-.2-1.1-.2-1.6 0-2.5 1-2.5 2.6 0 1.7.9 2.6 2.5 2.6.4 0 .7 0 1.1-.1V9.4zm4.8-2.2h2.8v9.1c0 3.1-.2 4.6-.9 5.9-.6 1.2-1.4 1.9-3.1 2.7l-2.4-1.2c1.7-.8 2.5-1.4 3-2.4.5-1 .6-2.2.6-5.3V7.2zm0-4.2h2.8v2.8h-2.8V3z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'postgres' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 2C7 2 3 4.2 3 7v10c0 2.8 4 5 9 5s9-2.2 9-5V7c0-2.8-4-5-9-5zm0 2c4.1 0 7 1.5 7 3s-2.9 3-7 3-7-1.5-7-3 2.9-3 7-3zm0 16c-4.1 0-7-1.5-7-3v-2.1c1.8 1.3 4.3 2.1 7 2.1s5.2-.8 7-2.1V17c0 1.5-2.9 3-7 3zm0-5c-4.1 0-7-1.5-7-3V9.9c1.8 1.3 4.3 2.1 7 2.1s5.2-.8 7-2.1V12c0 1.5-2.9 3-7 3z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'sql' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M4 5h16v4H4V5zm0 5h16v4H4v-4zm0 5h16v4H4v-4zm2-8v1h2V7H6zm0 5v1h2v-1H6zm0 5v1h2v-1H6z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'git' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M21.6 11.1L12.9 2.4c-.5-.5-1.3-.5-1.8 0L9.2 4.3l2.3 2.3c.5-.2 1.2-.1 1.6.3.4.4.5 1.1.3 1.6l2.2 2.2c.5-.2 1.2-.1 1.6.3.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.4-.4-.5-1.1-.3-1.6L12.6 9.5v5.5c.2.1.3.2.5.3.6.6.6 1.6 0 2.2-.6.6-1.6.6-2.2 0-.6-.6-.6-1.6 0-2.2.2-.2.3-.3.5-.4V9.3c-.2-.1-.3-.2-.5-.3-.5-.4-.6-1.1-.3-1.6L8.3 5.1 2.4 11c-.5.5-.5 1.3 0 1.8l8.7 8.7c.5.5 1.3.5 1.8 0l8.7-8.7c.5-.5.5-1.2 0-1.7z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'ad' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 2L3 7v6c0 5.5 3.8 10.7 9 12 5.2-1.3 9-6.5 9-12V7l-9-5zm0 5a3 3 0 110 6 3 3 0 010-6zm0 11c-2.5 0-4.7-1.3-6-3.2.1-2 4-3.1 6-3.1s5.9 1.1 6 3.1c-1.3 1.9-3.5 3.2-6 3.2z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'm365' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M3 3h8.5v8.5H3V3zm9.5 0H21v8.5h-8.5V3zM3 12.5h8.5V21H3v-8.5zm9.5 0H21V21h-8.5v-8.5z" />
+                        </svg>
+                      )}
+                      {skill.icon === 'cloud' && (
+                        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M19.4 10c-.7-3.4-3.7-6-7.4-6-2.9 0-5.4 1.6-6.7 4C2.3 8.4 0 10.9 0 14c0 3.3 2.7 6 6 6h13c2.8 0 5-2.2 5-5 0-2.6-2-4.8-4.6-5z" />
+                        </svg>
+                      )}
+                    </span>
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <ul class="mt-4 space-y-2 text-xs text-zinc-700 dark:text-zinc-300 font-medium">
-              {cat.items.map((skill) => (
-                <li class="flex items-center gap-2">
-                  <span class="text-[#FF5A1F]">›</span>
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   </section>
