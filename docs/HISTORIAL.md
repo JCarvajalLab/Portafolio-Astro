@@ -15,11 +15,11 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-14
 - **Fase activa:** `phase/03-content` (Fase 3 completada al 100%)
 - **Rama de trabajo:** `phase/03-content`
-- **Último commit relevante:** `feat(content): implementa content collections para proyectos y paginas dinamicas de casos de estudio`
+- **Último commit relevante:** `feat(projects): rediseña proyectos estilo showcase superpuesto con zoom, iconos a color y proyecto 5 tienda de mascotas pendiente`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Fase 2 integrada en `develop`; Content Layer API de Astro 5 (`src/content.config.js` con `glob` y `zod`), 4 proyectos estructurados en `src/content/proyectos/*.md`, rutas estáticas dinámicas `/proyectos/[id]` con desglose de Problema, Solución, Stack, Arquitectura, Resultados y contenido Markdown, e integración en `src/pages/index.astro`
+- **Qué funciona:** Content Layer API de Astro 5 con 5 proyectos ordenados del más reciente/próximo al más antiguo (`tienda-mascotas-ssr` marcado como Pendiente, `clinica-veterinaria-huellitas` con captura real del README, `ecommerce-fullstack-django`, `ecommerce-crud-testing`, `ecommerce-frontend-arquitectura`), diseño showcase superpuesto (imagen izquierda con zoom suave al pasar el mouse + tarjeta derecha superpuesta con componente reutilizable `TechBadge.astro` de iconos a color y botón `CASO DE ESTUDIO & DESGLOSE ->`)
 - **Qué está en progreso:** Revisión visual de Fase 3 para avanzar a Fase 4 (`phase/04-interactividad`)
-- **Bloqueos o problemas conocidos:** ninguno (6 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
+- **Bloqueos o problemas conocidos:** ninguno (7 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/03-content` hacia `develop` e iniciar `phase/04-interactividad` (filtros nativos y selector funcional `ES / EN`)
 
 ## 2. Decisiones importantes
@@ -40,6 +40,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/03-content` · rediseño de proyectos estilo showcase superpuesto y adición de tienda de mascotas (pendiente)
+- **Qué:** Rediseño de la sección Proyectos Relevantes siguiendo la referencia visual del usuario (`PIXEL REVIEWS`): vista previa a la izquierda con animación de acercamiento (`group-hover:scale-[1.04]`) y tarjeta superpuesta a la derecha (`lg:-ml-12 z-10`) con bloques de tecnologías e iconos a color mediante el nuevo componente reutilizable `src/components/TechBadge.astro`. Se incorporó el 5° proyecto (`src/content/proyectos/tienda-mascotas-ssr.md`, marcado como `Pendiente · Próximo Desarrollo`), se extrajo la captura real desde `astro-landing-veterinaria/docs/screenshots/03-hero-dark-desktop.png` para Veterinaria Huellitas y se ordenaron los 5 proyectos del más nuevo al más antiguo.
+- **Archivos clave:** `src/components/TechBadge.astro`, `src/content.config.js`, `src/content/proyectos/*.md`, `public/projects/*`, `src/pages/index.astro`, `src/pages/proyectos/[id].astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` genera 7 páginas estáticas en 616ms con 0 errores y 0 vulnerabilidades.
 
 ### 2026-11-14 · `phase/03-content` · implementación de content collections y páginas de casos de estudio
 - **Qué:** Cierre e integración de `phase/02-base` en `develop` e inicio y completitud de `phase/03-content`. Creación de `src/content.config.js` usando la Content Layer API de Astro 5 (`glob` loader y esquema `zod`), redacción de los 4 casos de estudio en `src/content/proyectos/` (`clinica-veterinaria-huellitas.md`, `ecommerce-fullstack-django.md`, `ecommerce-crud-testing.md`, `ecommerce-frontend-arquitectura.md`), creación de la ruta dinámica `src/pages/proyectos/[id].astro` con secciones de Problema, Solución, Stack, Arquitectura, Resultados, Markdown renderizado y navegación entre proyectos, y conexión de `src/pages/index.astro` mediante `getCollection('proyectos')`.
