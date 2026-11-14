@@ -13,14 +13,14 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
 - **Última actualización:** 2026-11-14
-- **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
-- **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(ux-ui): incorpora iconos oficiales a color en skills y linea de tiempo editorial en formacion`
+- **Fase activa:** `phase/03-content` (Fase 3 completada al 100%)
+- **Rama de trabajo:** `phase/03-content`
+- **Último commit relevante:** `feat(content): implementa content collections para proyectos y paginas dinamicas de casos de estudio`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula de fondo y animación typewriter de stacks, sección de Experiencia con badges de modalidad coherentes, sección de Formación Académica rediseñada con línea de tiempo vertical y tarjetas horizontales amplias (4/8 editorial split), y sección `SKILLS & EXPERTISE` con iconos vectoriales SVG en sus colores oficiales de marca (`Astro`, `Vue.js`, `JavaScript`, `Tailwind CSS`, `HTML5`, `Bootstrap`, `Python`, `Django`, `PostgreSQL`, `SQL`, `Git`, `Active Directory`, `Microsoft 365`, `Cloudflare Pages`)
-- **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
-- **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
+- **Qué funciona:** Fase 2 integrada en `develop`; Content Layer API de Astro 5 (`src/content.config.js` con `glob` y `zod`), 4 proyectos estructurados en `src/content/proyectos/*.md`, rutas estáticas dinámicas `/proyectos/[id]` con desglose de Problema, Solución, Stack, Arquitectura, Resultados y contenido Markdown, e integración en `src/pages/index.astro`
+- **Qué está en progreso:** Revisión visual de Fase 3 para avanzar a Fase 4 (`phase/04-interactividad`)
+- **Bloqueos o problemas conocidos:** ninguno (6 páginas generadas en build, 0 errores en ESLint/Prettier, 0 vulnerabilidades en audit)
+- **Siguiente paso concreto:** Integrar `phase/03-content` hacia `develop` e iniciar `phase/04-interactividad` (filtros nativos y selector funcional `ES / EN`)
 
 ## 2. Decisiones importantes
 
@@ -40,6 +40,12 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-14 · `phase/03-content` · implementación de content collections y páginas de casos de estudio
+- **Qué:** Cierre e integración de `phase/02-base` en `develop` e inicio y completitud de `phase/03-content`. Creación de `src/content.config.js` usando la Content Layer API de Astro 5 (`glob` loader y esquema `zod`), redacción de los 4 casos de estudio en `src/content/proyectos/` (`clinica-veterinaria-huellitas.md`, `ecommerce-fullstack-django.md`, `ecommerce-crud-testing.md`, `ecommerce-frontend-arquitectura.md`), creación de la ruta dinámica `src/pages/proyectos/[id].astro` con secciones de Problema, Solución, Stack, Arquitectura, Resultados, Markdown renderizado y navegación entre proyectos, y conexión de `src/pages/index.astro` mediante `getCollection('proyectos')`.
+- **Archivos clave:** `src/content.config.js`, `src/content/proyectos/*.md`, `src/pages/proyectos/[id].astro`, `src/pages/index.astro`, `docs/PLAN.md`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, desarrollo, ux-ui, docs-seo
+- **Notas:** `npm run build` genera 6 páginas estáticas en 665ms con 0 errores y 0 vulnerabilidades.
 
 ### 2026-11-14 · `phase/02-base` · iconos a color en skills y línea de tiempo editorial en formación académica
 - **Qué:** 1) En `SKILLS & EXPERTISE` se actualizaron todos los iconos SVG a sus colores oficiales de marca (Astro `#FF5D01/#FF1639`, Vue `#41B883/#35495E`, JavaScript `#F7DF1E`, Tailwind `#38BDF8`, HTML5 `#E34F26`, Bootstrap `#7952B3`, Python `#3776AB/#FFD43B`, Django `#092E20/#44B78B`, PostgreSQL `#336791/#60A5FA`, SQL `#F59E0B`, Git `#F05032`, Active Directory `#0078D4`, Microsoft 365 multicolor y Cloudflare `#F38020/#FAAD3F`). 2) En Formación Académica se descartó la grilla de 3 columnas verticales estrechas y se diseñó una línea de tiempo editorial (`lg:col-span-4` encabezado fijo + `lg:col-span-8` línea de tiempo vertical con tarjetas horizontales amplias, nodos luminosos e insignias de enfoque por programa), recuperando la legibilidad horizontal que le gustó al usuario pero sin el espacio muerto de las certificaciones eliminadas.
