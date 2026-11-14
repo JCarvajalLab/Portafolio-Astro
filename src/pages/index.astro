@@ -121,12 +121,21 @@ const skillCategories = [
       <div class="flex flex-wrap items-center gap-3 text-[11px] sm:text-xs font-mono uppercase tracking-[0.18em] mb-7">
         <span class="inline-flex items-center gap-2 font-bold text-[#0E0E0E] dark:text-white">
           <span class="h-2 w-2 rounded-full bg-[#FF5A1F] shadow-[0_0_10px_#FF5A1F] animate-pulse"></span>
-          Disponible para oportunidades laborales
+          <span
+            data-i18n-es="Disponible para oportunidades laborales"
+            data-i18n-en="Available for job opportunities"
+          >
+            Disponible para oportunidades laborales
+          </span>
         </span>
         <span class="text-zinc-300 dark:text-zinc-700 select-none" aria-hidden="true">
           |
         </span>
-        <span class="text-zinc-500 dark:text-zinc-400">
+        <span
+          data-i18n-es="Ingeniero en Informática · Desarrollo Web & Soporte TI"
+          data-i18n-en="Computer Engineer · Web Development & IT Support"
+          class="text-zinc-500 dark:text-zinc-400"
+        >
           Ingeniero en Informática · Desarrollo Web &amp; Soporte TI
         </span>
       </div>
@@ -134,7 +143,13 @@ const skillCategories = [
       <!-- Titular gigante: Blanco + Naranja animado -->
       <h1 class="text-4xl sm:text-6xl lg:text-[4.75rem] font-extrabold tracking-tight leading-[1.06]">
         <span class="block text-[#0E0E0E] dark:text-white">Jordan Carvajal</span>
-        <span class="block mt-1 sm:mt-2 text-[#FF5A1F]">Construyendo soluciones con</span>
+        <span
+          data-i18n-es="Construyendo soluciones con"
+          data-i18n-en="Building solutions with"
+          class="block mt-1 sm:mt-2 text-[#FF5A1F]"
+        >
+          Construyendo soluciones con
+        </span>
         <span class="block text-[#FF5A1F] min-h-[1.15em]">
           <span id="hero-typed-stack">Python &amp; Django.</span>
           <span
@@ -148,7 +163,11 @@ const skillCategories = [
 
       <!-- Barra visible de Stacks / Enfoque actual para lectura inmediata -->
       <div class="mt-8 flex flex-wrap items-center gap-2">
-        <span class="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mr-1">
+        <span
+          data-i18n-es="Stack & Aprendizaje activo:"
+          data-i18n-en="Active Stack & Learning:"
+          class="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mr-1"
+        >
           Stack &amp; Aprendizaje activo:
         </span>
         {[
@@ -173,7 +192,11 @@ const skillCategories = [
 
       <!-- Fila inferior en dos columnas: Descripción a la izquierda + Botones píldora a la derecha -->
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-        <p class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
+        <p
+          data-i18n-es="Ingeniero en Informática (INACAP) desarrollando interfaces modernas y aplicaciones Full Stack. Combino código limpio en el frontend y backend con más de 4 años de experiencia resolviendo incidencias críticas en soporte TI corporativo, entregando soluciones claras, estables y enfocadas en las personas."
+          data-i18n-en="Computer Engineer (INACAP) building modern interfaces and Full Stack web applications. I combine clean frontend and backend code with 4+ years of corporate IT support experience resolving critical incidents, delivering reliable and user-focused solutions."
+          class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl"
+        >
           Ingeniero en Informática (INACAP) desarrollando interfaces modernas y aplicaciones Full
           Stack. Combino código limpio en el frontend y backend con más de 4 años de experiencia
           resolviendo incidencias críticas en soporte TI corporativo, entregando soluciones claras,
@@ -186,7 +209,9 @@ const skillCategories = [
             href="#proyectos"
             class="inline-flex items-center gap-2.5 rounded-full bg-[#0E0E0E] px-7 py-3.5 text-sm font-bold text-white transition hover:bg-[#FF5A1F] dark:bg-white dark:text-[#0E0E0E] dark:hover:bg-[#FF5A1F] dark:hover:text-white focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
           >
-            <span>Ver mi trabajo</span>
+            <span data-i18n-es="Ver mi trabajo" data-i18n-en="View my work">
+              Ver mi trabajo
+            </span>
             <span aria-hidden="true">&rarr;</span>
           </a>
 
@@ -232,14 +257,26 @@ const skillCategories = [
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]">
+          <span
+            data-i18n-es="Trayectoria Laboral"
+            data-i18n-en="Career Path"
+            class="text-xs font-bold uppercase tracking-wider text-[#FF5A1F]"
+          >
             Trayectoria Laboral
           </span>
-          <h2 class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white">
+          <h2
+            data-i18n-es="Experiencia Profesional en TI"
+            data-i18n-en="Professional IT Experience"
+            class="mt-2 text-2xl sm:text-4xl font-extrabold tracking-tight text-[#0E0E0E] dark:text-white"
+          >
             Experiencia Profesional en TI
           </h2>
         </div>
-        <p class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+        <p
+          data-i18n-es="Años de trabajo continuo en entornos corporativos de soporte, atención de incidencias críticas y resolución estructurada de problemas."
+          data-i18n-en="Years of continuous work in corporate support environments, critical incident handling, and structured problem solving."
+          class="mt-2 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md"
+        >
           Años de trabajo continuo en entornos corporativos de soporte, atención de incidencias
           críticas y resolución estructurada de problemas.
         </p>
@@ -288,15 +325,27 @@ const skillCategories = [
       <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
         <!-- Columna Izquierda: Encabezado Editorial -->
         <div class="lg:col-span-4 lg:sticky lg:top-28">
-          <span class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FF5A1F]">
+          <span
+            data-i18n-es="EDUCACIÓN & ESPECIALIZACIÓN"
+            data-i18n-en="EDUCATION & SPECIALIZATION"
+            class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FF5A1F]"
+          >
             EDUCACIÓN &amp; ESPECIALIZACIÓN
           </span>
           <h2 class="mt-3 text-3xl sm:text-5xl font-black uppercase tracking-tight leading-[0.98] text-[#0E0E0E] dark:text-white">
-            FORMACIÓN
+            <span data-i18n-es="FORMACIÓN" data-i18n-en="ACADEMIC">
+              FORMACIÓN
+            </span>
             <br />
-            <span class="text-[#FF5A1F]">ACADÉMICA</span>
+            <span data-i18n-es="ACADÉMICA" data-i18n-en="BACKGROUND" class="text-[#FF5A1F]">
+              ACADÉMICA
+            </span>
           </h2>
-          <p class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <p
+            data-i18n-es="Base universitaria en Ingeniería en Informática complementada con especializaciones intensivas en desarrollo Full Stack y Frontend moderno, ordenadas de la más reciente a la más antigua."
+            data-i18n-en="University degree in Computer Engineering complemented by intensive Full Stack and modern Frontend specializations, ordered from newest to oldest."
+            class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed"
+          >
             Base universitaria en Ingeniería en Informática complementada con especializaciones
             intensivas en desarrollo Full Stack y Frontend moderno, ordenadas de la más reciente a
             la más antigua.
@@ -368,7 +417,11 @@ const skillCategories = [
             <br />
             <span class="text-[#FF5A1F]">EXPERTISE</span>
           </h2>
-          <p class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+          <p
+            data-i18n-es="Una selección curada de frameworks, lenguajes y tecnologías en las que me enfoco para construir aplicaciones web robustas, rápidas y mantenibles."
+            data-i18n-en="A curated selection of frameworks, languages, and technologies I focus on to build robust, fast, and maintainable web applications."
+            class="mt-5 text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed"
+          >
             Una selección curada de frameworks, lenguajes y tecnologías en las que me enfoco para
             construir aplicaciones web robustas, rápidas y mantenibles.
           </p>
@@ -402,24 +455,96 @@ const skillCategories = [
     class="scroll-mt-20 py-20 sm:py-28 border-b border-zinc-200 dark:border-[#222222] bg-zinc-50/40 dark:bg-[#0B0B0B]"
   >
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between pb-10 mb-14 border-b border-zinc-200 dark:border-[#222222]">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between pb-8 mb-8 border-b border-zinc-200 dark:border-[#222222]">
         <div>
-          <span class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FF5A1F]">
+          <span
+            data-i18n-es="PORTAFOLIO & EVOLUCIÓN TÉCNICA"
+            data-i18n-en="PORTFOLIO & TECHNICAL EVOLUTION"
+            class="font-mono text-xs font-bold uppercase tracking-[0.22em] text-[#FF5A1F]"
+          >
             PORTAFOLIO &amp; EVOLUCIÓN TÉCNICA
           </span>
           <h2 class="mt-3 text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#0E0E0E] dark:text-white">
-            Proyectos <span class="text-[#FF5A1F]">Relevantes</span>
+            <span data-i18n-es="Proyectos" data-i18n-en="Featured">
+              Proyectos
+            </span>{' '}
+            <span data-i18n-es="Relevantes" data-i18n-en="Projects" class="text-[#FF5A1F]">
+              Relevantes
+            </span>
           </h2>
         </div>
-        <p class="mt-3 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
+        <p
+          data-i18n-es="Ordenados desde el próximo desarrollo hasta mis primeros proyectos web para reflejar mi evolución técnica."
+          data-i18n-en="Ordered from upcoming development to my earliest web builds to reflect my technical growth."
+          class="mt-3 md:mt-0 text-sm text-zinc-600 dark:text-zinc-400 max-w-md"
+        >
           Ordenados desde el próximo desarrollo hasta mis primeros proyectos web para reflejar mi
           evolución técnica.
         </p>
       </div>
 
-      <div class="space-y-16 sm:space-y-24">
+      <!-- Barra de Filtros Interactivos en JavaScript Nativo (Fase 4) -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-12">
+        <div
+          role="group"
+          aria-label="Filtrar proyectos por categoría"
+          class="flex flex-wrap items-center gap-2"
+        >
+          {[
+            { id: 'all', labelEs: 'Todos (5)', labelEn: 'All (5)', active: true },
+            {
+              id: 'fullstack',
+              labelEs: 'Full Stack & Datos (3)',
+              labelEn: 'Full Stack & Data (3)',
+              active: false,
+            },
+            {
+              id: 'frontend',
+              labelEs: 'Frontend & UI (2)',
+              labelEn: 'Frontend & UI (2)',
+              active: false,
+            },
+            {
+              id: 'live',
+              labelEs: 'En Producción (1)',
+              labelEn: 'Live in Production (1)',
+              active: false,
+            },
+          ].map((filter) => (
+            <button
+              type="button"
+              data-project-filter={filter.id}
+              data-i18n-es={filter.labelEs}
+              data-i18n-en={filter.labelEn}
+              aria-pressed={filter.active ? 'true' : 'false'}
+              class:list={[
+                'project-filter-btn cursor-pointer rounded-none border px-4 py-2 font-mono text-xs font-bold uppercase tracking-wider transition',
+                filter.active
+                  ? 'border-[#FF5A1F] bg-[#FF5A1F] text-white'
+                  : 'border-zinc-300 bg-white text-zinc-700 hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#2a2a2a] dark:bg-[#131313] dark:text-zinc-300 dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F]',
+              ]}
+            >
+              {filter.labelEs}
+            </button>
+          ))}
+        </div>
+
+        <p
+          id="project-filter-count"
+          class="font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
+        >
+          Mostrando 5 de 5 proyectos
+        </p>
+      </div>
+
+      <div id="projects-showcase-list" class="space-y-16 sm:space-y-24">
         {projects.map((proj) => (
-          <article class="group relative grid grid-cols-1 lg:grid-cols-12 lg:items-center gap-6 lg:gap-0">
+          <article
+            data-project-card
+            data-category={proj.data.category}
+            data-status={proj.data.status}
+            class="group relative grid grid-cols-1 lg:grid-cols-12 lg:items-center gap-6 lg:gap-0 transition-opacity duration-300"
+          >
             <!-- Vista previa izquierda con efecto zoom suave al pasar el cursor -->
             <a
               href={`/proyectos/${proj.id}`}
@@ -470,7 +595,18 @@ const skillCategories = [
                   href={`/proyectos/${proj.id}`}
                   class="inline-flex items-center gap-2.5 bg-[#0E0E0E] px-5 py-3 font-mono text-xs font-bold uppercase tracking-wider text-white transition hover:bg-[#FF5A1F] dark:bg-white dark:text-[#0E0E0E] dark:hover:bg-[#FF5A1F] dark:hover:text-white"
                 >
-                  <span>
+                  <span
+                    data-i18n-es={
+                      proj.data.status === 'pending'
+                        ? 'Ver Plan & Arquitectura'
+                        : 'Caso de Estudio & Desglose'
+                    }
+                    data-i18n-en={
+                      proj.data.status === 'pending'
+                        ? 'View Plan & Architecture'
+                        : 'Case Study & Breakdown'
+                    }
+                  >
                     {proj.data.status === 'pending'
                       ? 'Ver Plan & Arquitectura'
                       : 'Caso de Estudio & Desglose'}
@@ -512,15 +648,27 @@ const skillCategories = [
   <section id="contacto" class="scroll-mt-20 py-16 sm:py-24">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
       <div class="rounded-3xl border border-zinc-200 bg-white p-8 sm:p-12 shadow-sm dark:border-[#262626] dark:bg-[#161616]">
-        <span class="inline-flex items-center gap-1.5 rounded-full bg-[#FF5A1F]/10 px-3.5 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+        <span
+          data-i18n-es="¿Buscando sumar un desarrollador al equipo?"
+          data-i18n-en="Looking to add a developer to your team?"
+          class="inline-flex items-center gap-1.5 rounded-full bg-[#FF5A1F]/10 px-3.5 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30"
+        >
           ¿Buscando sumar un desarrollador al equipo?
         </span>
 
-        <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold text-[#0E0E0E] dark:text-white">
+        <h2
+          data-i18n-es="Conversemos sobre tu Proyecto o Puesto"
+          data-i18n-en="Let's Talk About Your Project or Role"
+          class="mt-4 text-3xl sm:text-4xl font-extrabold text-[#0E0E0E] dark:text-white"
+        >
           Conversemos sobre tu Proyecto o Puesto
         </h2>
 
-        <p class="mt-3 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto leading-relaxed">
+        <p
+          data-i18n-es="Estoy disponible para integrarme a equipos de tecnología, aportar mi experiencia en soporte y desarrollo full-stack, y seguir aprendiendo con dedicación."
+          data-i18n-en="I am available to join tech teams, contribute my IT support and full-stack development experience, and keep learning with dedication."
+          class="mt-3 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto leading-relaxed"
+        >
           Estoy disponible para integrarme a equipos de tecnología, aportar mi experiencia en
           soporte y desarrollo full-stack, y seguir aprendiendo con dedicación.
         </p>
@@ -530,10 +678,18 @@ const skillCategories = [
           <!-- Columna Izquierda: Redes Profesionales -->
           <div class="md:col-span-5 flex flex-col justify-between space-y-4">
             <div>
-              <h3 class="text-lg font-bold text-[#0E0E0E] dark:text-white mb-2">
+              <h3
+                data-i18n-es="Canales Profesionales"
+                data-i18n-en="Professional Channels"
+                class="text-lg font-bold text-[#0E0E0E] dark:text-white mb-2"
+              >
                 Canales Profesionales
               </h3>
-              <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+              <p
+                data-i18n-es="Puedes conectar directamente conmigo a través de LinkedIn para propuestas laborales, o escribirme a través del formulario."
+                data-i18n-en="You can connect directly with me on LinkedIn for job opportunities, or send me a message using the form."
+                class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4"
+              >
                 Puedes conectar directamente conmigo a través de LinkedIn para propuestas laborales,
                 o escribirme a través del formulario.
               </p>
@@ -549,7 +705,11 @@ const skillCategories = [
                     in
                   </span>
                   <div>
-                    <div class="text-xs font-bold text-[#0E0E0E] dark:text-white">
+                    <div
+                      data-i18n-es="Perfil en LinkedIn"
+                      data-i18n-en="LinkedIn Profile"
+                      class="text-xs font-bold text-[#0E0E0E] dark:text-white"
+                    >
                       Perfil en LinkedIn
                     </div>
                     <div class="text-[11px] text-zinc-500 dark:text-zinc-400">Jordan Carvajal</div>
@@ -571,7 +731,11 @@ const skillCategories = [
                     GH
                   </span>
                   <div>
-                    <div class="text-xs font-bold text-[#0E0E0E] dark:text-white">
+                    <div
+                      data-i18n-es="Repositorios en GitHub"
+                      data-i18n-en="GitHub Repositories"
+                      class="text-xs font-bold text-[#0E0E0E] dark:text-white"
+                    >
                       Repositorios en GitHub
                     </div>
                     <div class="text-[11px] text-zinc-500 dark:text-zinc-400">@JCarvajalLab</div>
@@ -584,27 +748,47 @@ const skillCategories = [
             </div>
 
             <div class="pt-4 border-t border-zinc-100 dark:border-[#222222] text-xs text-zinc-500 dark:text-zinc-400 space-y-1">
-              <div>💼 Modalidad: Remoto / Híbrido</div>
-              <div>⚡ Respuesta habitual en menos de 24 horas</div>
+              <div
+                data-i18n-es="💼 Modalidad: Remoto / Híbrido"
+                data-i18n-en="💼 Work mode: Remote / Hybrid"
+              >
+                💼 Modalidad: Remoto / Híbrido
+              </div>
+              <div
+                data-i18n-es="⚡ Respuesta habitual en menos de 24 horas"
+                data-i18n-en="⚡ Typical response within 24 hours"
+              >
+                ⚡ Respuesta habitual en menos de 24 horas
+              </div>
             </div>
           </div>
 
           <!-- Columna Derecha: Formulario de Contacto -->
           <div class="md:col-span-7 rounded-2xl border border-zinc-200 bg-zinc-50/70 p-6 dark:border-[#262626] dark:bg-[#111111]">
-            <h3 class="text-base font-bold text-[#0E0E0E] dark:text-white mb-1">
+            <h3
+              data-i18n-es="Envíame un Mensaje"
+              data-i18n-en="Send Me a Message"
+              class="text-base font-bold text-[#0E0E0E] dark:text-white mb-1"
+            >
               Envíame un Mensaje
             </h3>
-            <p class="text-xs text-zinc-500 dark:text-zinc-400 mb-4">
+            <p
+              data-i18n-es="Completa los datos y me comunicaré contigo a la brevedad."
+              data-i18n-en="Fill out the details below and I will get back to you shortly."
+              class="text-xs text-zinc-500 dark:text-zinc-400 mb-4"
+            >
               Completa los datos y me comunicaré contigo a la brevedad.
             </p>
 
-            <form id="contact-form" class="space-y-3.5 text-xs">
+            <form id="contact-form" class="space-y-3.5 text-xs" novalidate>
               <!-- Honeypot silencioso antispam -->
               <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
 
               <div>
                 <label
                   for="contact-name"
+                  data-i18n-es="Tu Nombre"
+                  data-i18n-en="Your Name"
                   class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
                 >
                   Tu Nombre
@@ -614,7 +798,10 @@ const skillCategories = [
                   id="contact-name"
                   name="nombre"
                   required
+                  minlength="2"
                   placeholder="Ej. María González"
+                  data-i18n-placeholder-es="Ej. María González"
+                  data-i18n-placeholder-en="e.g. Jane Doe"
                   class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
                 />
               </div>
@@ -622,6 +809,8 @@ const skillCategories = [
               <div>
                 <label
                   for="contact-email"
+                  data-i18n-es="Tu Correo Electrónico"
+                  data-i18n-en="Your Email Address"
                   class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
                 >
                   Tu Correo Electrónico
@@ -632,6 +821,8 @@ const skillCategories = [
                   name="email"
                   required
                   placeholder="ejemplo@empresa.com"
+                  data-i18n-placeholder-es="ejemplo@empresa.com"
+                  data-i18n-placeholder-en="name@company.com"
                   class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
                 />
               </div>
@@ -639,6 +830,8 @@ const skillCategories = [
               <div>
                 <label
                   for="contact-message"
+                  data-i18n-es="Mensaje / Asunto"
+                  data-i18n-en="Message / Subject"
                   class="block font-semibold text-zinc-700 dark:text-zinc-300 mb-1"
                 >
                   Mensaje / Asunto
@@ -648,24 +841,29 @@ const skillCategories = [
                   name="mensaje"
                   rows="3"
                   required
+                  minlength="10"
                   placeholder="Cuéntame sobre la oportunidad, proyecto o consulta..."
+                  data-i18n-placeholder-es="Cuéntame sobre la oportunidad, proyecto o consulta..."
+                  data-i18n-placeholder-en="Tell me about the role, project, or inquiry..."
                   class="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 placeholder-zinc-400 transition focus:border-[#FF5A1F] focus:outline-none dark:border-[#333333] dark:bg-[#161616] dark:text-white"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                class="w-full rounded-lg bg-[#FF5A1F] py-2.5 font-bold text-white shadow-sm hover:bg-[#e04810] transition focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
+                class="w-full cursor-pointer rounded-lg bg-[#FF5A1F] py-2.5 font-bold text-white shadow-sm hover:bg-[#e04810] transition focus-visible:outline-2 focus-visible:outline-[#FF5A1F]"
               >
-                Enviar Mensaje &rarr;
+                <span data-i18n-es="Enviar Mensaje →" data-i18n-en="Send Message →">
+                  Enviar Mensaje &rarr;
+                </span>
               </button>
 
               <p
                 id="form-feedback"
-                class="hidden text-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 pt-1"
-              >
-                ✓ ¡Mensaje preparado! Te responderé lo antes posible.
-              </p>
+                role="status"
+                aria-live="polite"
+                class="hidden text-center text-xs font-semibold pt-1"
+              ></p>
             </form>
           </div>
         </div>
@@ -682,7 +880,7 @@ const skillCategories = [
   </section>
 
   <script>
-    // Animación interactiva de los stacks en el titular naranja del Hero
+    // 1. Animación interactiva de los stacks en el titular naranja del Hero
     const typedEl = document.getElementById('hero-typed-stack');
     const stackPills = Array.from(document.querySelectorAll('.hero-stack-pill'));
 
@@ -753,13 +951,120 @@ const skillCategories = [
       });
     }
 
-    // Feedback del formulario de contacto
+    // 2. Filtros interactivos de proyectos en JavaScript nativo (sin recargar la página)
+    const filterButtons = Array.from(document.querySelectorAll('[data-project-filter]'));
+    const projectCards = Array.from(document.querySelectorAll('[data-project-card]'));
+    const filterCountEl = document.getElementById('project-filter-count');
+    let activeFilter = 'all';
+
+    const updateFilterCountText = (visibleCount, totalCount) => {
+      if (!filterCountEl) return;
+      const currentLang = document.documentElement.lang === 'en' ? 'en' : 'es';
+      filterCountEl.textContent =
+        currentLang === 'en'
+          ? `Showing ${visibleCount} of ${totalCount} projects`
+          : `Mostrando ${visibleCount} de ${totalCount} proyectos`;
+    };
+
+    const applyProjectFilter = (filterValue) => {
+      activeFilter = filterValue;
+      let visibleCount = 0;
+
+      projectCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        const status = card.getAttribute('data-status');
+        const matches =
+          filterValue === 'all' ||
+          (filterValue === 'live' && status === 'live') ||
+          category === filterValue;
+
+        if (matches) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      filterButtons.forEach((btn) => {
+        const isCurrent = btn.getAttribute('data-project-filter') === filterValue;
+        btn.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+
+        if (isCurrent) {
+          btn.classList.add('border-[#FF5A1F]', 'bg-[#FF5A1F]', 'text-white');
+          btn.classList.remove(
+            'border-zinc-300',
+            'bg-white',
+            'text-zinc-700',
+            'dark:border-[#2a2a2a]',
+            'dark:bg-[#131313]',
+            'dark:text-zinc-300'
+          );
+        } else {
+          btn.classList.remove('border-[#FF5A1F]', 'bg-[#FF5A1F]', 'text-white');
+          btn.classList.add(
+            'border-zinc-300',
+            'bg-white',
+            'text-zinc-700',
+            'dark:border-[#2a2a2a]',
+            'dark:bg-[#131313]',
+            'dark:text-zinc-300'
+          );
+        }
+      });
+
+      updateFilterCountText(visibleCount, projectCards.length);
+    };
+
+    if (filterButtons.length > 0 && projectCards.length > 0) {
+      filterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const selected = btn.getAttribute('data-project-filter') || 'all';
+          applyProjectFilter(selected);
+        });
+      });
+
+      window.addEventListener('portfolio:langchange', () => {
+        applyProjectFilter(activeFilter);
+      });
+    }
+
+    // 3. Validación interactiva y antispam del formulario de contacto
     const contactForm = document.getElementById('contact-form');
     const feedbackEl = document.getElementById('form-feedback');
 
     if (contactForm && feedbackEl) {
       contactForm.addEventListener('submit', (event) => {
         event.preventDefault();
+        const formData = new FormData(contactForm);
+        const honeypot = String(formData.get('_gotcha') || '').trim();
+
+        // Bloqueo silencioso si un bot llena el campo honeypot
+        if (honeypot.length > 0) {
+          return;
+        }
+
+        const name = String(formData.get('nombre') || '').trim();
+        const email = String(formData.get('email') || '').trim();
+        const message = String(formData.get('mensaje') || '').trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const isEn = document.documentElement.lang === 'en';
+
+        if (name.length < 2 || !emailRegex.test(email) || message.length < 10) {
+          feedbackEl.textContent = isEn
+            ? '⚠ Please complete your name, a valid email, and a message (min. 10 characters).'
+            : '⚠ Por favor completa tu nombre, un correo válido y un mensaje (mín. 10 caracteres).';
+          feedbackEl.className =
+            'text-center text-xs font-semibold text-amber-600 dark:text-amber-400 pt-1';
+          feedbackEl.classList.remove('hidden');
+          return;
+        }
+
+        feedbackEl.textContent = isEn
+          ? `✓ Thank you, ${name}! Your message has been registered. I will reply soon.`
+          : `✓ ¡Gracias, ${name}! Tu mensaje quedó registrado. Te responderé lo antes posible.`;
+        feedbackEl.className =
+          'text-center text-xs font-semibold text-emerald-600 dark:text-emerald-400 pt-1';
         feedbackEl.classList.remove('hidden');
         contactForm.reset();
       });

@@ -3,11 +3,11 @@
 // Barra de navegación moderna con paleta Negro #0E0E0E, Blanco #FFFFFF y Acento Naranja #FF5A1F
 
 const navLinks = [
-  { href: '/#experiencia', label: 'Experiencia' },
-  { href: '/#formacion', label: 'Formación' },
-  { href: '/#competencias', label: 'Competencias' },
-  { href: '/#proyectos', label: 'Proyectos' },
-  { href: '/#contacto', label: 'Contacto' },
+  { href: '/#experiencia', label: 'Experiencia', labelEn: 'Experience' },
+  { href: '/#formacion', label: 'Formación', labelEn: 'Education' },
+  { href: '/#competencias', label: 'Competencias', labelEn: 'Skills' },
+  { href: '/#proyectos', label: 'Proyectos', labelEn: 'Projects' },
+  { href: '/#contacto', label: 'Contacto', labelEn: 'Contact' },
 ];
 ---
 
@@ -32,6 +32,8 @@ const navLinks = [
       {navLinks.map((link) => (
         <a
           href={link.href}
+          data-i18n-es={link.label}
+          data-i18n-en={link.labelEn}
           class="text-xs font-semibold uppercase tracking-wider text-zinc-600 transition hover:text-[#FF5A1F] dark:text-zinc-300 dark:hover:text-[#FF5A1F]"
         >
           {link.label}
@@ -41,16 +43,16 @@ const navLinks = [
 
     <!-- Acciones de Escritorio: Selector ES/EN + Toggle Dark Mode -->
     <div class="hidden items-center gap-2.5 md:flex">
-      <!-- Botón Selector de Idioma ES / EN (Maquetado) -->
+      <!-- Botón Selector de Idioma ES / EN Funcional -->
       <button
         type="button"
-        class="inline-flex h-9 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-100 px-2.5 font-mono text-xs font-bold text-zinc-700 transition hover:border-[#FF5A1F] hover:text-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:text-zinc-300 dark:hover:border-[#FF5A1F] dark:hover:text-[#FF5A1F] cursor-pointer"
-        title="Cambio de idioma (Fase futura)"
+        class="lang-toggle inline-flex h-9 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-100 px-2.5 font-mono text-xs font-bold text-zinc-700 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:text-zinc-300 dark:hover:border-[#FF5A1F] cursor-pointer"
+        title="Cambiar idioma (Español / English)"
         aria-label="Alternar idioma español o inglés"
       >
-        <span class="text-[#FF5A1F]">ES</span>
+        <span class="lang-es text-[#FF5A1F]">ES</span>
         <span class="text-zinc-400 dark:text-zinc-600 mx-1">/</span>
-        <span class="text-zinc-500 dark:text-zinc-400">EN</span>
+        <span class="lang-en text-zinc-500 dark:text-zinc-400">EN</span>
       </button>
 
       <!-- Toggle Dark Mode -->
@@ -92,15 +94,15 @@ const navLinks = [
 
     <!-- Controles para Dispositivos Móviles -->
     <div class="flex items-center gap-2 md:hidden">
-      <!-- Selector ES/EN Móvil -->
+      <!-- Selector ES/EN Móvil Funcional -->
       <button
         type="button"
-        class="inline-flex h-9 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-100 px-2 font-mono text-[11px] font-bold text-zinc-700 dark:border-[#262626] dark:bg-[#161616] dark:text-zinc-300 cursor-pointer"
+        class="lang-toggle inline-flex h-9 items-center justify-center rounded-lg border border-zinc-200 bg-zinc-100 px-2 font-mono text-[11px] font-bold text-zinc-700 dark:border-[#262626] dark:bg-[#161616] dark:text-zinc-300 cursor-pointer"
         aria-label="Alternar idioma"
       >
-        <span class="text-[#FF5A1F]">ES</span>
+        <span class="lang-es text-[#FF5A1F]">ES</span>
         <span class="text-zinc-400 mx-0.5">/</span>
-        <span class="text-zinc-500">EN</span>
+        <span class="lang-en text-zinc-500">EN</span>
       </button>
 
       <!-- Toggle Dark Mode Móvil -->
@@ -183,7 +185,9 @@ const navLinks = [
           href={link.href}
           class="mobile-nav-link flex items-center justify-between rounded-lg px-3 py-2 text-sm font-semibold text-zinc-700 hover:bg-zinc-100 hover:text-[#FF5A1F] dark:text-zinc-200 dark:hover:bg-[#161616] dark:hover:text-[#FF5A1F]"
         >
-          <span>{link.label}</span>
+          <span data-i18n-es={link.label} data-i18n-en={link.labelEn}>
+            {link.label}
+          </span>
           <span class="text-xs text-zinc-400">&rarr;</span>
         </a>
       ))}
@@ -240,6 +244,57 @@ const navLinks = [
 
   themeToggles.forEach((btn) => {
     btn.addEventListener('click', toggleTheme);
+  });
+
+  // Selector de Idioma ES / EN con persistencia y traducción en tiempo real
+  const langToggles = document.querySelectorAll('.lang-toggle');
+
+  function applyLanguage(lang) {
+    const currentLang = lang === 'en' ? 'en' : 'es';
+    document.documentElement.lang = currentLang;
+    localStorage.setItem('lang', currentLang);
+
+    // Actualizar estado visual de los botones ES / EN
+    document.querySelectorAll('.lang-es').forEach((el) => {
+      el.classList.toggle('text-[#FF5A1F]', currentLang === 'es');
+      el.classList.toggle('text-zinc-500', currentLang !== 'es');
+      el.classList.toggle('dark:text-zinc-400', currentLang !== 'es');
+    });
+    document.querySelectorAll('.lang-en').forEach((el) => {
+      el.classList.toggle('text-[#FF5A1F]', currentLang === 'en');
+      el.classList.toggle('text-zinc-500', currentLang !== 'en');
+      el.classList.toggle('dark:text-zinc-400', currentLang !== 'en');
+    });
+
+    // Traducir textos con atributos data-i18n-es / data-i18n-en
+    document.querySelectorAll('[data-i18n-es]').forEach((el) => {
+      const text =
+        currentLang === 'en' ? el.getAttribute('data-i18n-en') : el.getAttribute('data-i18n-es');
+      if (text) el.textContent = text;
+    });
+
+    // Traducir placeholders de formularios
+    document.querySelectorAll('[data-i18n-placeholder-es]').forEach((el) => {
+      const placeholder =
+        currentLang === 'en'
+          ? el.getAttribute('data-i18n-placeholder-en')
+          : el.getAttribute('data-i18n-placeholder-es');
+      if (placeholder) el.setAttribute('placeholder', placeholder);
+    });
+
+    window.dispatchEvent(
+      new CustomEvent('portfolio:langchange', { detail: { lang: currentLang } })
+    );
+  }
+
+  const savedLang = localStorage.getItem('lang') || 'es';
+  applyLanguage(savedLang);
+
+  langToggles.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const nextLang = document.documentElement.lang === 'en' ? 'es' : 'en';
+      applyLanguage(nextLang);
+    });
   });
 
   // Navegación limpia sin '#' residual en URL
