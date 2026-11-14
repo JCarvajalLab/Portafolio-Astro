@@ -44,3 +44,33 @@
     top: 0;
   }
 }
+
+/* Fondo de cuadrícula arquitectónica para el Hero (inspirado en diseño de referencia) */
+.bg-hero-grid {
+  background-size: 64px 64px;
+  background-image:
+    linear-gradient(to right, rgba(14, 14, 14, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 14, 14, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, #000 65%, transparent 100%);
+}
+
+.dark .bg-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+}
+
+/* Cursor parpadeante para la animación del texto naranja en el Hero */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-caret {
+  animation: caret-blink 1s step-end infinite;
+}
