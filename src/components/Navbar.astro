@@ -273,6 +273,12 @@ const navLinks = [
       if (text) el.textContent = text;
     });
 
+    // Alternar bloques completos por idioma (ej. Markdown en páginas de casos de estudio)
+    document.querySelectorAll('[data-lang-block]').forEach((block) => {
+      const blockLang = block.getAttribute('data-lang-block');
+      block.classList.toggle('hidden', blockLang !== currentLang);
+    });
+
     // Traducir placeholders de formularios
     document.querySelectorAll('[data-i18n-placeholder-es]').forEach((el) => {
       const placeholder =

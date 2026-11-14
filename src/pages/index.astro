@@ -9,26 +9,56 @@ const projects = [...rawProjects].sort((a, b) => a.data.order - b.data.order);
 const experienceList = [
   {
     role: 'Ejecutivo de asistencia técnica',
+    roleEn: 'Technical Support Executive',
     company: 'Entel Connect Center',
     period: '2021 — Enero 2025',
+    periodEn: '2021 — Jan. 2025',
     badge: 'Tiempo Completo · 4 Años',
+    badgeEn: 'Full-Time · 4 Years',
     responsibilities: [
-      'Gestión de incidencias técnicas mediante atención telefónica y canales digitales, orientando a usuarios y derivando casos para asegurar la continuidad del servicio.',
-      'Uso de herramientas internas de soporte para análisis de problemas técnicos, registro de solicitudes y seguimiento de requerimientos.',
-      'Atención de consultas técnicas por redes sociales y canales de contacto directo, entregando orientación y resolución oportuna.',
-      'Aplicación diaria de habilidades de comunicación efectiva, pensamiento analítico y resolución metódica de problemas en un entorno de soporte crítico.',
+      {
+        es: 'Gestión de incidencias técnicas mediante atención telefónica y canales digitales, orientando a usuarios y derivando casos para asegurar la continuidad del servicio.',
+        en: 'Managed technical incidents via phone and digital channels, guiding users and escalating complex cases to ensure service continuity.',
+      },
+      {
+        es: 'Uso de herramientas internas de soporte para análisis de problemas técnicos, registro de solicitudes y seguimiento de requerimientos.',
+        en: 'Used internal support tools for root-cause analysis, ticket logging, and end-to-end request tracking.',
+      },
+      {
+        es: 'Atención de consultas técnicas por redes sociales y canales de contacto directo, entregando orientación y resolución oportuna.',
+        en: 'Resolved technical inquiries across social media and direct support channels, delivering timely guidance and solutions.',
+      },
+      {
+        es: 'Aplicación diaria de habilidades de comunicación efectiva, pensamiento analítico y resolución metódica de problemas en un entorno de soporte crítico.',
+        en: 'Applied effective communication, analytical thinking, and methodical troubleshooting daily in a critical support environment.',
+      },
     ],
   },
   {
     role: 'Práctica profesional en soporte mesa de servicio',
+    roleEn: 'IT Service Desk Intern',
     company: 'Conytec Consultores SPA',
     period: '2018',
+    periodEn: '2018',
     badge: 'Práctica Profesional',
+    badgeEn: 'Professional Internship',
     responsibilities: [
-      'Administración de cuentas de usuario en Active Directory (creación, modificación y anulación según solicitudes internas).',
-      'Gestión de licencias y cuentas en Office 365 (habilitación, modificación y deshabilitación de usuarios).',
-      'Elaboración de reportes semanales de actividades del área de soporte TI.',
-      'Transferencia de archivos y despliegues desde servidores de QA hacia servidores de producción siguiendo procedimientos estandarizados.',
+      {
+        es: 'Administración de cuentas de usuario en Active Directory (creación, modificación y anulación según solicitudes internas).',
+        en: 'Administered user accounts in Active Directory (creation, modification, and deactivation based on internal requests).',
+      },
+      {
+        es: 'Gestión de licencias y cuentas en Office 365 (habilitación, modificación y deshabilitación de usuarios).',
+        en: 'Managed Office 365 licenses and user accounts (provisioning, updating, and disabling access).',
+      },
+      {
+        es: 'Elaboración de reportes semanales de actividades del área de soporte TI.',
+        en: 'Prepared weekly activity and KPI reports for the IT support department.',
+      },
+      {
+        es: 'Transferencia de archivos y despliegues desde servidores de QA hacia servidores de producción siguiendo procedimientos estandarizados.',
+        en: 'Executed file transfers and deployments from QA servers to production servers following standardized procedures.',
+      },
     ],
   },
 ];
@@ -36,34 +66,61 @@ const experienceList = [
 const educationList = [
   {
     title: 'Desarrollo de Aplicaciones Full Stack Python Trainee',
+    titleEn: 'Full Stack Python Application Development Trainee',
     institution: 'Talento Digital para Chile',
     period: 'Feb. 2026 — Jul. 2026',
+    periodEn: 'Feb. 2026 — Jul. 2026',
     type: 'Especialización Intensiva',
+    typeEn: 'Intensive Specialization',
     detail:
       'Programa intensivo orientado a arquitectura y desarrollo de aplicaciones web Full Stack, integrando lógica de servidor, persistencia relacional y control de versiones colaborativo.',
-    tags: ['Python', 'Django', 'PostgreSQL', 'JavaScript', 'Git & GitHub'],
+    detailEn:
+      'Intensive program focused on Full Stack web architecture and development, integrating server-side logic, relational persistence, and collaborative version control.',
+    tags: [
+      { es: 'Python', en: 'Python' },
+      { es: 'Django', en: 'Django' },
+      { es: 'PostgreSQL', en: 'PostgreSQL' },
+      { es: 'JavaScript', en: 'JavaScript' },
+      { es: 'Git & GitHub', en: 'Git & GitHub' },
+    ],
   },
   {
     title: 'Desarrollo de Aplicaciones Front-End Trainee',
+    titleEn: 'Front-End Application Development Trainee',
     institution: 'Talento Digital para Chile',
     period: 'Jul. 2024 — Ene. 2025',
+    periodEn: 'Jul. 2024 — Jan. 2025',
     type: 'Especialización Intensiva',
+    typeEn: 'Intensive Specialization',
     detail:
       'Formación práctica en construcción de interfaces web responsivas, componentes reactivos, consumo de APIs y maquetación semántica bajo estándares modernos.',
-    tags: ['Vue.js', 'JavaScript ES6+', 'HTML5 & CSS3', 'Bootstrap', 'Git'],
+    detailEn:
+      'Hands-on training in building responsive web interfaces, reactive components, API consumption, and semantic markup under modern standards.',
+    tags: [
+      { es: 'Vue.js', en: 'Vue.js' },
+      { es: 'JavaScript ES6+', en: 'JavaScript ES6+' },
+      { es: 'HTML5 & CSS3', en: 'HTML5 & CSS3' },
+      { es: 'Bootstrap', en: 'Bootstrap' },
+      { es: 'Git', en: 'Git' },
+    ],
   },
   {
     title: 'Ingeniería en Informática',
+    titleEn: 'Computer Engineering (B.Eng.)',
     institution: 'Universidad Tecnológica de Chile, INACAP',
     period: '2014 — 2018',
+    periodEn: '2014 — 2018',
     type: 'Título Profesional Universitario',
+    typeEn: 'University Professional Degree',
     detail:
       'Formación integral en ingeniería de software, análisis y diseño de sistemas, modelado de bases de datos, administración de infraestructura y gestión de proyectos TI.',
+    detailEn:
+      'Comprehensive degree in software engineering, systems analysis and design, database modeling, infrastructure administration, and IT project management.',
     tags: [
-      'Ingeniería de Software',
-      'Bases de Datos',
-      'Arquitectura de Sistemas',
-      'Infraestructura TI',
+      { es: 'Ingeniería de Software', en: 'Software Engineering' },
+      { es: 'Bases de Datos', en: 'Databases' },
+      { es: 'Arquitectura de Sistemas', en: 'Systems Architecture' },
+      { es: 'Infraestructura TI', en: 'IT Infrastructure' },
     ],
   },
 ];
@@ -72,6 +129,7 @@ const skillCategories = [
   {
     number: '01',
     name: 'FRONTEND & UI',
+    nameEn: 'FRONTEND & UI',
     items: [
       { name: 'ASTRO', icon: 'astro' },
       { name: 'VUE.JS', icon: 'vue' },
@@ -84,6 +142,7 @@ const skillCategories = [
   {
     number: '02',
     name: 'BACKEND & BASES DE DATOS',
+    nameEn: 'BACKEND & DATABASES',
     items: [
       { name: 'PYTHON', icon: 'python' },
       { name: 'DJANGO', icon: 'django' },
@@ -94,6 +153,7 @@ const skillCategories = [
   {
     number: '03',
     name: 'SISTEMAS & INFRAESTRUCTURA',
+    nameEn: 'SYSTEMS & INFRASTRUCTURE',
     items: [
       { name: 'GIT & GITHUB', icon: 'git' },
       { name: 'ACTIVE DIRECTORY', icon: 'ad' },
@@ -287,16 +347,28 @@ const skillCategories = [
           <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8 transition hover:border-[#FF5A1F] dark:border-[#262626] dark:bg-[#161616] dark:hover:border-[#FF5A1F]">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-zinc-100 pb-4 dark:border-[#222222]">
               <div>
-                <h3 class="text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white">
+                <h3
+                  data-i18n-es={job.role}
+                  data-i18n-en={job.roleEn}
+                  class="text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white"
+                >
                   {job.role}
                 </h3>
                 <p class="text-sm font-semibold text-[#FF5A1F]">{job.company}</p>
               </div>
               <div class="flex items-center gap-2">
-                <span class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                <span
+                  data-i18n-es={job.period}
+                  data-i18n-en={job.periodEn}
+                  class="rounded-full bg-zinc-100 px-3 py-1 text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300"
+                >
                   {job.period}
                 </span>
-                <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                <span
+                  data-i18n-es={job.badge}
+                  data-i18n-en={job.badgeEn}
+                  class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30"
+                >
                   {job.badge}
                 </span>
               </div>
@@ -306,7 +378,9 @@ const skillCategories = [
               {job.responsibilities.map((task) => (
                 <li class="flex items-start gap-2.5">
                   <span class="text-[#FF5A1F] mt-1 shrink-0 font-bold">▪</span>
-                  <span>{task}</span>
+                  <span data-i18n-es={task.es} data-i18n-en={task.en}>
+                    {task.es}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -369,26 +443,46 @@ const skillCategories = [
                 />
 
                 <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-zinc-100 dark:border-[#222222]">
-                  <span class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30">
+                  <span
+                    data-i18n-es={edu.type}
+                    data-i18n-en={edu.typeEn}
+                    class="rounded-full bg-[#FF5A1F]/10 px-3 py-1 text-xs font-bold text-[#FF5A1F] border border-[#FF5A1F]/30"
+                  >
                     {edu.type}
                   </span>
-                  <span class="rounded-full bg-zinc-100 px-3 py-1 font-mono text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300">
+                  <span
+                    data-i18n-es={edu.period}
+                    data-i18n-en={edu.periodEn}
+                    class="rounded-full bg-zinc-100 px-3 py-1 font-mono text-xs font-semibold text-zinc-700 dark:bg-[#222222] dark:text-zinc-300"
+                  >
                     {edu.period}
                   </span>
                 </div>
 
-                <h3 class="mt-4 text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white">
+                <h3
+                  data-i18n-es={edu.title}
+                  data-i18n-en={edu.titleEn}
+                  class="mt-4 text-lg sm:text-xl font-bold text-[#0E0E0E] dark:text-white"
+                >
                   {edu.title}
                 </h3>
                 <p class="mt-1 text-sm font-semibold text-[#FF5A1F]">{edu.institution}</p>
-                <p class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                <p
+                  data-i18n-es={edu.detail}
+                  data-i18n-en={edu.detailEn}
+                  class="mt-3 text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed"
+                >
                   {edu.detail}
                 </p>
 
                 <div class="mt-4 flex flex-wrap gap-1.5">
                   {edu.tags.map((tag) => (
-                    <span class="rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-[11px] font-mono font-medium text-zinc-600 dark:border-[#2a2a2a] dark:bg-[#111111] dark:text-zinc-400">
-                      {tag}
+                    <span
+                      data-i18n-es={tag.es}
+                      data-i18n-en={tag.en}
+                      class="rounded-md border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-[11px] font-mono font-medium text-zinc-600 dark:border-[#2a2a2a] dark:bg-[#111111] dark:text-zinc-400"
+                    >
+                      {tag.es}
                     </span>
                   ))}
                 </div>
@@ -433,7 +527,10 @@ const skillCategories = [
             <div>
               <div class="border-b border-zinc-200 pb-3 mb-5 dark:border-[#262626]">
                 <h3 class="font-mono text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                  <span class="text-[#FF5A1F]">{cat.number}.</span> {cat.name}
+                  <span class="text-[#FF5A1F]">{cat.number}.</span>{' '}
+                  <span data-i18n-es={cat.name} data-i18n-en={cat.nameEn}>
+                    {cat.name}
+                  </span>
                 </h3>
               </div>
 
@@ -563,20 +660,30 @@ const skillCategories = [
 
             <!-- Tarjeta derecha superpuesta en la misma fila horizontal (estilo referencia PIXEL REVIEWS) -->
             <div class="lg:col-start-7 lg:col-end-13 lg:row-start-1 z-10 border border-zinc-300 bg-white p-7 sm:p-9 shadow-2xl transition group-hover:border-[#FF5A1F]/60 dark:border-[#2a2a2a] dark:bg-[#131313] dark:group-hover:border-[#FF5A1F]/60">
-              <div class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400">
+              <div
+                data-i18n-es={proj.data.tag}
+                data-i18n-en={proj.data.tagEn}
+                class="font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-zinc-500 dark:text-zinc-400"
+              >
                 {proj.data.tag}
               </div>
 
               <h3 class="mt-2.5 text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0E0E0E] dark:text-white leading-tight">
                 <a
                   href={`/proyectos/${proj.id}`}
+                  data-i18n-es={proj.data.title}
+                  data-i18n-en={proj.data.titleEn}
                   class="transition-colors hover:text-[#FF5A1F] dark:hover:text-[#FF5A1F]"
                 >
                   {proj.data.title}
                 </a>
               </h3>
 
-              <p class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+              <p
+                data-i18n-es={proj.data.summary}
+                data-i18n-en={proj.data.summaryEn}
+                class="mt-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed"
+              >
                 {proj.data.summary}
               </p>
 
@@ -881,11 +988,26 @@ const skillCategories = [
         </div>
 
         <div class="mt-8 pt-6 border-t border-zinc-100 dark:border-[#222222] flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-zinc-500">
-          <span>🎓 INACAP (Ing. Informática)</span>
+          <span
+            data-i18n-es="🎓 INACAP (Ing. Informática)"
+            data-i18n-en="🎓 INACAP (Computer Engineering)"
+          >
+            🎓 INACAP (Ing. Informática)
+          </span>
           <span>·</span>
-          <span>💼 Entel Connect Center (4 años exp. TI)</span>
+          <span
+            data-i18n-es="💼 Entel Connect Center (4 años exp. TI)"
+            data-i18n-en="💼 Entel Connect Center (4 yrs IT exp.)"
+          >
+            💼 Entel Connect Center (4 años exp. TI)
+          </span>
           <span>·</span>
-          <span>🚀 Full Stack Python/Django & Frontend</span>
+          <span
+            data-i18n-es="🚀 Full Stack Python/Django & Frontend"
+            data-i18n-en="🚀 Full Stack Python/Django & Frontend"
+          >
+            🚀 Full Stack Python/Django & Frontend
+          </span>
         </div>
       </div>
     </div>
