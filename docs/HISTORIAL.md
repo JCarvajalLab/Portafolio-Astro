@@ -12,12 +12,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 
 - **Proyecto:** portafolio (casos de estudio) — Portafolio con casos de estudio
 - **Repositorio:** https://github.com/JCarvajalLab/Portafolio-Astro
-- **Última actualización:** 2026-11-13
+- **Última actualización:** 2026-11-14
 - **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
 - **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(hero): rediseña portada con cuadricula de fondo, stacks animados en naranja y layout editorial`
+- **Último commit relevante:** `feat(hero): quita punto final en nombre y boton hablemos del hero`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula arquitectónica de fondo (`.bg-hero-grid`), eyebrow superior técnico (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA`), titular gigante con `Jordan Carvajal.` en blanco y línea naranja interactiva con animación typewriter de stacks (`Python & Django`, `Astro & Tailwind CSS`, `JavaScript & Vue.js`, `PostgreSQL & SQL`, `Git & GitHub`), píldoras de stack clicables y pie de portada dividido en dos columnas con botones redondeados (`Ver mi trabajo ->` y `Hablemos`)
+- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), Hero editorial con cuadrícula arquitectónica de fondo (`.bg-hero-grid`), eyebrow superior técnico (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA`), titular gigante con `Jordan Carvajal` en blanco y línea naranja interactiva con animación typewriter de stacks (`Python & Django`, `Astro & Tailwind CSS`, `JavaScript & Vue.js`, `PostgreSQL & SQL`, `Git & GitHub`), píldoras de stack clicables y pie de portada dividido en dos columnas con botón `Ver mi trabajo ->` y accesos a LinkedIn y GitHub
 - **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
 - **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
@@ -41,8 +41,8 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 
 _Una entrada por cada push o cierre de tarea._
 
-### 2026-11-13 · `phase/02-base` · portada editorial con cuadrícula de fondo y animación de stacks en naranja
-- **Qué:** Rediseño de la portada (Hero) inspirado en la referencia visual del usuario: fondo con patrón de cuadrícula arquitectónica sutil (`.bg-hero-grid`), encabezado técnico en fuente monoespaciada (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA · DESARROLLO WEB & SOPORTE TI`), titular de alto impacto con `Jordan Carvajal.` en blanco puro y frase naranja animada (`Construyendo soluciones con [Stack] |`) que alterna dinámicamente entre los stacks activos y en aprendizaje (`Python & Django.`, `Astro & Tailwind CSS.`, `JavaScript & Vue.js.`, `PostgreSQL & SQL.`, `Git, GitHub & Clean Code.`), barra interactiva de píldoras de stack clicables al instante, línea divisoria horizontal de ancho completo y sección inferior en dos columnas con descripción a la izquierda y botones tipo píldora (`Ver mi trabajo ->` y `Hablemos`) a la derecha.
+### 2026-11-14 · `phase/02-base` · portada editorial con cuadrícula de fondo y animación de stacks en naranja
+- **Qué:** Rediseño de la portada (Hero) inspirado en la referencia visual del usuario: fondo con patrón de cuadrícula arquitectónica sutil (`.bg-hero-grid`), encabezado técnico en fuente monoespaciada (`DISPONIBLE PARA OPORTUNIDADES LABORALES | INGENIERO EN INFORMÁTICA · DESARROLLO WEB & SOPORTE TI`), titular de alto impacto con `Jordan Carvajal` en blanco puro (sin punto final) y frase naranja animada (`Construyendo soluciones con [Stack] |`) que alterna dinámicamente entre los stacks activos y en aprendizaje (`Python & Django.`, `Astro & Tailwind CSS.`, `JavaScript & Vue.js.`, `PostgreSQL & SQL.`, `Git, GitHub & Clean Code.`), barra interactiva de píldoras de stack clicables al instante, línea divisoria horizontal de ancho completo y sección inferior en dos columnas con descripción a la izquierda y botón tipo píldora `Ver mi trabajo ->` junto con LinkedIn y GitHub a la derecha.
 - **Archivos clave:** `src/pages/index.astro`, `src/styles/global.css`, `docs/HISTORIAL.md`
 - **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
 - **Notas:** `npm run build` en 458ms con 0 errores y 0 vulnerabilidades.
