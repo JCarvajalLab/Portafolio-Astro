@@ -15,12 +15,12 @@ _Máximo ~15 líneas. Se reescribe en cada actualización, no se acumula._
 - **Última actualización:** 2026-11-13
 - **Fase activa:** `phase/02-base` (Fase 2 completada al 100%)
 - **Rama de trabajo:** `phase/02-base`
-- **Último commit relevante:** `feat(design): implementa identidad visual 60-30-10 con datos reales del cv de jordan carvajal`
+- **Último commit relevante:** `feat(navbar-hero): actualiza identidad jcarvajallab con llaves, selector es/en y limpia hero`
 - **Despliegue:** servidor local de desarrollo activo en `http://localhost:4321/`
-- **Qué funciona:** Identidad visual con regla 60-30-10 (60% Negro Carbón `#0E0E0E`, 30% Blanco `#FFFFFF` y 10% Acento Naranja `#FF5A1F`), presentación fidedigna de Jordan Ariel Carvajal Guajardo con datos de su CV real (Ingeniería en Informática INACAP, 4 años de soporte TI en Entel Connect Center, formación Full Stack Python/Django y Frontend Vue.js/Astro), desglose de competencias técnicas, proyectos de e-commerce y canales de contacto directo
-- **Qué está en progreso:** Revisión visual por parte del usuario en el navegador local
+- **Qué funciona:** Identidad visual 60-30-10 (`#0E0E0E`, `#FFFFFF`, `#FF5A1F`), logo `JCarvajalLab` con isotipo de llaves `{ }`, selector maquetado de idioma `ES / EN` junto al toggle Dark Mode, eliminación de botón duplicado de contacto en Navbar, Hero limpio y amplio sin tarjeta lateral ocupando espacio y sin mención a ubicación geográfica, contenido verídico del CV protegido contra exposición de datos personales (formulario y LinkedIn)
+- **Qué está en progreso:** Cierre de Fase 2 para avanzar a Fase 3 (Content Collections)
 - **Bloqueos o problemas conocidos:** ninguno (0 errores en build, lint y format, 0 vulnerabilidades en audit)
-- **Siguiente paso concreto:** Feedback del usuario sobre la nueva identidad visual y avance a Fase 3 (Content Collections)
+- **Siguiente paso concreto:** Integrar `phase/02-base` hacia `develop` e iniciar `phase/03-content`
 
 ## 2. Decisiones importantes
 
@@ -35,10 +35,17 @@ _Una línea por decisión. Evita que la IA proponga de nuevo algo ya descartado.
 | 2026-11-12 | Incluir página personalizada `src/pages/404.astro` | Retención de usuarios y experiencia visual consistente ante rutas inexistentes | Página 404 genérica del hosting |
 | 2026-11-12 | Menú móvil accesible y navegación suave sin hashes residuales | Experiencia nativa fluida, control WCAG de `aria-expanded` y URLs visualmente limpias | Librerías pesadas o frameworks de UI |
 | 2026-11-13 | Paleta 60-30-10 (#0E0E0E, #FFFFFF, #FF5A1F) con datos del CV | Identidad potente, tecnológica y diferenciada de proyectos anteriores; contenido real de Jordan Carvajal | Paletas genéricas o pastelosas de landing comercial |
+| 2026-11-13 | Logotipo con llaves `{ }`, marca JCarvajalLab y botón maquetado ES/EN | Identidad developer limpia, remoción de botones redundantes y preparación para i18n en fase futura | Iniciales JC y botones repetidos |
 
 ## 3. Registro de cambios (más reciente arriba)
 
 _Una entrada por cada push o cierre de tarea._
+
+### 2026-11-13 · `phase/02-base` · refinamiento de navbar, hero y selector de idioma
+- **Qué:** Actualización del logo en Navbar y Footer a `{ } JCarvajalLab`, remoción de badge "Disponible" en header, remoción del botón duplicado de contacto ("Contactar ->") dejando solo el enlace normal de navegación, incorporación del botón de cambio de idioma maquetado `ES / EN` al lado del modo nocturno, remoción de la tarjeta lateral de resumen del Hero para darle mayor amplitud al contenido principal y eliminación de la mención a ubicación física en resguardo de privacidad.
+- **Archivos clave:** `src/components/Navbar.astro`, `src/components/Footer.astro`, `src/pages/index.astro`, `docs/HISTORIAL.md`
+- **Agente(s):** orquestador, ux-ui, desarrollo, docs-seo
+- **Notas:** `npm run build` en 649ms con 0 vulnerabilidades.
 
 ### 2026-11-13 · `phase/02-base` · identidad 60-30-10 y contenido real del cv
 - **Qué:** Implementación de la paleta solicitada por el usuario bajo la regla 60-30-10 (60% Negro `#0E0E0E`, 30% Blanco `#FFFFFF`, 10% Acento Naranja `#FF5A1F`). Integración completa del contenido verídico del CV: Ingeniería en Informática (INACAP), 4 años de soporte TI en Entel Connect Center, especializaciones en Talento Digital para Chile (Full Stack Python/Django y Frontend Vue.js), certificaciones de Git & GitHub y proyectos de e-commerce.
